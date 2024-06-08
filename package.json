@@ -1,0 +1,50 @@
+{
+  "name": "inspo-mail-club",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YAPP-Github/24th-Web-Team-2-FE.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YAPP-Github/24th-Web-Team-2-FE/issues"
+  },
+  "homepage": "https://github.com/YAPP-Github/24th-Web-Team-2-FE#readme",
+  "dependencies": {
+    "@tanstack/react-query": "^5.40.1",
+    "next": "^14.2.3",
+    "typescript": "^5.4.5",
+    "zustand": "^4.5.2"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^1.5.0",
+    "@storybook/addon-essentials": "^8.1.6",
+    "@storybook/addon-interactions": "^8.1.6",
+    "@storybook/addon-links": "^8.1.6",
+    "@storybook/addon-onboarding": "^8.1.6",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/addon-styling-webpack": "^1.0.0",
+    "@storybook/blocks": "^8.1.6",
+    "@storybook/builder-webpack5": "^8.1.6",
+    "@storybook/nextjs": "^8.1.6",
+    "@storybook/react": "^8.1.6",
+    "@storybook/test": "^8.1.6",
+    "autoprefixer": "^10.4.19",
+    "copy-webpack-plugin": "^12.0.2",
+    "dotenv-webpack": "^8.1.0",
+    "fork-ts-checker-webpack-plugin": "^9.0.2",
+    "html-webpack-plugin": "^5.6.0",
+    "postcss": "^8.4.38",
+    "storybook": "^8.1.6",
+    "tailwindcss": "^3.4.4",
+    "webpack": "^5.91.0",
+    "webpack-merge": "^5.10.0"
+  }
+}
