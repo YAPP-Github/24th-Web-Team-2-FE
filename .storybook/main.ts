@@ -19,7 +19,6 @@ const config: StorybookConfig = {
     '@chromatic-com/storybook',
     '@storybook/addon-interactions',
     '@storybook/addon-styling-webpack',
-    '@storybook/addon-postcss',
     {
       name: '@storybook/addon-postcss',
       options: {
@@ -34,6 +33,8 @@ const config: StorybookConfig = {
     options: {},
   },
   webpackFinal: async (config: any, { configType }: any) => {
+    config.resolve.roots = [path.resolve(__dirname, '../public'), 'node_modules'];
+
     config.module.rules.push({
       test: /\.css$/,
       use: ['style-loader', 'css-loader', 'postcss-loader'],

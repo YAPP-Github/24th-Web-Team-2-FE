@@ -2,11 +2,12 @@ const webpack = require('webpack');
 const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-
+const TerserPlugin = require('terser-webpack-plugin');
 const { convertToAbsolutePath } = require('./webpackUtil');
 
 module.exports = {
-  entry: convertToAbsolutePath('src/index.tsx'),
+  // entry: convertToAbsolutePath('src/app/layout.tsx'),
+
   module: {
     rules: [
       {
@@ -35,29 +36,43 @@ module.exports = {
     ],
   },
 
-  output: {
-    path: convertToAbsolutePath('dist'),
-    filename: '[name].[chunkhash].bundle.js',
-    publicPath: '/',
-    clean: true,
-  },
+  // output: {
+  //   path: convertToAbsolutePath('dist'),
+  //   filename: '[name].[chunkhash].bundle.js',
+  //   publicPath: '/',
+  //   clean: true,
+  // },
 
-  resolve: {
-    extensions: ['.js', '.ts', '.jsx', '.tsx', '.json'],
-    alias: {
-      '@': convertToAbsolutePath('src'),
-    },
-  },
+  // resolve: {
+  //   extensions: ['.js', '.ts', '.jsx', '.tsx', '.json'],
+  //   alias: {
+  //     '@': convertToAbsolutePath('src'),
+  //   },
+  // },
 
   plugins: [
     new webpack.ProvidePlugin({
       React: 'react',
     }),
-    new HtmlWebpackPlugin({
-      template: convertToAbsolutePath('public/index.html'),
-      favicon: convertToAbsolutePath('public/favicon.ico'),
-    }),
+
+    // new HtmlWebpackPlugin({
+    // template: convertToAbsolutePath('public/index.html'),
+    // favicon: convertToAbsolutePath('public/favicon.ico'),
+    // }),
     new Dotenv(),
-    new ForkTsCheckerWebpackPlugin(),
+    new TerserPlugin({
+      terserOptions: {
+        compress: {
+          drop_console: true,
+        },
+      },
+    }),
+    // new ForkTsCheckerWebpackPlugin({
+    //   typescript: {
+    //     async: false,
+    //     tsconfig: '../tsconfig.json',
+    //     memoryLimit: 5000,
+    //   },
+    // }),
   ],
 };
