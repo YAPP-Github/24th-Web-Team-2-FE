@@ -1,5 +1,4 @@
 import type { StorybookConfig } from '@storybook/nextjs';
-import path from 'path';
 
 const config: StorybookConfig = {
   core: {
@@ -11,7 +10,7 @@ const config: StorybookConfig = {
       },
     },
   },
-  stories: ['../stories/**/*.mdx', '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  stories: ['../src/stories/*.stories.@(js|jsx|mjs|ts|tsx)', '../src/stories/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
     '@storybook/addon-onboarding',
     '@storybook/addon-links',
@@ -32,16 +31,10 @@ const config: StorybookConfig = {
     name: '@storybook/nextjs',
     options: {},
   },
-  webpackFinal: async (config: any, { configType }: any) => {
-    config.resolve.roots = [path.resolve(__dirname, '../public'), 'node_modules'];
-
-    config.module.rules.push({
-      test: /\.css$/,
-      use: ['style-loader', 'css-loader', 'postcss-loader'],
-      include: path.resolve(__dirname, '../'),
-    });
-
-    return config;
+  staticDirs: ['../public'],
+  features: {
+    experimentalRSC: true,
   },
 };
+
 export default config;

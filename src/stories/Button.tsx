@@ -29,14 +29,7 @@ interface ButtonProps {
 export const Button = ({ primary = false, size = 'medium', backgroundColor, label, ...props }: ButtonProps) => {
   const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
   return (
-    // <button
-    //   type='button'
-    //   className={['bg-red-200', 'storybook-button', `storybook-button--${size}`, mode].join(' ')}
-    //   {...props}
-    // >
-    //   {label}
-    // </button>
-    <button type='button' className='bg-red-200' {...props}>
+    <button type='button' className='bg-red-200 p-20' {...props}>
       {label}
     </button>
   );
