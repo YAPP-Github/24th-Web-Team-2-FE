@@ -17,6 +17,10 @@ interface TextStyleProps {
   onClick?: () => void;
 }
 
-export const TextStyle = ({ text, type = 'body1', color = 'blue' }: TextStyleProps) => {
-  return <p className={`text-${type} text-${color}`}>{text}</p>;
+export const TextStyle = ({ text, type = 'body1', color = 'blue', onClick }: TextStyleProps) => {
+  return (
+    <p onClick={onClick} className={`text-${type} text-${color}`}>
+      {text}
+    </p>
+  );
 };

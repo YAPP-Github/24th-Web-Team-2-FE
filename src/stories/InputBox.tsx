@@ -57,13 +57,13 @@ export const InputBox = ({ label, placeholder, value, setValue, guideLine }: Inp
     <div className='flex flex-col h-full gap-2 w-inputBox'>
       {label && <span className='text-darkgrey text-caption'>{label}</span>}
       <div
-        className={`${isFocused ? 'border-bottom-gradient' : 'border-darkgrey'} border-b h-full items-center flex flex-row w-full`}
+        className={`${isFocused ? 'border-bottom-gradient' : 'border-darkgrey border-b'} h-full items-center flex flex-row w-full`}
       >
         <input
           ref={inputRef}
           onFocus={() => setIsFocused(true)}
           onBlur={handleBlurInput}
-          className={`w-full h-14 text-body2 focus:outline-none`}
+          className={`w-full h-14 border-none text-body2 focus:outline-none`}
           placeholder={placeholder}
           value={innerValue}
           onChange={e => setInnerValue(e.target.value)}
