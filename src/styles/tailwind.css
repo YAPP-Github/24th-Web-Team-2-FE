@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+}
+
 .text-h1 {
   @apply text-4xl font-semibold leading-normal tracking-tighter;
 }
@@ -44,4 +47,32 @@
     rgba(0, 118, 178, 1) 100%
   );
   border-image-slice: 1;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 300;
+  font-style: normal;
+  src: url('/fonts/Pretendard-Light.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 400;
+  font-style: normal;
+  src: url('/fonts/Pretendard-Medium.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 500;
+  font-style: normal;
+  src: url('/fonts/Pretendard-Regular.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 600;
+  font-style: normal;
+  src: url('/fonts/Pretendard-Semibold.otf') format('otf');
 }
