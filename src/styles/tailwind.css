@@ -7,15 +7,15 @@
 }
 
 .text-h2 {
-  @apply font-medium leading-normal tracking-tightest text-21px;
+  @apply font-medium leading-normal tracking-tighter text-21px;
 }
 
 .text-body1 {
-  @apply text-4xl font-normal leading-normal tracking-tightest;
+  @apply text-4xl font-normal leading-normal tracking-tighter;
 }
 
 .text-body2 {
-  @apply text-lg font-light leading-normal tracking-tightest;
+  @apply text-lg font-light leading-normal tracking-tighter;
 }
 
 .text-body3 {
@@ -27,5 +27,21 @@
 }
 
 .text-btn1 {
-  @apply text-base font-normal leading-normal tracking-tightest;
+  @apply text-base font-normal leading-normal tracking-tighter;
+}
+
+.border-bottom-gradient {
+  border-bottom-width: 1px;
+  /* border-width: 1px; */
+  border-style: solid;
+  border-image: linear-gradient(
+    90deg,
+    rgba(105, 176, 18, 1) 0%,
+    rgba(247, 187, 19, 1) 19%,
+    rgba(230, 131, 2, 1) 37%,
+    rgba(198, 45, 50, 1) 57%,
+    rgba(134, 40, 114, 1) 76%,
+    rgba(0, 118, 178, 1) 100%
+  );
+  border-image-slice: 1;
 }
