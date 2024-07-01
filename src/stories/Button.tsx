@@ -1,36 +1,41 @@
-import './button.css';
+import PlusIcon from '@/assets/icons/PlusIcon';
 
 interface ButtonProps {
   /**
-   * Is this the principal call to action on the page?
+   * text to display
    */
-  primary?: boolean;
+  text: string;
   /**
-   * What background color to use
+   * Button state
    */
-  backgroundColor?: string;
+  isActivated?: boolean;
+  size: 'big' | 'small';
   /**
-   * How large should the button be?
+   * Button color
    */
-  size?: 'small' | 'medium' | 'large';
-  /**
-   * Button contents
-   */
-  label: string;
+  color?: string;
   /**
    * Optional click handler
    */
   onClick?: () => void;
+  ChildIcon?: React.ReactNode;
 }
 
-/**
- * Primary UI component for user interaction
- */
-export const Button = ({ primary = false, size = 'medium', backgroundColor, label, ...props }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+export const Button = ({ text, isActivated = true, size = 'big', color = 'blue', ChildIcon, onClick }: ButtonProps) => {
   return (
-    <button type='button' className='bg-red-200 p-20' {...props}>
-      {label}
-    </button>
+    <div
+      role='button'
+      className={`${size === 'big' ? (isActivated ? 'bg-black px-10 py-4' : 'bg-lightgrey px-10 py-4') : isActivated ? 'bg-white border-gradient px-6 py-2' : 'bg-background_grey border-none px-6 py-2'}`}
+      onClick={onClick}
+    >
+      <div className='flex items-center justify-between w-full h-full'>
+        <span
+          className={`${size === 'big' ? 'text-white text-btn1' : isActivated ? 'text-black text-body3' : 'text-lightgrey text-body3'}`}
+        >
+          {text}
+        </span>
+        {/* {ChildIcon && <span>{ChildIcon}</span>} */}
+      </div>
+    </div>
   );
 };
