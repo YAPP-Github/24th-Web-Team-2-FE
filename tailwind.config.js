@@ -24,6 +24,7 @@ module.exports = {
     extend: {
       width: {
         inputBox: '30.375rem',
+        emailSenderButton: '26.375rem',
       },
       fontSize: {
         '21px': '1.3125rem',

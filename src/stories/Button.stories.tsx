@@ -31,6 +31,7 @@ export const Default: Story = {
 export const Disabled: Story = {
   args: {
     text: '이렇게 불러주세요',
+    isActivated: false,
     size: 'big',
   },
 };
@@ -39,7 +40,7 @@ export const ButtonWithIcon: Story = {
   args: {
     text: '디자인',
     size: 'small',
-    // ChildIcon: <PlusIcon />, // FIXME: 여기 어떻게 수정해야 childIcon이 나오는지 모르겠음
+    ChildIcon: <PlusIcon width={24} />,
   },
 };
 
@@ -48,6 +49,6 @@ export const ButtonWithIconDisabled: Story = {
     text: '디자인',
     isActivated: false,
     size: 'small',
-    // ChildIcon: <PlusIcon />, // FIXME: 여기 어떻게 수정해야 childIcon이 나오는지 모르겠음
+    ChildIcon: <PlusIcon width={24} />,
   },
 };

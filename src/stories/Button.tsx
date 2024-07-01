@@ -34,7 +34,7 @@ export const Button = ({ text, isActivated = true, size = 'big', color = 'blue',
         >
           {text}
         </span>
-        {/* {ChildIcon && <span>{ChildIcon}</span>} */}
+        {ChildIcon && <span>{ChildIcon}</span>}
       </div>
     </div>
   );
