@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 * {
+  font-family: 'Pretendard', sans-serif;
 }
 
 .text-h1 {
