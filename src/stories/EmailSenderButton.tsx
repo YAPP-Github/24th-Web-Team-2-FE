@@ -18,8 +18,6 @@ const ChildButton = ({
   type,
   isActivated,
   onClick,
-  i,
-  C,
 }: {
   type: 'spam' | 'subscribe';
   isActivated: boolean;

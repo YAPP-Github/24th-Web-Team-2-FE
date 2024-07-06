@@ -23,6 +23,7 @@ module.exports = {
     },
     extend: {
       width: {
+        50: '12.5rem',
         inputBox: '30.375rem',
         emailSenderButton: '26.375rem',
       },

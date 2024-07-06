@@ -34,7 +34,7 @@
   @apply text-base font-normal leading-normal tracking-tighter;
 }
 
-.border-gradient {
+.border-gradient_horizontal {
   border-width: 1px;
   border-style: solid;
   border-image: linear-gradient(
@@ -47,6 +47,22 @@
     rgba(0, 118, 178, 1) 100%
   );
   border-image-slice: 1;
+}
+.border-gradient_vertical {
+  border: 1px solid transparent;
+  background-image: linear-gradient(#fff, #fff),
+    linear-gradient(
+      180deg,
+      rgba(105, 176, 18, 1) 0%,
+      rgba(247, 187, 19, 1) 19%,
+      rgba(230, 131, 2, 1) 37%,
+      rgba(198, 45, 50, 1) 57%,
+      rgba(134, 40, 114, 1) 76%,
+      rgba(0, 118, 178, 1) 100%
+    );
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  margin: 10px 10px 10px;
 }
 
 .border-bottom-gradient {
