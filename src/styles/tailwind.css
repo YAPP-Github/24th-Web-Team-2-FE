@@ -1,3 +1,130 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  font-family: 'Pretendard', sans-serif;
+}
+
+.text-h1 {
+  @apply text-4xl font-semibold leading-normal tracking-tighter;
+}
+
+.text-h2 {
+  @apply font-medium leading-normal tracking-tighter text-21px;
+}
+
+.text-body1 {
+  @apply text-4xl font-normal leading-normal tracking-tighter;
+}
+
+.text-body2 {
+  @apply text-lg font-light leading-normal tracking-tighter;
+}
+
+.text-body3 {
+  @apply font-light leading-normal tracking-tighter text-15px;
+}
+
+.text-caption {
+  @apply text-sm font-light leading-normal tracking-tighter;
+}
+
+.text-btn1 {
+  @apply text-base font-normal leading-normal tracking-tighter;
+}
+
+.border-gradient_horizontal {
+  border-width: 1px;
+  border-style: solid;
+  border-image: linear-gradient(
+    90deg,
+    rgba(105, 176, 18, 1) 0%,
+    rgba(247, 187, 19, 1) 19%,
+    rgba(230, 131, 2, 1) 37%,
+    rgba(198, 45, 50, 1) 57%,
+    rgba(134, 40, 114, 1) 76%,
+    rgba(0, 118, 178, 1) 100%
+  );
+  border-image-slice: 1;
+}
+.border-gradient_vertical {
+  border: 1px solid transparent;
+  background-image: linear-gradient(#fff, #fff),
+    linear-gradient(
+      180deg,
+      rgba(105, 176, 18, 1) 0%,
+      rgba(247, 187, 19, 1) 19%,
+      rgba(230, 131, 2, 1) 37%,
+      rgba(198, 45, 50, 1) 57%,
+      rgba(134, 40, 114, 1) 76%,
+      rgba(0, 118, 178, 1) 100%
+    );
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  margin: 10px 10px 10px;
+}
+
+.border-bottom-gradient {
+  position: relative;
+}
+
+.border-bottom-gradient::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(105, 176, 18, 1) 0%,
+    rgba(247, 187, 19, 1) 19%,
+    rgba(230, 131, 2, 1) 37%,
+    rgba(198, 45, 50, 1) 57%,
+    rgba(134, 40, 114, 1) 76%,
+    rgba(0, 118, 178, 1) 100%
+  );
+  background-size: 200% 100%;
+  animation: moveGradient 4s linear infinite;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 100%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 300;
+  font-style: normal;
+  src: url('/fonts/Pretendard-Light.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 400;
+  font-style: normal;
+  src: url('/fonts/Pretendard-Medium.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 500;
+  font-style: normal;
+  src: url('/fonts/Pretendard-Regular.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 600;
+  font-style: normal;
+  src: url('/fonts/Pretendard-Semibold.otf') format('otf');
+}
