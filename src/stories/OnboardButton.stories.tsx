@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { OnboardButton } from './OnboardButton';
+import { OnboardButton } from '../components/OnboardButton';
 import PlusIcon from '@/assets/icons/PlusIcon';
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

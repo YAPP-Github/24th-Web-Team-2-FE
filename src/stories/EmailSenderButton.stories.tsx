@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { EmailSenderButton } from './EmailSenderButton';
+import { EmailSenderButton } from '../components/EmailSenderButton';
 import LinkedInIcon from '@/assets/icons/LinkedInIcon';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
