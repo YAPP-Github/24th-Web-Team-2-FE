@@ -1,4 +1,5 @@
-import PlusIcon from '@/assets/icons/PlusIcon';
+'use client';
+
 import { useState } from 'react';
 
 interface OnboardButtonProps {

@@ -7,7 +7,7 @@
 }
 
 .text-h1 {
-  @apply text-4xl font-semibold leading-normal tracking-tighter;
+  @apply text-3xl font-semibold leading-normal tracking-tighter;
 }
 
 .text-h2 {
@@ -62,7 +62,6 @@
     );
   background-origin: border-box;
   background-clip: content-box, border-box;
-  margin: 10px 10px 10px;
 }
 
 .border-bottom-gradient {
