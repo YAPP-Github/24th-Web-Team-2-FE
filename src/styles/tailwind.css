@@ -34,6 +34,11 @@
   @apply text-base font-normal leading-normal tracking-tighter;
 }
 
+.noScrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
 .border-gradient_horizontal {
   border-width: 1px;
   border-style: solid;

@@ -22,6 +22,9 @@ module.exports = {
       yellow: '#F7BB13',
     },
     extend: {
+      borderRadius: {
+        smaller: '0.25rem',
+      },
       width: {
         50: '12.5rem',
         inputBox: '30.375rem',
