@@ -11,7 +11,6 @@ export interface CarouselProps extends PropsWithChildren {
   width: number;
   height: number;
   length: number;
-  // children?: JSX.Element | JSX.Element[];
 }
 
 export const CarouselContext = createContext<{
