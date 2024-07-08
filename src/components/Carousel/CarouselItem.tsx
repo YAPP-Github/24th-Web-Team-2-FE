@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef } from 'react';
 import type { PropsWithChildren } from 'react';
-import { CarouselContext } from './Carousel';
+import { CarouselContext, CarouselIndexContext } from './Carousel';
 
 export interface CarouselItemProps extends PropsWithChildren {
   index: number;
@@ -9,10 +9,13 @@ export interface CarouselItemProps extends PropsWithChildren {
 const CarouselItem = ({ index, children }: CarouselItemProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const context = useContext(CarouselContext);
+  // viewIndex context 추가
+  const viewIndex = useContext(CarouselIndexContext);
 
   if (!context) throw Error('Carousel.Item is only available within Carousel.');
 
-  const { width, height, viewIndex, itemRef } = context;
+  // viewIndex 분리
+  const { width, height, itemRef } = context;
 
   useEffect(() => {
     if (ref.current) {

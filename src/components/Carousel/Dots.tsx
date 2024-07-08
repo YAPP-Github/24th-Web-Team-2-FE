@@ -1,5 +1,5 @@
 import { useContext, type MouseEvent } from 'react';
-import { CarouselContext } from './Carousel';
+import { CarouselContext, CarouselIndexContext } from './Carousel';
 
 interface DotsProps {
   imageLength: number;
@@ -12,40 +12,31 @@ const Dots = ({ imageLength, size = 6, selectedColor = '#fff', unSelectedColor =
   const images = Array.from({ length: imageLength }, () => '');
 
   const context = useContext(CarouselContext);
+  const viewIndex = useContext(CarouselIndexContext);
 
   if (!context) throw Error('Carousel.Dots is only available within Carousel.');
 
-  const { viewIndex, handleMoveImage } = context;
+  const { handleMoveImage } = context;
 
   return (
     <div className='flex justify-between'>
-      {images.map((_, index) => {
-        if (viewIndex === index)
-          return (
-            <button
-              type='button'
-              key={crypto.randomUUID()}
-              onClick={(e: MouseEvent<HTMLButtonElement>) => {
-                e.stopPropagation();
-                handleMoveImage(index);
-              }}
-              className=' rounded-full border-none opacity-60 cursor-pointer'
-              style={{ width: `${size}px`, height: `${size}px`, backgroundColor: selectedColor }}
-            />
-          );
-        return (
-          <button
-            type='button'
-            key={crypto.randomUUID()}
-            onClick={(e: MouseEvent<HTMLButtonElement>) => {
-              e.stopPropagation();
-              handleMoveImage(index);
-            }}
-            className='bg-black rounded-full border-none opacity-60 cursor-pointer'
-            style={{ width: `${size}px`, height: `${size}px`, backgroundColor: unSelectedColor }}
-          />
-        );
-      })}
+      {images.map((_, index) => (
+        // viewIndex, index 비교 로직을 backgroundColor로 이동
+        <button
+          type='button'
+          key={crypto.randomUUID()}
+          onClick={(e: MouseEvent<HTMLButtonElement>) => {
+            e.stopPropagation();
+            handleMoveImage(index);
+          }}
+          className='border-none rounded-full cursor-pointer opacity-60'
+          style={{
+            width: `${size}px`,
+            height: `${size}px`,
+            backgroundColor: viewIndex === index ? selectedColor : unSelectedColor,
+          }}
+        />
+      ))}
     </div>
   );
 };

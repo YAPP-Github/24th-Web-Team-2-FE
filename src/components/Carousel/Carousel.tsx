@@ -13,8 +13,8 @@ export interface CarouselProps extends PropsWithChildren {
   length: number;
 }
 
+// viewIndex context 분리
 export const CarouselContext = createContext<{
-  viewIndex: number;
   width: number;
   height: number;
   length: number;
@@ -25,25 +25,31 @@ export const CarouselContext = createContext<{
   handleMovePrev: (e: MouseEvent<HTMLButtonElement>) => void;
 } | null>(null);
 
+export const CarouselIndexContext = createContext<number>(0);
+
 const Carousel = ({ width, height, length, children }: CarouselProps) => {
   const { viewIndex, itemRef, carouselBoxRef, handleMoveImage, handleMoveNext, handleMovePrev } = useCarousel(length);
 
-  const context = useMemo(
+  const carouselContextValue = useMemo(
     () => ({
       width,
       height,
       length,
-      viewIndex,
       itemRef,
       carouselBoxRef,
       handleMoveImage,
       handleMoveNext,
       handleMovePrev,
     }),
-    [width, height, length, viewIndex, itemRef, carouselBoxRef, handleMoveImage, handleMoveNext, handleMovePrev],
+    [width, height, length, itemRef, carouselBoxRef, handleMoveImage, handleMoveNext, handleMovePrev],
   );
 
-  return <CarouselContext.Provider value={context}>{children}</CarouselContext.Provider>;
+  // viewIndex context 분리하여 다른 상태를 구독중인 component가 리렌더링 되지 않도록 함
+  return (
+    <CarouselContext.Provider value={carouselContextValue}>
+      <CarouselIndexContext.Provider value={viewIndex}>{children}</CarouselIndexContext.Provider>
+    </CarouselContext.Provider>
+  );
 };
 
 Carousel.Wrapper = Wrapper;
