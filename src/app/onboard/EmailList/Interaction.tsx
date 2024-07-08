@@ -22,7 +22,6 @@ const EmailListInteraction = ({ userName, interest, incomingSenders, techSenders
 
   const handleRemoveEmail = (email: string) => {
     const filteredEmail = selectedEmailList.filter(selectedEmail => selectedEmail !== email);
-    console.log(filteredEmail, email);
     setSelectedEmailList(filteredEmail);
   };
 
