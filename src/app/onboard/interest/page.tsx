@@ -1,12 +1,12 @@
 import { OnboardButton } from '@/components/OnboardButton';
-import InterestInteraction from './Interaction';
+import InterestInteraction from './interaction';
 import { getInterestList } from '@/api/onboard';
 
 interface InterestProps {
   userName: string;
 }
 
-const Interest = async ({ userName }: InterestProps) => {
+const Interest = async ({ userName = '채현' }: InterestProps) => {
   const interestList = await getInterest();
   return (
     <div className='flex flex-col items-center justify-start w-full h-full gap-10'>

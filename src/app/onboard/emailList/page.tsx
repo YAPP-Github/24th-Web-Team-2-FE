@@ -1,11 +1,11 @@
 import ServiceIcon from '@/assets/icons/ServiceIcon';
-import EmailListInteraction from './Interaction';
+import EmailListInteraction from './interaction';
 
 interface EmailListProps {
   userName: string;
 }
 
-const EmailList = async ({ userName }: EmailListProps) => {
+const EmailList = async ({ userName = '채현' }: EmailListProps) => {
   const incomingSenders = await getIncomingSenders();
   const incomingSenders2 = await getIncomingSenders2();
   return (

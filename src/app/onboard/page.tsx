@@ -1,12 +1,9 @@
-import EmailList from './EmailList';
-import Interest from './Interest';
-
 const OnBoard = () => {
   return (
     <div className='w-full h-full mt-12'>
-      {/* Carousel 들어올 위치 */}
+      {/* 구글 로그인 페이지 여기에 */}
       {/* <Interest userName='채현' /> */}
-      <EmailList userName='채현' />
+      {/* <EmailList userName='채현' /> */}
     </div>
   );
 };

@@ -27,7 +27,7 @@ const EmailListInteraction = ({ userName, interest, incomingSenders, techSenders
 
   return (
     <div className='flex flex-col items-center gap-16'>
-      <div className='flex flex-row gap-6 max-h-[575px]'>
+      <div className='flex flex-row gap-6 max-h-[575px] relative'>
         <div className='flex flex-col gap-3'>
           <span className='text-body3'>
             <span className='text-blue'>{userName}님의 메일함에서 발견된</span>
@@ -74,7 +74,7 @@ const EmailListInteraction = ({ userName, interest, incomingSenders, techSenders
             })}
           </div>
         </div>
-        <div className='absolute bottom-0 right-0 w-full h-16 bg-gradient-to-t from-white to-transparent'></div>
+        <div className='absolute bottom-0 right-0 w-full h-16 bg-gradient-to-t from-white to-transparent' />
       </div>
       <OnboardButton text='이렇게 볼래요!' type='onboard' isActivated={selectedEmailList.length > 0} />
     </div>

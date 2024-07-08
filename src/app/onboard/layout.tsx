@@ -17,7 +17,7 @@ export default function OnBoardLayout({
     <div>
       <MSWComponent>
         <Header isMain={false} />
-        {children}
+        <div className='w-full h-full mt-12'>{children}</div>
       </MSWComponent>
     </div>
   );
