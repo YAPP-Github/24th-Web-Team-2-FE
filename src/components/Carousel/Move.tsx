@@ -1,5 +1,6 @@
 import { ComponentPropsWithoutRef, MouseEvent, useContext } from 'react';
 import { CarouselContext } from './Carousel';
+import useThrottleCallback from '@/hooks/useThrottleCallback';
 
 export interface MoveProps extends ComponentPropsWithoutRef<'button'> {
   direction: 'prev' | 'next';
@@ -13,11 +14,11 @@ const Move = ({ direction = 'next', addFunc, children, ...attributes }: MoveProp
 
   const { handleMovePrev, handleMoveNext } = context;
 
-  const handleMove = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleMove = useThrottleCallback((e: MouseEvent<HTMLButtonElement>) => {
     if (addFunc) addFunc();
     if (direction === 'prev') return handleMovePrev(e);
     return handleMoveNext(e);
-  };
+  }, 500);
 
   return (
     <button onClick={handleMove} {...attributes}>
