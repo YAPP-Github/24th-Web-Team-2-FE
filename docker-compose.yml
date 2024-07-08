@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  web:
+    image: node:20
+    working_dir: /app
+    volumes:
+      - /root/project:/app
+    command: npm run dev
+    ports:
+      - '3000:3000'
+    networks:
+      - webnet
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - '80:80'
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - web
+    networks:
+      - webnet
+
+networks:
+  webnet:
