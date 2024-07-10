@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, MouseEvent, useContext } from 'react';
 import { CarouselContext } from './Carousel';
-import useThrottleCallback from '@/hooks/useThrottleCallback';
+import useThrottleCallback from '@/utils/hooks/useThrottleCallback';
 
 export interface MoveProps extends ComponentPropsWithoutRef<'button'> {
   direction: 'prev' | 'next';

@@ -14,11 +14,9 @@ export default function OnBoardLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div>
-      <MSWComponent>
-        <Header isMain={false} />
-        <div className='w-full h-full mt-12'>{children}</div>
-      </MSWComponent>
-    </div>
+    <MSWComponent>
+      <Header isMain={false} />
+      <div className='flex justify-center w-full h-full mt-12'>{children}</div>
+    </MSWComponent>
   );
 }
