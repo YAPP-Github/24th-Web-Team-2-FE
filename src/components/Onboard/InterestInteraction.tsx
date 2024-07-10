@@ -1,7 +1,7 @@
 'use client';
 
 import { OnboardButton } from '@/components/OnboardButton';
-import { Interest } from '@/types/onboard';
+import type { Interest } from '@/types/onboard';
 import { useState } from 'react';
 
 interface InterestInteractionProps {

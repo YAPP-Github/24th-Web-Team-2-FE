@@ -3,7 +3,7 @@
 import LinkedInIcon from '@/assets/icons/LinkedInIcon';
 import { EmailSenderButton } from '@/components/EmailSenderButton';
 import { OnboardButton } from '@/components/OnboardButton';
-import { IncomingSenders } from '@/types/onboard';
+import type { IncomingSenders } from '@/types/onboard';
 import { useState } from 'react';
 
 interface EmailListInteractionProps {
