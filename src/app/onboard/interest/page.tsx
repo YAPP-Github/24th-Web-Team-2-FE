@@ -23,7 +23,6 @@ const Interest = async ({ userName = '채현' }: InterestProps) => {
 export default Interest;
 
 const getInterest = async () => {
-  // const interestList = await getInterestList();
   const interestList = [
     {
       id: 'randomstring1',
