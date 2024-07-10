@@ -1,6 +1,6 @@
 import { OnboardButton } from '@/components/OnboardButton';
-import InterestInteraction from './interaction';
 import { getInterestList } from '@/api/onboard';
+import InterestInteraction from '@/components/Onboard/InterestInteraction';
 
 interface InterestProps {
   userName: string;
