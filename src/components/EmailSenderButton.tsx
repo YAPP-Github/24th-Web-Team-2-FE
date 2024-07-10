@@ -1,9 +1,5 @@
-import CheckIcon from '@/assets/icons/CheckIcon';
-import CloseIcon from '@/assets/icons/CloseIcon';
-import PlusIcon from '@/assets/icons/PlusIcon';
-import { pallete } from '@/styles/colors';
-import { Chip } from './Chip';
-import { Checkbox } from './Checkbox';
+import { Chip } from '@/components/Chip';
+import { Checkbox } from '@/components/Checkbox';
 
 interface EmailSenderButtonProps {
   ChildIcon: any;
