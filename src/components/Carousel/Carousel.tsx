@@ -1,3 +1,5 @@
+'use client';
+
 import { createContext, useMemo } from 'react';
 import type { MouseEvent, PropsWithChildren } from 'react';
 

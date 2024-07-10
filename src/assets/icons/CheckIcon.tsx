@@ -1,4 +1,4 @@
-import { IconProps } from '@/types/icon';
+import type { IconProps } from '@/types/icon';
 
 const CheckIcon = ({ width, height, fill, className, onClick }: IconProps) => {
   return (

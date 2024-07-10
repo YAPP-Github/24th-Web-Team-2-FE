@@ -1,4 +1,4 @@
-import { IconProps } from '@/types/icon';
+import type { IconProps } from '@/types/icon';
 
 const PlusIcon = ({ width, height, fill, onClick, className }: IconProps) => {
   return (

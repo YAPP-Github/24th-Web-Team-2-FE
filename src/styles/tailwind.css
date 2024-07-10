@@ -7,7 +7,7 @@
 }
 
 .text-h1 {
-  @apply text-4xl font-semibold leading-normal tracking-tighter;
+  @apply text-3xl font-semibold leading-normal tracking-tighter;
 }
 
 .text-h2 {
@@ -32,6 +32,11 @@
 
 .text-btn1 {
   @apply text-base font-normal leading-normal tracking-tighter;
+}
+
+.noScrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .border-gradient_horizontal {
@@ -62,7 +67,6 @@
     );
   background-origin: border-box;
   background-clip: content-box, border-box;
-  margin: 10px 10px 10px;
 }
 
 .border-bottom-gradient {
