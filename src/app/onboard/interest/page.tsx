@@ -22,7 +22,7 @@ const Interest = async ({ userName = '채현' }: InterestProps) => {
 
 export default Interest;
 
-async function getInterest() {
+const getInterest = async () => {
   // const interestList = await getInterestList();
   const interestList = [
     {
@@ -57,4 +57,4 @@ async function getInterest() {
     },
   ];
   return interestList;
-}
+};
