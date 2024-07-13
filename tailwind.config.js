@@ -50,6 +50,12 @@ module.exports = {
             'linear-gradient(90deg, rgba(105, 176, 18, 1) 0%, rgba(247, 187, 19, 1) 19%, rgba(230, 131, 2, 1) 37%, rgba(198, 45, 50, 1) 57%, rgba(134, 40, 114, 1) 76%, rgba(0, 118, 178, 1) 100%)',
           'border-image-slice': 1,
         },
+        '.user-drag-none': {
+          '-webkit-user-drag': 'none' /* Safari, Chrome */,
+          '-moz-user-drag': 'none' /* Firefox */,
+          '-o-user-drag': 'none' /* Opera */,
+          'user-drag': 'none' /* Standard syntax */,
+        },
       };
 
       addUtilities(newUtilities, ['responsive', 'hover']);
