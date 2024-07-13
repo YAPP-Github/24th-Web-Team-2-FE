@@ -12,7 +12,10 @@ const ListItem = (props: ListItemProps) => {
 
   return (
     <Link
-      href={`/main?tab=${id}`}
+      href={{
+        pathname: '/main',
+        query: { tab: id },
+      }}
       className={`${isActive && 'border-bottom-gradient'} flex flex-row items-center gap-4 px-6 py-3 text-body3`}
     >
       {name}

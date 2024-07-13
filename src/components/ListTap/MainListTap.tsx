@@ -1,14 +1,13 @@
 import ListItem from './ListItem';
 
 interface TabData {
-  id: string;
   name: string;
   count: number;
 }
 
 interface MainListTapProps {
   currentTab: string;
-  tabData: TabData[];
+  tabData: { [key: string]: TabData };
 }
 
 /**
@@ -22,8 +21,8 @@ const MainListTap = (props: MainListTapProps) => {
 
   return (
     <div className='flex flex-row w-full h-12 gap-4 border-b border-lightgrey'>
-      {tabData.map(tab => (
-        <ListItem key={tab.id} id={tab.id} name={tab.name} count={tab.count} isActive={currentTab === tab.id} />
+      {Object.keys(tabData).map(id => (
+        <ListItem key={id} id={id} name={tabData[id].name} count={tabData[id].count} isActive={currentTab === id} />
       ))}
     </div>
   );
