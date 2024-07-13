@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import MSWComponent from '@/mocks/MSWWrapper';
-import { Header } from '@/components/Header';
+import MainPageHeader from '@/components/Header/MainPageHeader';
 
 export const metadata: Metadata = {
   title: 'Inspo Mail Club',
@@ -14,7 +14,7 @@ export default function MainPageLayout({
 }>) {
   return (
     <MSWComponent>
-      <Header isMain={true} />
+      <MainPageHeader />
       <div className='flex justify-center w-full h-full mt-12'>{children}</div>
     </MSWComponent>
   );

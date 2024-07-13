@@ -20,7 +20,7 @@ const Wrapper = ({ height = '100%', children }: WrapperProps) => {
       className='relative overflow-hidden'
       style={{ width, height, minWidth: width, minHeight: height }}
     >
-      <div className='flex w-full p-0 m-0 overflow-hidden' style={{ height }}>
+      <div className='flex w-full p-0 m-0 overflow-hidden' style={{ width, height }}>
         {children}
       </div>
     </div>

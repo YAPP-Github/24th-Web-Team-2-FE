@@ -24,7 +24,7 @@ const CarouselItem = ({ index, children }: CarouselItemProps) => {
   }, [viewIndex]);
 
   return (
-    <div ref={ref} style={{ width, height }}>
+    <div ref={ref} style={{ width, height }} className='object-cover shrink-0'>
       {children}
     </div>
   );
