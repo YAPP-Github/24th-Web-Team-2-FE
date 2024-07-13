@@ -1,3 +1,5 @@
+'use client';
+
 import ServiceIcon from '@/assets/icons/ServiceIcon';
 import Carousel from '@/components/Carousel/Carousel';
 import Image from 'next/image';
@@ -7,7 +9,7 @@ import Link from 'next/link';
 const OnBoard = () => {
   const BLUR_DATA_URL = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mOcUg8AAa0BFSX8uBwAAAAASUVORK5CYII=';
   return (
-    <div className='flex flex-col items-center gap-10'>
+    <div className='flex flex-col items-center gap-10 mb-10'>
       <span className='flex flex-col items-center'>
         <span className='flex flex-row items-center'>
           <ServiceIcon width={195} />
@@ -15,30 +17,36 @@ const OnBoard = () => {
         </span>
         <span className='text-black text-h1'>방치되는 유익한 메일을 큐레이팅해요</span>
       </span>
-      {/* <Carousel width={690} height={400} length={3}>
-        <Carousel.Wrapper>
-          <Carousel.Item index={0}>
-            <img src='https://via.placeholder.com/690x400' alt='carousel1' />
-          </Carousel.Item>
-          <Carousel.Item index={1}>
-            <img src='https://via.placeholder.com/690x400' alt='carousel2' />
-          </Carousel.Item>
-          <Carousel.Item index={2}>
-            <img src='https://via.placeholder.com/690x400' alt='carousel3' />
-          </Carousel.Item>
-        </Carousel.Wrapper>
-        <Carousel.Dots imageLength={3} />
-        <Carousel.Move direction='prev' />
-        <Carousel.Move direction='next' />
-      </Carousel> */}
-      <Image
-        placeholder='blur'
-        blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=='
-        src='http://via.placeholder.com/690x400'
-        alt='carousel'
-        width={690}
-        height={400}
-      />
+      <Carousel width={690} height={400} length={3}>
+        <div className='flex flex-col items-center justify-center'>
+          <Carousel.Wrapper>
+            <Carousel.Item index={0}>
+              {/* child img tag에 object-cover w-full h-full 속성 적용 */}
+              <img
+                className='object-cover w-full h-full'
+                src='https://i.namu.wiki/i/8i-B9u3OUzEhUR1amZyU_PAMsp58lPIRpNvxPCy_xgyw9VYS3t13rbLEBgINOU4QoAheMcnfsWV1T3So58SXwnCdUF8V-x-X6yCF_fdBMYNPlplTK0XNDSPW84V1c4mtGKWm07hiTGTKPScRDkVKEEAZWWlHqNHgck2fD9ELErQ.webp'
+              />
+            </Carousel.Item>
+            <Carousel.Item index={1}>
+              <img
+                className='object-cover w-full h-full'
+                src='https://i.namu.wiki/i/8i-B9u3OUzEhUR1amZyU_PAMsp58lPIRpNvxPCy_xgyw9VYS3t13rbLEBgINOU4QoAheMcnfsWV1T3So58SXwnCdUF8V-x-X6yCF_fdBMYNPlplTK0XNDSPW84V1c4mtGKWm07hiTGTKPScRDkVKEEAZWWlHqNHgck2fD9ELErQ.webp'
+              />
+            </Carousel.Item>
+            <Carousel.Item index={2}>
+              <img
+                className='object-cover w-full h-full'
+                src='https://i.namu.wiki/i/8i-B9u3OUzEhUR1amZyU_PAMsp58lPIRpNvxPCy_xgyw9VYS3t13rbLEBgINOU4QoAheMcnfsWV1T3So58SXwnCdUF8V-x-X6yCF_fdBMYNPlplTK0XNDSPW84V1c4mtGKWm07hiTGTKPScRDkVKEEAZWWlHqNHgck2fD9ELErQ.webp'
+              />
+            </Carousel.Item>
+          </Carousel.Wrapper>
+          <div className='text-body2'>당신의 이메일 함 속 유용한 이메일을 보여줄게요</div>
+          <div style={{ width: '48px', paddingTop: '40px' }}>
+            <Carousel.Dots imageLength={3} size={8} selectedColor='green' unSelectedColor='lightgrey' />
+          </div>
+        </div>
+      </Carousel>
+
       <Link href='/onboard/interest'>
         <Image
           className='cursor-pointer'
