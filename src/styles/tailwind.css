@@ -39,6 +39,9 @@
   -ms-overflow-style: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 .border-gradient_horizontal {
   border-width: 1px;
   border-style: solid;

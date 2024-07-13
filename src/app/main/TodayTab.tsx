@@ -4,6 +4,7 @@ import type { Article } from '@/types/article';
 import { formatToYMD } from '@/utils/formatDate/formatToYMD';
 import Image from 'next/image';
 import DoubleArrow from '@/assets/icons/DoubleArrow.svg';
+import Link from 'next/link';
 
 interface TodayTab {
   count: number;
@@ -29,10 +30,10 @@ const TodayTab = async ({ count }: TodayTab) => {
           </div>
         ))}
       </div>
-      <div className='flex flex-row justify-center w-full gap-1 text-darkgrey'>
+      <Link href='#article1' className='flex flex-row justify-center w-full gap-1 cursor-pointer text-darkgrey'>
         첫 번째부터 읽기
         <Image className='p-1.5' src={DoubleArrow} width={24} height={24} alt='Scroll Down' />
-      </div>
+      </Link>
     </>
   );
 };
