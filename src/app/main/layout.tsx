@@ -15,7 +15,7 @@ export default function MainPageLayout({
   return (
     <MSWComponent>
       <MainPageHeader />
-      <div className='flex justify-center w-full h-full mt-12'>{children}</div>
+      <div className='flex justify-center w-full h-full'>{children}</div>
     </MSWComponent>
   );
 }

@@ -29,6 +29,7 @@ module.exports = {
         50: '12.5rem',
         inputBox: '30.375rem',
         emailSenderButton: '26.375rem',
+        content: '75rem',
       },
       fontSize: {
         '21px': '1.3125rem',
