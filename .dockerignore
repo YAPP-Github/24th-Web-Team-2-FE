@@ -1,0 +1,11 @@
+.DS_Store
+node_modules
+*storybook.log
+.next
+
+
+localhost+1-key.pem
+localhost+1.pem
+*.pem
+
+my.secrets 
