@@ -1,6 +1,7 @@
 import ListTap from '@/components/ListTap/MainListTap';
 import type { pageProps } from '@/types/page';
 import TodayTab from './TodayTab';
+import CategoryTab from './CategoryTab';
 
 const MainPage = async ({ searchParams }: pageProps) => {
   const currentTab = (searchParams.tab ?? 'today') as string;
@@ -10,15 +11,15 @@ const MainPage = async ({ searchParams }: pageProps) => {
   return (
     <div className='flex flex-col w-content'>
       <ListTap currentTab={currentTab} tabData={tabApiData} />
-      <div className='flex flex-col items-center w-full gap-10 mt-10 mb-40'>
+      <div className='flex flex-col items-center w-full gap-10 mb-10'>
         {currentTab === 'today' ? (
           <>
-            <TodayTab count={tabApiData.today.count} />
+            <TodayTab />
             <div id='article1' className='w-full h-[1200px] bg-darkgrey'></div>
             <div id='article2' className='w-full h-[1200px] bg-blue'></div>
           </>
         ) : (
-          <>test123</>
+          <CategoryTab currentTab={currentTab} />
         )}
       </div>
     </div>

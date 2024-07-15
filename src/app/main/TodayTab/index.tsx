@@ -6,21 +6,19 @@ import Image from 'next/image';
 import DoubleArrow from '@/assets/icons/DoubleArrow.svg';
 import Link from 'next/link';
 
-interface TodayTab {
-  count: number;
-}
-const TodayTab = async ({ count }: TodayTab) => {
+const TodayTab = async () => {
   const articleApiData = await getMainPageArticleData();
   return (
     <>
-      <div className='flex flex-col items-center gap-3'>
+      <div className='flex flex-col items-center gap-3 mt-10'>
         <span className='text-blue text-body3'>{formatToYMD(new Date())}</span>
         <span className='text-center text-h1'>
+          {/* TODO: 이름 api를 통해 받아오기 */}
           채현님에게
           <br />
           오늘 도착한 메일이에요
         </span>
-        <span className='text-darkgrey text-h2'>{count}개의 인사이트가 도착했어요</span>
+        <span className='text-darkgrey text-h2'>{articleApiData.length}개의 인사이트가 도착했어요</span>
       </div>
       <div className='flex flex-col gap-6'>
         {articleApiData.map(article => (

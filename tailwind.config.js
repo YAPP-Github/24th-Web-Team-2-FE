@@ -31,6 +31,7 @@ module.exports = {
         emailSenderButton: '26.375rem',
         content: '75rem',
         articleCard: '49.5rem',
+        brandCard: '20.25rem',
       },
       fontSize: {
         '21px': '1.3125rem',

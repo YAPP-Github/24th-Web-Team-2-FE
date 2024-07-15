@@ -4,14 +4,15 @@ import Image from 'next/image';
 import { formatToMonthDayKorean } from '@/utils/formatDate/formatToMonthDayKorean';
 
 interface ArticleCardProps extends Article {
-  isToday: boolean;
+  isToday?: boolean;
 }
 
 const ArticleCard = (props: ArticleCardProps) => {
-  const { title, content, date, thumbnail, isRead, from, isToday } = props;
+  const { title, content, date, thumbnail, isRead, from, isToday = false } = props;
+
   return (
     <div
-      className={`${isRead ? 'bg-background_grey' : isToday ? 'border-gradient_vertical bg-white' : 'bg-white'}  w-articleCard `}
+      className={`${isRead ? 'bg-background_grey' : isToday ? 'border-gradient_vertical bg-white' : 'border border-lightgrey bg-white'}  w-articleCard `}
     >
       <div className='flex flex-row items-center gap-20 p-6'>
         <div className='flex flex-col gap-8'>
