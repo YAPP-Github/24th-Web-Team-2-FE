@@ -67,13 +67,23 @@ jobs:
       - name: Docker Compose file move
         uses: actions/checkout@v3
 
-      - name: deploy file
+      - name: sftp docker-compose file
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           username: 'root'
           server: ${{ secrets.NCP_SERVER_HOST }}
           password: ${{ secrets.NCP_SERVER_PASSWORD }}
           local_path: './docker-compose.yml'
+          remote_path: '/root'
+          sftpArgs: '-o ConnectTimeout=5'
+
+      - name: sftp nginx file
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          username: 'root'
+          server: ${{ secrets.NCP_SERVER_HOST }}
+          password: ${{ secrets.NCP_SERVER_PASSWORD }}
+          local_path: './nginx.conf'
           remote_path: '/root'
           sftpArgs: '-o ConnectTimeout=5'
 
