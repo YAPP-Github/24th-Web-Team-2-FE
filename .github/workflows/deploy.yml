@@ -1,0 +1,108 @@
+name: frontend deploy
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - dev
+
+jobs:
+  docker_image_push:
+    name: Push to container registry
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Inject .env file
+        run: echo "${{ secrets.FRONTEND_ENV }}" > ./.env
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login to NCP Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ secrets.CONTAINER_REGISTRY_URL }}
+          username: ${{ secrets.NCP_ACCESS_KEY }}
+          password: ${{ secrets.NCP_SECRET_KEY }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.CONTAINER_REGISTRY_URL }}/nextjs-server:latest
+          cache-from: type=registry,ref=${{ secrets.CONTAINER_REGISTRY_URL }}/prv-frontend:latest
+          cache-to: type=inline
+          secrets: |
+            GIT_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}
+
+  docker_image_pull:
+    name: Connect server ssh and pull from container registry
+    needs: docker_image_push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Github Actions IP
+        id: ip
+        run: |
+          PUBLIC_IP=$(curl -s https://ifconfig.me)
+          echo "::set-output name=public_ip::$PUBLIC_IP"
+
+      - name: Setting NCP CLI & Credentials
+        run: |
+          cd ~
+          wget https://www.ncloud.com/api/support/download/5/65
+          unzip 65
+          mkdir ~/.ncloud
+          echo -e "[DEFAULT]\nncloud_access_key_id = ${{ secrets.NCP_ACCESS_KEY }}\nncloud_secret_access_key = ${{ secrets.NCP_SECRET_KEY }}\nncloud_api_url = ${{ secrets.NCP_API_URL }}" >> ~/.ncloud/configure
+
+      - name: Add Github Action Ip to Security group
+        run: |
+          chmod -R 777 ~/cli_linux
+          cd ~/cli_linux
+          ./ncloud vserver addAccessControlGroupInboundRule --regionCode KR --vpcNo ${{ secrets.NCP_VPC_ID }} --accessControlGroupNo ${{ secrets.NCP_AGC_ID }} --accessControlGroupRuleList "protocolTypeCode='TCP', ipBlock='${{ steps.ip.outputs.public_ip }}/32', portRange='${{ secrets.SSH_PORT }}'"
+
+      - name: Docker Compose file move
+        uses: actions/checkout@v3
+
+      - name: sftp docker-compose file
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          username: 'root'
+          server: ${{ secrets.NCP_SERVER_HOST }}
+          password: ${{ secrets.NCP_SERVER_PASSWORD }}
+          local_path: './docker-compose.yml'
+          remote_path: '/root'
+          sftpArgs: '-o ConnectTimeout=5'
+
+      - name: sftp nginx file
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          username: 'root'
+          server: ${{ secrets.NCP_SERVER_HOST }}
+          password: ${{ secrets.NCP_SERVER_PASSWORD }}
+          local_path: './nginx.conf'
+          remote_path: '/root'
+          sftpArgs: '-o ConnectTimeout=5'
+
+      - name: Connect SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.NCP_SERVER_HOST }}
+          username: ${{ secrets.NCP_SERVER_USERNAME }}
+          password: ${{ secrets.NCP_SERVER_PASSWORD }}
+          port: ${{ secrets.NCP_SERVER_PORT }}
+          script: |
+            docker pull ${{ secrets.CONTAINER_REGISTRY_URL }}/nextjs-server
+            docker stop $(docker ps -a -q)
+            docker rm $(docker ps -a -q)
+            docker compose up -d
+            docker image prune -f
+
+      - name: Remove Github Action Ip to Security group
+        run: |
+          chmod -R 777 ~/cli_linux
+          cd ~/cli_linux
+          ./ncloud vserver removeAccessControlGroupInboundRule --regionCode KR --vpcNo ${{ secrets.NCP_VPC_ID }} --accessControlGroupNo ${{ secrets.NCP_AGC_ID }} --accessControlGroupRuleList "protocolTypeCode='TCP', ipBlock='${{ steps.ip.outputs.public_ip }}/32', portRange='${{ secrets.SSH_PORT }}'"
