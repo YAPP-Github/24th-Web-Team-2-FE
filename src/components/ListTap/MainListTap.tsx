@@ -1,4 +1,4 @@
-import ListItem from './ListItem';
+import ListItem from '@/components/ListTap/ListItem';
 
 interface TabData {
   name: string;
@@ -16,9 +16,7 @@ interface MainListTapProps {
  * @param tabData tab에 들어갈 data
  * @returns
  */
-const MainListTap = (props: MainListTapProps) => {
-  const { currentTab, tabData } = props;
-
+const MainListTap = ({ currentTab, tabData }: MainListTapProps) => {
   return (
     <div className='flex flex-row w-full h-12 gap-4 border-b border-lightgrey'>
       {Object.keys(tabData).map(id => (

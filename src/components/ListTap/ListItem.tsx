@@ -7,9 +7,7 @@ interface ListItemProps {
   isActive: boolean;
 }
 
-const ListItem = (props: ListItemProps) => {
-  const { id, name, count, isActive } = props;
-
+const ListItem = ({ id, name, count, isActive }: ListItemProps) => {
   return (
     <Link
       href={{

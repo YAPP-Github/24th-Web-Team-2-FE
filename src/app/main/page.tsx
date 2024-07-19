@@ -1,7 +1,7 @@
 import ListTap from '@/components/ListTap/MainListTap';
 import type { pageProps } from '@/types/page';
-import TodayTab from './TodayTab';
-import CategoryTab from './CategoryTab';
+import TodayTab from '@/app/main/TodayTab';
+import CategoryTab from '@/app/main/CategoryTab';
 
 const MainPage = async ({ searchParams }: pageProps) => {
   const currentTab = (searchParams.tab ?? 'today') as string;

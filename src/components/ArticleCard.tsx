@@ -1,5 +1,4 @@
 import type { Article } from '@/types/article';
-import { Chip } from './Chip';
 import Image from 'next/image';
 import { formatToMonthDayKorean } from '@/utils/formatDate/formatToMonthDayKorean';
 
@@ -7,9 +6,7 @@ interface ArticleCardProps extends Article {
   isToday?: boolean;
 }
 
-const ArticleCard = (props: ArticleCardProps) => {
-  const { title, content, date, thumbnail, isRead, from, isToday = false } = props;
-
+const ArticleCard = ({ title, content, date, thumbnail, isRead, from, isToday = false }: ArticleCardProps) => {
   return (
     <div
       className={`${isRead ? 'bg-background_grey' : isToday ? 'border-gradient_vertical bg-white' : 'border border-lightgrey bg-white'}  w-articleCard `}

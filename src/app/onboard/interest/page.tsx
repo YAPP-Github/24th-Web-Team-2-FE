@@ -1,5 +1,3 @@
-import { OnboardButton } from '@/components/OnboardButton';
-import { getInterestList } from '@/api/onboard';
 import InterestInteraction from '@/components/PageInteraction/Onboard/InterestInteraction';
 
 interface InterestProps {

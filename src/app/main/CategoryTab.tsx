@@ -1,7 +1,7 @@
 import ArticleCard from '@/components/ArticleCard';
 import { Chip } from '@/components/Chip';
 import type { Article } from '@/types/article';
-import RecommendArea from './TodayTab/RecommendArea';
+import RecommendArea from '@/app/main/TodayTab/RecommendArea';
 
 interface CategoryTabProps {
   currentTab: string;
