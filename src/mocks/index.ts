@@ -1,8 +1,5 @@
 export async function initMsw() {
-  if (typeof window === 'undefined') {
-    const { server } = await import('./server');
-    server.listen();
-  } else {
+  if (typeof window !== 'undefined') {
     const { worker } = await import('./browser');
     await worker.start();
   }

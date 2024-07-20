@@ -7,7 +7,7 @@ interface InterestProps {
 }
 
 const Interest = async ({ userName = '채현' }: InterestProps) => {
-  const interestList = await getInterest();
+  const interestList = await getInterestList();
   return (
     <div className='flex flex-col items-center justify-start w-full h-full gap-10'>
       <span className='flex flex-col items-center gap-2'>

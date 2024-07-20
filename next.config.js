@@ -8,7 +8,9 @@ const nextConfig = {
     return [
       {
         source: '/:path*',
-        destination: `${process.env.NEXT_PUBLIC_API_URL}/:path*`,
+        destination: `${
+          process.env.NEXT_PUBLIC_API_MOCK === 'enabled' ? process.env.MOCK_API_URL : process.env.NEXT_PUBLIC_API_URL
+        }/:path*`,
       },
     ];
   },
