@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import { getCookie } from '@/hooks/cookies';
+// import { getCookie } from '@/hooks/cookies';
 
 const SSR_API_ORIGIN =
   process.env.NEXT_PUBLIC_API_MOCK === 'enabled' ? process.env.MOCK_API_URL : process.env.NEXT_PUBLIC_API_URL;

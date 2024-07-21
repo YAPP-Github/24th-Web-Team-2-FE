@@ -15,22 +15,6 @@ const OnBoard = () => {
         </span>
         <span className='text-black text-h1'>방치되는 유익한 메일을 큐레이팅해요</span>
       </span>
-      {/* <Carousel width={690} height={400} length={3}>
-        <Carousel.Wrapper>
-          <Carousel.Item index={0}>
-            <img src='https://via.placeholder.com/690x400' alt='carousel1' />
-          </Carousel.Item>
-          <Carousel.Item index={1}>
-            <img src='https://via.placeholder.com/690x400' alt='carousel2' />
-          </Carousel.Item>
-          <Carousel.Item index={2}>
-            <img src='https://via.placeholder.com/690x400' alt='carousel3' />
-          </Carousel.Item>
-        </Carousel.Wrapper>
-        <Carousel.Dots imageLength={3} />
-        <Carousel.Move direction='prev' />
-        <Carousel.Move direction='next' />
-      </Carousel> */}
       <Image
         placeholder='blur'
         blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=='
