@@ -1,7 +1,12 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import { getCookie } from '@/hooks/cookies';
+// import { getCookie } from '@/hooks/cookies';
+
+const SSR_API_ORIGIN =
+  process.env.NEXT_PUBLIC_API_MOCK === 'enabled' ? process.env.MOCK_API_URL : process.env.NEXT_PUBLIC_API_URL;
+
 const fetchWrapper = async ({ method, url, body, params }: any) => {
   const config: AxiosRequestConfig = {
+    baseURL: SSR_API_ORIGIN,
     //withCredentials: true,
     headers: {
       // "X-AUTH-TOKEN": getCookie("userToken"),
