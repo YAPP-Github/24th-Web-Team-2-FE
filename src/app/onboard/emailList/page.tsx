@@ -1,5 +1,5 @@
 import ServiceIcon from '@/assets/icons/ServiceIcon';
-import EmailListInteraction from '@/components/Onboard/EmailListInteraction';
+import EmailListInteraction from '@/components/PageInteraction/Onboard/EmailListInteraction';
 
 interface EmailListProps {
   userName: string;
