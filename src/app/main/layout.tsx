@@ -1,12 +1,5 @@
-import type { Metadata } from 'next';
 import MainListTap from '@/components/ListTap/MainListTap';
-import MSWComponent from '@/mocks/MSWWrapper';
 import MainPageHeader from '@/components/Header/MainPageHeader';
-
-export const metadata: Metadata = {
-  title: 'Inspo Mail Club',
-  description: 'TODO: FIX DESCRIPTION',
-};
 
 export default async function MainPageLayout({
   children,
@@ -15,13 +8,13 @@ export default async function MainPageLayout({
 }>) {
   const tabApiData = await getMainPageApiData();
   return (
-    <MSWComponent>
+    <>
       <MainPageHeader />
       <div className='flex flex-col w-content'>
         <MainListTap tabData={tabApiData} />
         <div className='flex justify-center w-full h-full'>{children}</div>
       </div>
-    </MSWComponent>
+    </>
   );
 }
 
