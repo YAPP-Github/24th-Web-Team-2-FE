@@ -39,6 +39,9 @@
   -ms-overflow-style: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 .border-gradient_horizontal {
   border-width: 1px;
   border-style: solid;
@@ -74,6 +77,29 @@
 }
 
 .border-bottom-gradient::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(105, 176, 18, 1) 0%,
+    rgba(247, 187, 19, 1) 19%,
+    rgba(230, 131, 2, 1) 37%,
+    rgba(198, 45, 50, 1) 57%,
+    rgba(134, 40, 114, 1) 76%,
+    rgba(0, 118, 178, 1) 100%
+  );
+  background-size: 200% 100%;
+}
+
+.border-bottom-graeint {
+  position: relative;
+}
+
+.border-bottom-gradient-animation::before {
   content: '';
   position: absolute;
   bottom: 0;

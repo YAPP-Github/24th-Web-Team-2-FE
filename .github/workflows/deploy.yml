@@ -10,6 +10,7 @@ jobs:
   docker_image_push:
     name: Push to container registry
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -43,6 +44,7 @@ jobs:
     name: Connect server ssh and pull from container registry
     needs: docker_image_push
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
     steps:
       - name: Get Github Actions IP
         id: ip

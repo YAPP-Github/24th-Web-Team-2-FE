@@ -15,14 +15,11 @@ const Wrapper = ({ height = '100%', children }: WrapperProps) => {
   const { carouselBoxRef, width } = context;
 
   return (
-    <div
-      ref={carouselBoxRef}
-      className='relative overflow-hidden'
-      style={{ width, height, minWidth: width, minHeight: height }}
-    >
-      <div className='flex w-full p-0 m-0 overflow-hidden' style={{ height }}>
+    <div ref={carouselBoxRef} className='relative overflow-hidden' style={{ width, height }}>
+      <div className='relative flex w-full p-0 m-0 overflow-hidden' style={{ width, height }}>
         {children}
       </div>
+      <div className='absolute bottom-0 right-0 w-full h-24 bg-gradient-to-t from-white to-transparent' />
     </div>
   );
 };
