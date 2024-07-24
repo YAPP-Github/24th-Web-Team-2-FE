@@ -12,3 +12,12 @@ export interface Article {
     profile: string;
   };
 }
+export interface Domain {
+  id: string;
+  name: string;
+  type: string;
+  domain: string;
+  profile: string;
+  description: string;
+  website: string;
+}

@@ -5,7 +5,7 @@ interface ListItemProps {
   name: string;
   count: number;
   isActive: boolean;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const ListItem = ({ id, name, count, isActive, onClick }: ListItemProps) => {
