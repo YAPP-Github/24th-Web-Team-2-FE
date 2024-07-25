@@ -1,6 +1,5 @@
 .DS_Store
 node_modules
-.env
 *storybook.log
 .next
 
@@ -9,4 +8,4 @@ localhost+1-key.pem
 localhost+1.pem
 *.pem
 
-my.secrets
+my.secrets 

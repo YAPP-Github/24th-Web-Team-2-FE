@@ -9,6 +9,11 @@ const nextConfig = {
       {
         source: '/:path((?!main/article|domain).*)',
         destination: `${process.env.NEXT_PUBLIC_API_URL}/:path*`,
+        // @우찬 - env파일 공유 한번 해주세요~!
+        source: '/:path*',
+        destination: `${
+          process.env.NEXT_PUBLIC_API_MOCK === 'enabled' ? process.env.MOCK_API_URL : process.env.NEXT_PUBLIC_API_URL
+        }/:path*`,
       },
     ];
   },

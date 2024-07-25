@@ -2,11 +2,8 @@ version: '3.8'
 
 services:
   web:
-    image: node:20
-    working_dir: /app
-    volumes:
-      - /root/project:/app
-    command: npm run dev
+    image: image-frontend.kr.ncr.ntruss.com/nextjs-server
+    build: .
     ports:
       - '3000:3000'
     networks:
