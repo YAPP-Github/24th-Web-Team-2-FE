@@ -14,6 +14,7 @@ const RecommendArea = async () => {
       <div className='flex flex-col'>
         {recommendBrandData.map((brand, index) => (
           <div
+            key={brand.id}
             className={`${index !== recommendBrandData.length - 1 && 'border-b border-lightgrey'} flex flex-row justify-between w-full py-3`}
           >
             <span className='flex flex-row items-center gap-3'>
