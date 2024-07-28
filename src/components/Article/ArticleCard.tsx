@@ -1,9 +1,9 @@
-import type { Article } from '@/types/article';
+import type { ArticleType } from '@/types/article';
 import Image from 'next/image';
 import { formatToMonthDayKorean } from '@/utils/formatDate/formatToMonthDayKorean';
 import Link from 'next/link';
 
-interface ArticleCardProps extends Article {
+interface ArticleCardProps extends ArticleType {
   isToday?: boolean;
   currentTab: string;
 }

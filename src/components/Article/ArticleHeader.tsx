@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Chip } from '../Chip';
+import { Chip } from '@/components/Chip';
 import { formatToMonthDayKorean } from '@/utils/formatDate/formatToMonthDayKorean';
 
 interface ArticleHeaderProps {

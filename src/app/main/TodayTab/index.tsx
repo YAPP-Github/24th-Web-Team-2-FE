@@ -1,6 +1,6 @@
 import ArticleCard from '@/components/Article/ArticleCard';
 import { Chip } from '@/components/Chip';
-import type { Article } from '@/types/article';
+import type { ArticleType } from '@/types/article';
 import { formatToYMD } from '@/utils/formatDate/formatToYMD';
 import Image from 'next/image';
 import DoubleArrow from '@/assets/icons/DoubleArrow.svg';

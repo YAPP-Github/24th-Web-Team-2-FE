@@ -2,10 +2,17 @@ import MainPageHeader from '@/components/Header/MainPageHeader';
 import DomainListTap from '@/components/ListTap/DomainListTap';
 import Image from 'next/image';
 import ArticleCard from '@/components/Article/ArticleCard';
-import DomainCard from './DomainCard';
+import DomainCard from '@/app/domain/[id]/DomainCard';
 
-const DomainPage = async ({ params }: { params: { id: string } }) => {
+interface DomainPageProps {
+  params: {
+    id: string;
+  };
+}
+
+const DomainPage = async ({ params }: DomainPageProps) => {
   const { domainData, isSubscribed, domainArticleData } = await getDomainPageData(params.id);
+
   return (
     <div className='flex flex-col items-center w-full'>
       <MainPageHeader />

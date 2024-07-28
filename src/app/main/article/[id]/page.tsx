@@ -8,6 +8,7 @@ interface ArticlePageProps extends pageProps {
 const ArticlePage = async ({ searchParams, params }: ArticlePageProps) => {
   const articleData = await getArticleData(params.id);
   const isToday = (searchParams.tab ?? 'today') === 'today';
+
   return (
     <div className='flex flex-col w-full gap-2'>
       <ArticleHeader {...articleData} isToday={isToday} />

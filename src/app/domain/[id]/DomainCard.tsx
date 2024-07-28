@@ -1,12 +1,12 @@
 import { Chip } from '@/components/Chip';
 import SubscribeButton from '@/components/SubscribeButton';
-import type { Domain } from '@/types/article';
+import type { DomainType } from '@/types/article';
 import Image from 'next/image';
 import Link from 'next/link';
 import WebsiteIcon from '@/assets/icons/WebsiteIcon.svg';
 
 interface DomainCardProps {
-  domainData: Domain;
+  domainData: DomainType;
   isSubscribed: boolean;
 }
 
@@ -32,7 +32,7 @@ const DomainCard = ({ domainData, isSubscribed }: DomainCardProps) => {
       <Link
         target='_blank'
         href={domainData.website}
-        className='flex flex-row items-center gap-2 underline text-body3 decoration-black underline-offset-2'
+        className='flex flex-row items-center gap-2 underline w-fit text-body3 decoration-black underline-offset-2'
       >
         Website
         <Image src={WebsiteIcon} alt='Website' width={14} height={14} />

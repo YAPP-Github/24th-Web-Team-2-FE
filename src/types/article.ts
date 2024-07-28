@@ -1,4 +1,4 @@
-export interface Article {
+export interface ArticleType {
   id: string;
   url: string;
   title: string;
@@ -12,7 +12,7 @@ export interface Article {
     profile: string;
   };
 }
-export interface Domain {
+export interface DomainType {
   id: string;
   name: string;
   type: string;
