@@ -1,5 +1,6 @@
-export interface Article {
+export interface ArticleType {
   id: string;
+  url: string;
   title: string;
   type: string;
   content: string;
@@ -10,4 +11,13 @@ export interface Article {
     domain: string;
     profile: string;
   };
+}
+export interface DomainType {
+  id: string;
+  name: string;
+  type: string;
+  domain: string;
+  profile: string;
+  description: string;
+  website: string;
 }

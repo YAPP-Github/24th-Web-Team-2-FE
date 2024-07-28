@@ -1,15 +1,28 @@
 import type { ArticleType } from '@/types/article';
-import { Chip } from './Chip';
 import Image from 'next/image';
 import { formatToMonthDayKorean } from '@/utils/formatDate/formatToMonthDayKorean';
+import Link from 'next/link';
 
 interface ArticleCardProps extends ArticleType {
   isToday?: boolean;
+  currentTab: string;
 }
 
-const ArticleCard = ({ title, content, date, thumbnail, isRead, from, isToday = false }: ArticleCardProps) => {
+const ArticleCard = ({
+  title,
+  url,
+  content,
+  date,
+  thumbnail,
+  isRead,
+  from,
+  isToday = false,
+  currentTab,
+}: ArticleCardProps) => {
   return (
-    <div
+    <Link
+      // https://stackoverflow.com/questions/66821351/nextjs-error-message-failed-prop-type-the-prop-href-expects-a-string-or-o
+      href={{ pathname: `/main${url}`, query: { tab: currentTab } }}
       className={`${isRead ? 'bg-background_grey' : isToday ? 'border-gradient_vertical bg-white' : 'border border-lightgrey bg-white'}  w-articleCard `}
     >
       <div className='flex flex-row items-center gap-20 p-6'>
@@ -29,7 +42,7 @@ const ArticleCard = ({ title, content, date, thumbnail, isRead, from, isToday = 
 
         <Image className='shrink-0' width={156} height={156} src={thumbnail} alt={`thumbnail for ${title} article`} />
       </div>
-    </div>
+    </Link>
   );
 };
 
