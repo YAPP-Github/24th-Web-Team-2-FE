@@ -1,6 +1,6 @@
 import ArticleCard from '@/components/Article/ArticleCard';
 import { Chip } from '@/components/Chip';
-import type { ArticleType } from '@/types/article';
+import type { ArticleType } from '@/types';
 import RecommendArea from '@/app/main/TodayTab/RecommendArea';
 
 interface CategoryTabProps {

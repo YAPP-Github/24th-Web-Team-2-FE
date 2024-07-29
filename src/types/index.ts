@@ -21,3 +21,11 @@ export interface DomainType {
   description: string;
   website: string;
 }
+
+export interface UserDataType {
+  id: string;
+  name: string;
+  typeList: string[];
+  email: string;
+  profile: string;
+}

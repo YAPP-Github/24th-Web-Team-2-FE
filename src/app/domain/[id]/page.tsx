@@ -1,5 +1,5 @@
 import MainPageHeader from '@/components/Header/MainPageHeader';
-import DomainListTap from '@/components/ListTap/DomainListTap';
+import AlternateListTap from '@/components/ListTap/AlternateListTap';
 import Image from 'next/image';
 import ArticleCard from '@/components/Article/ArticleCard';
 import DomainCard from '@/app/domain/[id]/DomainCard';
@@ -23,7 +23,7 @@ const DomainPage = async ({ params }: DomainPageProps) => {
             <div className='absolute bottom-0 w-full h-2/5 bg-gradient-to-t from-white' />
           </div>
           <div className='relative -top-10 text-h1'>{domainData.name}</div>
-          <DomainListTap />
+          <AlternateListTap tapName='지난 아티클' tapCount={domainArticleData.length} />
           <div className='flex flex-col w-full gap-4'>
             {domainArticleData.map(article => (
               <ArticleCard key={article.id} {...article} currentTab={'currentTab'} />
