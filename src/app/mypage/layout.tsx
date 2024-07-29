@@ -1,12 +1,9 @@
 import MainPageHeader from '@/components/Header/MainPageHeader';
 import type { PropsWithChildren } from 'react';
-import { cloneElement, isValidElement } from 'react';
 import Link from 'next/link';
-import UserDataCard from './UserDataCard';
-import { GET } from '@/network';
+import UserDataCard from '@/app/mypage/UserDataCard';
 
 export default async function MypageLayout({ children }: Readonly<PropsWithChildren>) {
-  
   return (
     <>
       <MainPageHeader />
@@ -18,7 +15,7 @@ export default async function MypageLayout({ children }: Readonly<PropsWithChild
             <div className='flex flex-col justify-between h-[calc(100vh-11.25rem)]'>
               <div className='pt-20'>
                 <span className='w-full bg-red h-[200px]'>
-                  <UserDataCard/>
+                  <UserDataCard />
                 </span>
               </div>
               <div className='flex flex-col gap-3 pb-6 text-caption'>
@@ -46,4 +43,3 @@ export default async function MypageLayout({ children }: Readonly<PropsWithChild
     </>
   );
 }
-
