@@ -28,7 +28,7 @@ const CategoryTab = async ({ currentTab }: CategoryTabProps) => {
 export default CategoryTab;
 
 // currentTab을 props로 넘겨서 해당 탭에 맞는 데이터를 fetch
-const getCategoryArticleData = async (currentTab: string): Promise<Article[]> => {
+const getCategoryArticleData = async (currentTab: string): Promise<ArticleType[]> => {
   return [
     {
       id: 'randomString111',

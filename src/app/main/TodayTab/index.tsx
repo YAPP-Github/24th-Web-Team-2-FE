@@ -37,7 +37,7 @@ const TodayTab = async () => {
 };
 export default TodayTab;
 
-const getMainPageArticleData = async (): Promise<Article[]> => {
+const getMainPageArticleData = async (): Promise<ArticleType[]> => {
   return [
     {
       id: 'randomString111',
