@@ -74,7 +74,7 @@ const EmailListInteraction = ({ userName, interest, incomingSenders, techSenders
             })}
           </div>
         </div>
-        <div className='absolute bottom-0 right-0 w-full h-16 bg-gradient-to-t from-white to-transparent' />
+        <div className='absolute bottom-0 right-0 w-full h-16 pointer-events-none bg-gradient-to-t from-white to-transparent' />
       </div>
       <OnboardButton text='이렇게 볼래요!' type='onboard' isActivated={selectedEmailList.length > 0} />
     </div>

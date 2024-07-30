@@ -1,10 +1,12 @@
 import { Chip } from '@/components/Chip';
 import DomainListItem from '@/components/Domain/DomainListItem';
 import SubscribeButton from '@/components/SubscribeButton';
+import { GET } from '@/network';
+import { DomainType } from '@/types';
 import Image from 'next/image';
 
 const RecommendArea = async () => {
-  const recommendDomainData = await getRecommendDomainData();
+  const recommendDomainData: DomainType[] = await getRecommendDomainData();
 
   return (
     <div className='flex flex-col gap-3 min-w-domainCard'>
@@ -13,12 +15,12 @@ const RecommendArea = async () => {
         <span className='text-caption text-darkgrey'>더 많은 인사이트를 얻으세요</span>
       </div>
       <div className='flex flex-col'>
-        {recommendDomainData.map((domain, index) => (
+        {recommendDomainData.map((domain, index: number) => (
           <div
             key={index}
             className={`${index === recommendDomainData.length - 1 ? 'border-b-white' : 'border-b-lightgrey'} border-b`}
           >
-            <DomainListItem domainData={domain} isSubscribed={domain.isSubscribed} />
+            <DomainListItem domainData={domain} isSubscribed={false} />
           </div>
         ))}
       </div>
@@ -29,27 +31,6 @@ const RecommendArea = async () => {
 export default RecommendArea;
 
 const getRecommendDomainData = async () => {
-  return [
-    {
-      id: 'randomString111',
-      name: '요즘IT',
-      profile: 'https://picsum.photos/48',
-      type: 'IT/테크',
-      isSubscribed: false,
-    },
-    {
-      id: 'randomString112',
-      name: '요즘IT',
-      profile: 'https://picsum.photos/48',
-      type: 'IT/테크',
-      isSubscribed: false,
-    },
-    {
-      id: 'randomString113',
-      name: '요즘IT',
-      profile: 'https://picsum.photos/48',
-      type: 'IT/테크',
-      isSubscribed: false,
-    },
-  ];
+  const response = await GET('/domainRecommendList');
+  return response.data;
 };
