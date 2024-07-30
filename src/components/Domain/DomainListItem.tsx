@@ -1,6 +1,6 @@
 import { Chip } from '@/components/Chip';
 import SubscribeButton from '@/components/SubscribeButton';
-import { DomainType } from '@/types';
+import type { DomainType } from '@/types';
 import Image from 'next/image';
 
 type DomainDataforListItem = Omit<DomainType, 'description' | 'website' | 'domain'>;
