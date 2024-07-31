@@ -1,5 +1,6 @@
 import ServiceIcon from '@/assets/icons/ServiceIcon';
 import EmailListInteraction from '@/components/PageInteraction/Onboard/EmailListInteraction';
+import { GET } from '@/network';
 
 interface EmailListProps {
   userName: string;
@@ -31,126 +32,11 @@ const EmailList = async ({ userName = '채현' }: EmailListProps) => {
 export default EmailList;
 
 const getIncomingSenders = async () => {
-  const response = {
-    senders: [
-      {
-        senderId: 'randomString1',
-        fullAddress: 'inspomailclub@hedwig.com',
-        localPart: 'inspomailclub1',
-        domain: 'hedwig.com',
-        category: 'IT / 테크',
-      },
-      {
-        senderId: 'randomString2',
-        fullAddress: 'inspomailclub@hedwig.com',
-        localPart: 'inspomailclub2',
-        domain: 'hedwig.com',
-        category: 'IT / 테크',
-      },
-      {
-        senderId: 'randomString3',
-        fullAddress: 'inspomailclub@hedwig.com',
-        localPart: 'inspomailclub3',
-        domain: 'hedwig.com',
-        category: 'IT / 테크',
-      },
-      {
-        senderId: 'randomString4',
-        fullAddress: 'inspomailclub@hedwig.com',
-        localPart: 'inspomailclub4',
-        domain: 'hedwig.com',
-        category: 'IT / 테크',
-      },
-      {
-        senderId: 'randomString5',
-        fullAddress: 'inspomailclub@hedwig.com',
-        localPart: 'inspomailclub5',
-        domain: 'hedwig.com',
-        category: 'IT / 테크',
-      },
-    ],
-    count: 5,
-  };
-
+  const response = GET('/incomingSenders/1');
   return response;
 };
 
 const getIncomingSenders2 = async () => {
-  const response = {
-    senders: [
-      {
-        senderId: 'randomString1',
-        fullAddress: 'inspomailclub@hedwig.com',
-        localPart: 'inspomailclub11',
-        domain: 'hedwig.com',
-        category: 'IT / 테크',
-      },
-      {
-        senderId: 'randomString2',
-        fullAddress: 'inspomailclub@hedwig.com',
-        localPart: 'inspomailclub12',
-        domain: 'hedwig.com',
-        category: 'IT / 테크',
-      },
-      {
-        senderId: 'randomString3',
-        fullAddress: 'inspomailclub@hedwig.com',
-        localPart: 'inspomailclub13',
-        domain: 'hedwig.com',
-        category: 'IT / 테크',
-      },
-      {
-        senderId: 'randomString4',
-        fullAddress: 'inspomailclub@hedwig.com',
-        localPart: 'inspomailclub14',
-        domain: 'hedwig.com',
-        category: 'IT / 테크',
-      },
-      {
-        senderId: 'randomString5',
-        fullAddress: 'inspomailclub@hedwig.com',
-        localPart: 'inspomailclub15',
-        domain: 'hedwig.com',
-        category: 'IT / 테크',
-      },
-      {
-        senderId: 'randomString6',
-        fullAddress: 'inspomailclub@hedwig.com',
-        localPart: 'inspomailclub16',
-        domain: 'hedwig.com',
-        category: 'IT / 테크',
-      },
-      {
-        senderId: 'randomString7',
-        fullAddress: 'inspomailclub@hedwig.com',
-        localPart: 'inspomailclub17',
-        domain: 'hedwig.com',
-        category: 'IT / 테크',
-      },
-      {
-        senderId: 'randomString8',
-        fullAddress: 'inspomailclub@hedwig.com',
-        localPart: 'inspomailclub18',
-        domain: 'hedwig.com',
-        category: 'IT / 테크',
-      },
-      {
-        senderId: 'randomString9',
-        fullAddress: 'inspomailclub@hedwig.com',
-        localPart: 'inspomailclub19',
-        domain: 'hedwig.com',
-        category: 'IT / 테크',
-      },
-      {
-        senderId: 'randomString10',
-        fullAddress: 'inspomailclub@hedwig.com',
-        localPart: 'inspomailclub20',
-        domain: 'hedwig.com',
-        category: 'IT / 테크',
-      },
-    ],
-    count: 10,
-  };
-
+  const response = GET('/incomingSenders/2');
   return response;
 };

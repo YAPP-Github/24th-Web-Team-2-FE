@@ -1,6 +1,6 @@
 import { Chip } from '@/components/Chip';
 import SubscribeButton from '@/components/SubscribeButton';
-import type { DomainType } from '@/types/article';
+import type { DomainType } from '@/types/';
 import Image from 'next/image';
 import Link from 'next/link';
 import WebsiteIcon from '@/assets/icons/WebsiteIcon.svg';

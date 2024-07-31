@@ -25,13 +25,15 @@ module.exports = {
       borderRadius: {
         smaller: '0.25rem',
       },
-      width: {
+      spacing: {
+        25: '6.25rem',
         50: '12.5rem',
         inputBox: '30.375rem',
         emailSenderButton: '26.375rem',
         content: '75rem',
         articleCard: '49.5rem',
-        brandCard: '20.25rem',
+        domainCard: '20.25rem',
+        max_domainCard: '30.5rem',
       },
       fontSize: {
         '21px': '1.3125rem',

@@ -1,4 +1,4 @@
-import type { ArticleType } from '@/types/article';
+import type { ArticleType } from '@/types';
 import Image from 'next/image';
 import { formatToMonthDayKorean } from '@/utils/formatDate/formatToMonthDayKorean';
 import Link from 'next/link';

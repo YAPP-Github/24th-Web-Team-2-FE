@@ -9,10 +9,10 @@ const MainPageHeader = () => {
         <ServiceIcon width={195} />
       </Link>
 
-      <span className='flex flex-row items-center gap-1 cursor-pointer '>
+      <Link href='/mypage' className='flex flex-row items-center gap-1 cursor-pointer '>
         <HomeIcon width={24} />
         <span className='text-body3'>My Page</span>
-      </span>
+      </Link>
     </div>
   );
 };
