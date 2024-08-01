@@ -30,7 +30,10 @@ const TodayTab = async ({ articleData }: TodayTabProps) => {
           </div>
         ))}
       </div>
-      <Link href='#article1' className='flex flex-row justify-center w-full gap-1 cursor-pointer text-darkgrey'>
+      <Link
+        href={`/main#${articleData[0].id}`}
+        className='flex flex-row justify-center w-full gap-1 cursor-pointer text-darkgrey'
+      >
         첫 번째부터 읽기
         <Image className='p-1.5' src={DoubleArrow} width={24} height={24} alt='Scroll Down' />
       </Link>

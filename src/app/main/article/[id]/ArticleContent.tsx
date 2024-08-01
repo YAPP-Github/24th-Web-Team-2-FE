@@ -11,7 +11,7 @@ const ArticleContent = async ({ isToday, articleId }: ArticleContentProps) => {
   return (
     <div id={articleId} className='flex flex-col w-full gap-2'>
       <ArticleHeader {...articleData} isToday={isToday} />
-      <div id='article1' className='w-full h-[1200px] bg-darkgrey'></div>
+      <div className='w-full h-[1200px] bg-darkgrey'></div>
     </div>
   );
 };

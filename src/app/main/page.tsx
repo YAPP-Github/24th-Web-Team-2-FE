@@ -4,6 +4,7 @@ import CategoryTab from '@/app/main/CategoryTab';
 import ArticleContent from './article/[id]/ArticleContent';
 import { GET } from '@/network';
 import type { ArticleType } from '@/types';
+import { Suspense } from 'react';
 
 const MainPage = async ({ searchParams }: pageProps) => {
   // apiData에서 tab에 들어갈 데이터 fetch
@@ -17,7 +18,7 @@ const MainPage = async ({ searchParams }: pageProps) => {
           <TodayTab articleData={articleApiData} />
           <div className='flex flex-col w-full gap-20'>
             {articleApiData.map(article => (
-              <ArticleContent isToday={true} articleId={article.id} />
+              <ArticleContent key={article.id} isToday={true} articleId={article.id} />
             ))}
           </div>
         </>
