@@ -11,6 +11,7 @@ interface ArticleCardProps extends ArticleType {
 const ArticleCard = ({
   title,
   url,
+  id,
   content,
   date,
   thumbnail,
@@ -22,7 +23,7 @@ const ArticleCard = ({
   return (
     <Link
       // https://stackoverflow.com/questions/66821351/nextjs-error-message-failed-prop-type-the-prop-href-expects-a-string-or-o
-      href={{ pathname: `/main${url}`, query: { tab: currentTab } }}
+      href={{ pathname: isToday ? `/main` : `/main${url}`, hash: id, query: { tab: currentTab } }}
       className={`${isRead ? 'bg-background_grey' : isToday ? 'border-gradient_vertical bg-white' : 'border border-lightgrey bg-white'}  w-articleCard `}
     >
       <div className='flex flex-row items-center gap-20 p-6'>
