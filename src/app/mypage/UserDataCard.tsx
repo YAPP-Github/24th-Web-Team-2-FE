@@ -28,6 +28,6 @@ export default UserDataCard;
 
 // TODO: 추후 로그인 로직 완성 후 아래 제거
 const getUserData = async () => {
-  const response = await GET('/userData');
+  const response = await GET('/users');
   return response.data;
 };

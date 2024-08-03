@@ -1,13 +1,13 @@
 'use client';
 
+import { Interest, useGetInterestList } from '@/api/onboard';
 import { OnboardButton } from '@/components/OnboardButton';
-import type { Interest } from '@/types/onboard';
+
 import { useState } from 'react';
 
-interface InterestInteractionProps {
-  interestList: Interest[];
-}
-const InterestInteraction = ({ interestList }: InterestInteractionProps) => {
+const InterestInteraction = () => {
+  const interestList = useGetInterestList().data;
+
   const [selectedCategory, setSelectedCategory] = useState<string[]>([]);
 
   const handleCategoryClick = (category: string) => {
@@ -19,8 +19,8 @@ const InterestInteraction = ({ interestList }: InterestInteractionProps) => {
     }
   };
 
-  const handleConfirmBtnClick = () => {
-    console.log('confirm button clicked with selected category: ', selectedCategory);
+  const handleConfirmBtnClick = async () => {
+    await fetch('/check2');
   };
 
   return (

@@ -2,7 +2,18 @@ import type { UserDataType } from '@/types';
 import { HttpResponse, http } from 'msw';
 
 export const handlers = [
-  http.get('/interests', () => {
+  http.get('/user', () => {
+    return HttpResponse.json({
+      data: {
+        name: 'haha',
+        age: 20,
+      },
+    });
+  }),
+
+  http.get('/interests', ({ cookies }) => {
+    console.log(cookies);
+
     return HttpResponse.json({
       data: [
         {
@@ -39,15 +50,28 @@ export const handlers = [
     });
   }),
 
-  http.get('/userData', () => {
+  http.get('/users', ({ cookies }) => {
+    console.log(cookies); // credentials 확인용
+
     return HttpResponse.json({
       data: {
-        id: 'randomString1',
-        name: '임채현',
-        email: 'hedwig@gmail.com',
-        profile: 'https://picsum.photos/200',
-        typeList: ['시사', 'IT/테크', '채용'],
-      } as UserDataType,
+        user_id: 'userid1234',
+        username: '채현',
+        onboardingStatus: 1,
+        created_at: '생성시점',
+        updated_at: '마지막 수정 시점',
+      },
+    });
+  }),
+
+  http.post('/users', () => {
+    const CookieHeader: HeadersInit = new Headers();
+    CookieHeader.set('Access-Control-Allow-Credentials', 'true');
+    CookieHeader.set('Set-Cookie', 'mockSession=12312312312312312312; Path=/;');
+
+    return new HttpResponse(null, {
+      status: 200,
+      headers: CookieHeader,
     });
   }),
 
