@@ -43,6 +43,15 @@ module.exports = {
         rainbow:
           'linear-gradient(90deg, rgba(105, 176, 18, 1) 0%, rgba(247, 187, 19, 1) 19%, rgba(230, 131, 2, 1) 37%, rgba(198, 45, 50, 1) 57%, rgba(134, 40, 114, 1) 76%, rgba(0, 118, 178, 1) 100%)',
       },
+      animation: {
+        appear: 'appear 0.2s linear',
+      },
+      keyframes: {
+        appear: {
+          '0%': { opacity: '0', transform: 'translateY(2.5rem)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+      }
     },
   },
   plugins: [

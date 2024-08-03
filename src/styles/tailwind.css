@@ -34,6 +34,30 @@
   @apply text-base font-normal leading-normal tracking-tighter;
 }
 
+.text-h1-onboard {
+  @apply text-5xl font-bold leading-[3.75rem] tracking-tighter;
+}
+
+.text-h2-onboard {
+  @apply text-[2.5rem] font-bold leading-[3.5rem] tracking-tighter;
+}
+
+.text-h3-onboard {
+  @apply text-[2rem] font-bold leading-[2.5rem] tracking-tighter;
+}
+
+.text-body1-onboard {
+  @apply text-base font-bold tracking-tighter;
+}
+
+.text-body2-onboard{
+  @apply text-base font-normal tracking-tighter;
+}
+
+.text-body3-onboard{
+  @apply text-sm font-bold tracking-tighter;
+}
+
 .noScrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;
