@@ -1,6 +1,5 @@
-import ArticleHeader from '@/components/Article/ArticleHeader';
 import type { pageProps } from '@/types/page';
-import ArticleContent from './ArticleContent';
+import ArticleContent from '@/app/main/article/[id]/ArticleContent';
 
 interface ArticlePageProps extends pageProps {
   params: { id: string };

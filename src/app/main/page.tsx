@@ -4,7 +4,7 @@ import CategoryTab from '@/app/main/CategoryTab';
 import ArticleContent from './article/[id]/ArticleContent';
 import { GET } from '@/network';
 import type { ArticleType } from '@/types';
-import { Suspense } from 'react';
+
 
 const MainPage = async ({ searchParams }: pageProps) => {
   // apiData에서 tab에 들어갈 데이터 fetch
