@@ -5,10 +5,11 @@ import { formatToYMD } from '@/utils/formatDate/formatToYMD';
 import Image from 'next/image';
 import DoubleArrow from '@/assets/icons/DoubleArrow.svg';
 import Link from 'next/link';
-import { GET } from '@/network';
+interface TodayTabProps {
+  articleData: ArticleType[];
+}
 
-const TodayTab = async () => {
-  const articleApiData = await getMainPageArticleData();
+const TodayTab = async ({ articleData }: TodayTabProps) => {
   return (
     <>
       <div className='flex flex-col items-center gap-3 mt-10'>
@@ -19,17 +20,20 @@ const TodayTab = async () => {
           <br />
           오늘 도착한 메일이에요
         </span>
-        <span className='text-darkgrey text-h2'>{articleApiData.length}개의 인사이트가 도착했어요</span>
+        <span className='text-darkgrey text-h2'>{articleData.length}개의 인사이트가 도착했어요</span>
       </div>
       <div className='flex flex-col gap-6'>
-        {articleApiData.map(article => (
+        {articleData.map(article => (
           <div key={article.id} className='flex flex-col gap-3'>
             <Chip text={article.type} />
             <ArticleCard key={article.id} {...article} isToday={true} currentTab='today' />
           </div>
         ))}
       </div>
-      <Link href='#article1' className='flex flex-row justify-center w-full gap-1 cursor-pointer text-darkgrey'>
+      <Link
+        href={`/main#${articleData[0].id}`}
+        className='flex flex-row justify-center w-full gap-1 cursor-pointer text-darkgrey'
+      >
         첫 번째부터 읽기
         <Image className='p-1.5' src={DoubleArrow} width={24} height={24} alt='Scroll Down' />
       </Link>
@@ -37,8 +41,3 @@ const TodayTab = async () => {
   );
 };
 export default TodayTab;
-
-const getMainPageArticleData = async (): Promise<ArticleType[]> => {
-  const response = await GET('/articleList');
-  return response.data;
-};
