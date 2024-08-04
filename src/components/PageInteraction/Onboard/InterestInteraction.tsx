@@ -19,9 +19,7 @@ const InterestInteraction = () => {
     }
   };
 
-  const handleConfirmBtnClick = async () => {
-    await fetch('/check2');
-  };
+  const handleConfirmBtnClick = async () => {};
 
   return (
     <>

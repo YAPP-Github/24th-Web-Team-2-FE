@@ -1,7 +1,6 @@
 'use client';
 
 import InterestInteraction from '@/components/PageInteraction/Onboard/InterestInteraction';
-import { useGetInterestList } from '@/api/onboard';
 import { useProfileData } from '@/api/profile';
 import { Suspense } from 'react';
 
