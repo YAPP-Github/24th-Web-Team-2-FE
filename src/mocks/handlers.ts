@@ -1,4 +1,3 @@
-import type { UserDataType } from '@/types';
 import { HttpResponse, http } from 'msw';
 
 export const handlers = [
@@ -8,6 +7,12 @@ export const handlers = [
         name: 'haha',
         age: 20,
       },
+    });
+  }),
+
+  http.get('/auth/google', () => {
+    return HttpResponse.json({
+      isGuest: true,
     });
   }),
 
