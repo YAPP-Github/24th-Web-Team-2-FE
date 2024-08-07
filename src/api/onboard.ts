@@ -1,5 +1,6 @@
 import { GET } from '@/network';
 import { useSuspenseQuery } from '@tanstack/react-query';
+import { AxiosError, AxiosResponse } from 'axios';
 
 export interface Interest {
   id: string;
@@ -7,18 +8,16 @@ export interface Interest {
   desc: string;
 }
 
-interface InterestListData {
-  data: Interest[];
-}
-
 export const getInterestList = async () => {
-  const data = <InterestListData>await GET('/interests');
+  const data = await GET('/interests');
 
-  return data.data;
+  return data;
 };
 
 export const useGetInterestList = () => {
-  const result = useSuspenseQuery({ queryFn: getInterestList, queryKey: ['interestList'] });
-
-  return { data: result.data ? result.data : [] };
+  return useSuspenseQuery<AxiosResponse<Interest[]>, AxiosError<Interest[]>, Interest[]>({
+    queryFn: getInterestList,
+    queryKey: ['interestList'],
+    select: ({ data }) => data,
+  });
 };

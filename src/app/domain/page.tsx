@@ -6,13 +6,13 @@ import Image from 'next/image';
 
 import { GET } from '@/network';
 import { ArticleType, DomainType } from '@/types';
-import { useMailData } from '@/api/getMailData';
+import { useFetchMailData } from '@/api/getMailData';
 import { useSearchParams } from 'next/navigation';
 
 const DomainPage = () => {
   const param = useSearchParams();
   const mailId = (param.has('mailId') ? param.get('mailId') : '1') as string;
-  const domainData = useMailData(mailId);
+  const { data } = useFetchMailData(mailId);
 
   return (
     <div className='flex flex-col items-center w-full'>
@@ -20,12 +20,12 @@ const DomainPage = () => {
       <div className='flex flex-row gap-10 mb-10 w-content'>
         <div className='flex flex-col gap-6 w-articleCard'>
           <div className='relative w-full aspect-[792/216]'>
-            <Image
-              src={domainData.data.profile}
-              alt={domainData.data.domain}
+            {/* <Image
+              src={data.domainData.profile}
+              alt={data.domainData.domain}
               fill
               className='object-cover w-full h-full'
-            />
+            /> */}
             <div className='absolute bottom-0 w-full h-2/5 bg-gradient-to-t from-white' />
           </div>
           {/* <div className='relative -top-10 text-h1'>{domainData.data.name}</div>
@@ -45,8 +45,8 @@ const DomainPage = () => {
 
 export default DomainPage;
 
-export const getDomainPageData = async (id: string) => {
-  const response = await GET(`/domainData/${id}`);
+// export const getDomainPageData = async (id: string) => {
+//   const response = await GET(`/domainData/${id}`);
 
-  return response;
-};
+//   return response;
+// };

@@ -6,7 +6,8 @@ import { OnboardButton } from '@/components/OnboardButton';
 import { useState } from 'react';
 
 const InterestInteraction = () => {
-  const interestList = useGetInterestList().data;
+  const { data } = useGetInterestList();
+  console.log(data);
 
   const [selectedCategory, setSelectedCategory] = useState<string[]>([]);
 
@@ -24,7 +25,7 @@ const InterestInteraction = () => {
   return (
     <>
       <span className='grid grid-flow-row grid-cols-3 gap-3'>
-        {interestList.map(({ id, interest }) => {
+        {data.map(({ id, interest }) => {
           return (
             <OnboardButton
               key={id}
@@ -42,7 +43,7 @@ const InterestInteraction = () => {
           <span className='text-caption'>
             <span className='text-blue'>
               {selectedCategory
-                .map((category: string) => `'${interestList.find(il => il.interest === category)?.desc}'`)
+                .map((category: string) => `'${data.find(il => il.interest === category)?.desc}'`)
                 .join(', ')}
             </span>
             <span> 소식을 메일로 받아보세요</span>
