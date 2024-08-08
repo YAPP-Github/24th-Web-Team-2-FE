@@ -33,6 +33,6 @@ const SubscribePage = async () => {
 export default SubscribePage;
 
 const getSubscribeList = async () => {
-  const response = await GET('/subscribeList');
+  const response = await GET('/domainSubscribeList');
   return response.data;
 };

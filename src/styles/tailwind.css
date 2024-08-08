@@ -63,6 +63,10 @@
   -ms-overflow-style: none;
 }
 
+.noScrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 html {
   scroll-behavior: smooth;
 }

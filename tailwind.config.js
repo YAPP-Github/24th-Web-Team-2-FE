@@ -24,6 +24,7 @@ module.exports = {
     extend: {
       borderRadius: {
         smaller: '0.25rem',
+        '4xl': '2rem',
       },
       spacing: {
         25: '6.25rem',
@@ -34,6 +35,7 @@ module.exports = {
         articleCard: '49.5rem',
         domainCard: '20.25rem',
         max_domainCard: '30.5rem',
+        landingPageHeight: 'calc(100vh - 4rem)',
       },
       fontSize: {
         '21px': '1.3125rem',
@@ -43,15 +45,11 @@ module.exports = {
         rainbow:
           'linear-gradient(90deg, rgba(105, 176, 18, 1) 0%, rgba(247, 187, 19, 1) 19%, rgba(230, 131, 2, 1) 37%, rgba(198, 45, 50, 1) 57%, rgba(134, 40, 114, 1) 76%, rgba(0, 118, 178, 1) 100%)',
       },
-      animation: {
-        appear: 'appear 0.2s linear',
+      animationDelay: {
+        200: '200ms',
+        400: '400ms',
+        600: '600ms',
       },
-      keyframes: {
-        appear: {
-          '0%': { opacity: '0', transform: 'translateY(2.5rem)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-      }
     },
   },
   plugins: [
