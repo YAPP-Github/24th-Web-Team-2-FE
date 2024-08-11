@@ -39,6 +39,22 @@ export const handlers = [
     });
   }),
 
+  http.get('/auth/google', () => {
+    const CookieHeader: HeadersInit = new Headers();
+    CookieHeader.set('Access-Control-Allow-Credentials', 'true');
+    CookieHeader.set('Set-Cookie', 'connect.sid=12312312312312312312; Path=/;');
+
+    return HttpResponse.json(
+      {
+        isGuest: true,
+      },
+      {
+        status: 200,
+        headers: CookieHeader,
+      },
+    );
+  }),
+
   http.get('/userData', () => {
     return HttpResponse.json({
       data: {
@@ -49,6 +65,10 @@ export const handlers = [
         typeList: ['시사', 'IT/테크', '채용'],
       } as UserDataType,
     });
+  }),
+
+  http.get('/auth/google', () => {
+    return HttpResponse.json();
   }),
 
   http.get('/domainSubscribeList', () => {
