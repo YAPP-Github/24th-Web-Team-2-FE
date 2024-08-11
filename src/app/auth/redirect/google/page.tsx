@@ -19,9 +19,8 @@ const AuthRedirectPage = () => {
     const fetchUser = async () => {
       if (code && scope) {
         try {
-          const response = await axios.get(`/auth/google?code=${code}&scope=${scope}`, {
+          const response = await axios.get(`/auth/google?code=${code}`, {
             headers: {
-              'Access-Control-Allow-Credentials': 'true',
               'Content-Type': 'application/json',
             },
           });
