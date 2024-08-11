@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import useIntersectionObserver from '@/utils/hooks/useIntersectionObserver';
-import ParallaxText from './ParallaxCard';
 import CommentCard from './CommentCard';
+import Marquee from 'react-fast-marquee';
 
 export interface CardData {
   id: number;
@@ -77,7 +77,7 @@ const cardSecondRow: CardData[] = [
 ];
 
 const Landing8: React.FC = () => {
-  const { isVisible, elementRef } = useIntersectionObserver(1);
+  const { isVisible, elementRef } = useIntersectionObserver(0.8);
   return (
     <div
       id='7'
@@ -95,7 +95,21 @@ const Landing8: React.FC = () => {
       <div
         className={`${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} delay-500 transition relative flex flex-col w-full gap-6`}
       >
-        <ParallaxText baseVelocity={1}>
+        <Marquee gradient={false} speed={40} style={{ gap: '2rem' }}>
+          <div className='flex flex-row gap-8'>
+            {cardFirstRow.map(card => (
+              <CommentCard key={card.id} {...card} />
+            ))}
+          </div>
+        </Marquee>
+        <Marquee gradient={false} speed={40} direction='right' style={{ gap: '2rem' }}>
+          <div className='flex flex-row gap-8'>
+            {cardSecondRow.map(card => (
+              <CommentCard key={card.id} {...card} />
+            ))}
+          </div>
+        </Marquee>
+        {/* <ParallaxText baseVelocity={1}>
           <div className='flex flex-row gap-8'>
             {cardFirstRow.map(card => (
               <CommentCard key={card.id} {...card} />
@@ -108,7 +122,7 @@ const Landing8: React.FC = () => {
               <CommentCard key={card.id} {...card} />
             ))}
           </div>
-        </ParallaxText>
+        </ParallaxText> */}
       </div>
       <style>{`
         .parallax {

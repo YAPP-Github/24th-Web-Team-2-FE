@@ -5,7 +5,7 @@ import Link from 'next/link';
 import useIntersectionObserver from '@/utils/hooks/useIntersectionObserver';
 
 const Landing9 = () => {
-  const { isVisible, elementRef } = useIntersectionObserver(1);
+  const { isVisible, elementRef } = useIntersectionObserver(0.8);
 
   return (
     <div

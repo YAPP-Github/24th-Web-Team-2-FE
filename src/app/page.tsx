@@ -3,11 +3,14 @@
 import LandingPageHeader from '@/components/Header/LandingPageHeader';
 import { useEffect, useState, useRef } from 'react';
 import Landing1 from '@/app/landingpage/Landing1';
-import Landing2 from '@/app/landingpage/Landing2';
+import Landing2 from '@/app/landingpage/Landing2/index';
 import Landing3 from '@/app/landingpage/Landing3';
-import Landing9 from '@/app/landingpage/Landing9';
-import Landing8 from './landingpage/Landing8/index';
+import Landing4 from './landingpage/Landing4/index';
 import Landing7 from './landingpage/Landing7';
+import Landing8 from './landingpage/Landing8/index';
+import Landing9 from '@/app/landingpage/Landing9';
+import Landing5 from './landingpage/Landing5';
+import Landing6 from './landingpage/Landing6';
 
 export default function Home() {
   const [backgroundFill, setBackgroundFill] = useState<'black' | 'white'>('black');
@@ -39,7 +42,7 @@ export default function Home() {
   return (
     <main className='flex flex-col items-center w-full h-screen'>
       <LandingPageHeader backgroundFill={backgroundFill} />
-      <div className='flex flex-col w-full overflow-y-scroll snap-y snap-mandatory noScrollbar'>
+      <div className='flex flex-col w-full overflow-y-scroll noScrollbar'>
         {/* <div className='flex flex-row w-full overflow-x-scroll snap-x snap-mandatory'> */}
         <div
           id='0'
@@ -50,6 +53,9 @@ export default function Home() {
         </div>
         <Landing2 />
         <Landing3 />
+        <Landing4 />
+        <Landing5 />
+        <Landing6 />
         <Landing7 />
         <Landing8 />
         <Landing9 />
