@@ -3,7 +3,7 @@ import '@/styles/tailwind.css';
 
 export const metadata: Metadata = {
   title: 'Inspo Mail Club',
-  description: 'TODO: FIX DESCRIPTION',
+  description: 'Your Daily Insight Source',
 };
 
 export default function RootLayout({
