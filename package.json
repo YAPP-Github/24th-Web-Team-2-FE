@@ -28,6 +28,7 @@
     "axios": "^1.7.2",
     "next": "^14.2.3",
     "react-cookie": "^7.1.4",
+    "react-fast-marquee": "^1.6.5",
     "typescript": "^5.4.5",
     "zustand": "^4.5.2"
   },

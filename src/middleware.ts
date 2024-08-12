@@ -11,7 +11,7 @@ export function middleware(request: NextRequest) {
       // 로그인이 안되어있는 경우는 아무 페이지도 볼 수 없음
       // TODO: 추후 로그인 로직 완성시 아래 주석 해제
       // return Response.redirect(new URL('/', request.url));
-    }
+    } 
   }
 }
 export const config = {
