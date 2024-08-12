@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import useIntersectionObserver from '@/utils/hooks/useIntersectionObserver';
 import CommentCard from './CommentCard';
 import Marquee from 'react-fast-marquee';
+import Link from 'next/link';
 
 export interface CardData {
   id: number;
@@ -88,8 +89,11 @@ const Landing8: React.FC = () => {
         className={`${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} delay-100 transition flex flex-col items-center gap-3`}
       >
         <span className='text-h2-onboard'>InspoMailClub로 확 바뀐 뉴스레터 읽기</span>
-        {/* TODO: Link로 교체 */}
-        <span className='text-body2-onboard'>{`나도 후기 작성하러 가기->`}</span>
+        <Link
+          className='text-body2-onboard'
+          href={'https://tally.so/r/mZlV1e'}
+          target='_blank'
+        >{`나도 후기 작성하러 가기 →`}</Link>
       </div>
       <div
         className={`${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} delay-500 transition relative flex flex-col w-full gap-6`}

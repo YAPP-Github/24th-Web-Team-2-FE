@@ -33,25 +33,7 @@ const Landing6 = () => {
       </div>
       <div className='flex flex-col items-center gap-32'>
         <div
-          className={`${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} transition delay-300 flex flex-row items-center gap-20 relative`}
-        >
-          <Image src={Image1} alt='Chapter1' />
-          <Image
-            src={Image1_1}
-            alt='Chapter1_span'
-            className={`${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} transition delay-500 absolute bottom-6 left-32`}
-          />
-          <span className='flex flex-col gap-3'>
-            <span className='text-h3-onboard'>핵심만 빠르게 요약</span>
-            <span className='text-body2-onboard'>
-              10분 분량의 뉴스레터를 1분 안에 파악할 수 있도록 핵심만 알려줄게요
-              <br />
-              자투리 시간을 활용해서 쉽고 빠르게 인사이트를 얻으세요.{' '}
-            </span>
-          </span>
-        </div>
-        <div
-          className={`${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} transition delay-700 flex flex-row items-center gap-14 relative`}
+          className={`${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} transition delay-300 flex flex-row items-center gap-14 relative`}
         >
           <Landing6_2 width={334} fill={pinColor} />
           <div className='absolute -bottom-4 left-10 h-[240px] aspect-square bg-[#E1F1FD] rounded-full -z-10' />
@@ -65,13 +47,13 @@ const Landing6 = () => {
           </span>
         </div>
         <div
-          className={`${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} transition delay-[1100ms] flex flex-row items-center gap-20`}
+          className={`${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} transition delay-[500ms] flex flex-row items-center gap-20`}
         >
           <Image src={Image3} alt='Chapter3' />
           <Image
             src={Image3_1}
             alt='Chapter3_span'
-            className={`${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} transition delay-[1300ms] absolute top-0 left-8`}
+            className={`${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} transition delay-[700ms] absolute top-0 left-8`}
           />
           <span className='flex flex-col gap-3'>
             <span className='text-h3-onboard'>새로운 뉴스레터 탐색</span>

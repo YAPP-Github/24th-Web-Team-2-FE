@@ -44,21 +44,21 @@ const Landing7 = () => {
         <StepSpan
           title='Gmail 연결'
           description='평소 뉴스레터를 받아보는 Gmail 계정을 연동해요'
-          className={`${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} transition delay-300`}
+          className={`${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} transition delay-300 flex items-center`}
         >
           <Image src={Image1} alt='GMAIL' />
         </StepSpan>
         <StepSpan
           title='뉴스레터 고르기'
           description='InspoMailClub에서 읽을 뉴스레터를 골라요'
-          className={`${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} transition delay-500`}
+          className={`${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} transition delay-500 flex items-center`}
         >
           <Image src={Image2} alt='Newsletter' />
         </StepSpan>
         <StepSpan
           title='쾌적하게 즐기기'
           description='뉴스레터만 모아둔 환경에서 쾌적하게 인사이트를 얻으세요'
-          className={`${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} transition delay-700`}
+          className={`${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} transition delay-700 flex items-center`}
         >
           <Image src={Image3} alt='Enjoy' />
         </StepSpan>
