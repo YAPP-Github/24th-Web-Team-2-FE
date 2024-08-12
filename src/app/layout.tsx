@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import '@/styles/tailwind.css';
 
 export const metadata: Metadata = {
-  title: 'Inspo Mail Club',
+  title: 'InspoMailClub',
   description: 'Your Daily Insight Source',
 };
 
