@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import MSWComponent from '@/mocks/MSWWrapper';
 import '@/styles/tailwind.css';
 
 export const metadata: Metadata = {
@@ -14,9 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='ko'>
-      <body className='flex flex-col items-center w-full'>
-        <MSWComponent>{children}</MSWComponent>
-      </body>
+      <body className='flex flex-col items-center w-full'>{children}</body>
     </html>
   );
 }
