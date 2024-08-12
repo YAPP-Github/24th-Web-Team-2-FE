@@ -1,7 +1,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['localhost', 'via.placeholder.com', 'picsum.photos'],
+    domains: ['localhost', 'via.placeholder.com', 'picsum.photos', 'i.namu.wiki'],
   },
 
   async rewrites() {

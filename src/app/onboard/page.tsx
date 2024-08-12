@@ -17,7 +17,7 @@ const OnBoard = () => {
         </span>
         <span className='text-black text-h1'>방치되는 유익한 메일을 큐레이팅해요</span>
       </span>
-      <Carousel width={690} height={400} length={3}>
+      <Carousel width={603.75} height={350} length={3}>
         <div className='flex flex-col items-center justify-center'>
           <Carousel.Wrapper>
             <Carousel.Item index={0}>

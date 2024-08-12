@@ -16,7 +16,9 @@ const Landing1 = () => {
       <Link
         style={{ width: '11.375rem', height: '3.75rem' }}
         className={`border-gradient_horizontal text-black flex items-center justify-center rounded`}
-        href='/onboard'
+        // href='/onboard'
+        href={'https://tally.so/r/mZlV1e'}
+        target='_blank'
       >
         시작하기
       </Link>
