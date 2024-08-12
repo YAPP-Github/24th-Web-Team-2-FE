@@ -91,7 +91,6 @@ const Landing8: React.FC = () => {
         {/* TODO: Link로 교체 */}
         <span className='text-body2-onboard'>{`나도 후기 작성하러 가기->`}</span>
       </div>
-      {/* TODO: animation중간에 끊기는 부분 수정 필요 */}
       <div
         className={`${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} delay-500 transition relative flex flex-col w-full gap-6`}
       >
@@ -109,47 +108,7 @@ const Landing8: React.FC = () => {
             ))}
           </div>
         </Marquee>
-        {/* <ParallaxText baseVelocity={1}>
-          <div className='flex flex-row gap-8'>
-            {cardFirstRow.map(card => (
-              <CommentCard key={card.id} {...card} />
-            ))}
-          </div>
-        </ParallaxText>
-        <ParallaxText baseVelocity={-1}>
-          <div className='flex flex-row gap-8'>
-            {cardSecondRow.map(card => (
-              <CommentCard key={card.id} {...card} />
-            ))}
-          </div>
-        </ParallaxText> */}
       </div>
-      <style>{`
-        .parallax {
-          overflow: hidden;
-          letter-spacing: -2px;
-          line-height: 0.8;
-          margin: 0;
-          white-space: nowrap;
-          display: flex;
-          flex-wrap: nowrap;
-        }
-
-        .parallax .scroller {
-          font-weight: 600;
-          text-transform: uppercase;
-          font-size: 64px;
-          display: flex;
-          white-space: nowrap;
-          display: flex;
-          flex-wrap: nowrap;
-          gap: 2rem;
-        }
-
-        .parallax span {
-          display: block;
-        }
-      `}</style>
     </div>
   );
 };

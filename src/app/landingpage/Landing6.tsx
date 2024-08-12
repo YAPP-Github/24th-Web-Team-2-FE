@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 
 const Landing6 = () => {
   const { isVisible, elementRef } = useIntersectionObserver(0.3);
-  const [pinColor, setPinColor] = useState<string>('#F4F4F4');
+  const [pinColor, setPinColor] = useState('#F4F4F4');
 
   useEffect(() => {
     if (isVisible) {

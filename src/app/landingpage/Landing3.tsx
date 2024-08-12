@@ -1,4 +1,3 @@
-import { useState, useEffect, useCallback } from 'react';
 import useIntersectionObserver from '@/utils/hooks/useIntersectionObserver';
 import Image from 'next/image';
 import Image1 from '@/assets/images/Landing3_1.png';
@@ -9,10 +8,8 @@ import Image5 from '@/assets/images/Landing3_5.png';
 
 const Landing3 = () => {
   const { isVisible, elementRef } = useIntersectionObserver(0.8);
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   // TODO: Add scroll event listener
-
   return (
     <div
       id='2'
