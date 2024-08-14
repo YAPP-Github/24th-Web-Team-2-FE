@@ -24,7 +24,7 @@ const Dots = ({ imageLength, size = 6, selectedColor = '#fff', unSelectedColor =
         // viewIndex, index 비교 로직을 backgroundColor로 이동
         <button
           type='button'
-          key={crypto.randomUUID()}
+          key={index}
           onClick={(e: MouseEvent<HTMLButtonElement>) => {
             e.stopPropagation();
             handleMoveImage(index);
