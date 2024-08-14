@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <main className='flex flex-col items-center w-full h-screen'>
       <LandingPageHeader backgroundFill={backgroundFill} />
-      <div className='flex flex-col w-full overflow-y-scroll noScrollbar'>
+      <div className='flex flex-col w-full overflow-y-scroll snap-y snap-mandatory noScrollbar'>
         {/* <div className='flex flex-row w-full overflow-x-scroll snap-x snap-mandatory'> */}
         <div
           id='0'
