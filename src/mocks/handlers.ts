@@ -38,6 +38,9 @@ export const handlers = [
       ],
     });
   }),
+  http.post('/inbox/interests', () => {
+    return HttpResponse.json({}, { status: 201 });
+  }),
 
   http.get('/auth/google', () => {
     const CookieHeader: HeadersInit = new Headers();

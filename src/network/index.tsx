@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 const SSR_API_ORIGIN =
   process.env.NEXT_PUBLIC_API_MOCK === 'enabled' ? process.env.NEXT_PUBLIC_MOCK_URL : process.env.NEXT_PUBLIC_API_URL;
 
-const fetchWrapper = async ({ method, url, body, params, header }: any) => {
+const fetchWrapper = async ({ method, url, body, params }: any) => {
   const config: AxiosRequestConfig = {
     baseURL: SSR_API_ORIGIN,
 
