@@ -5,13 +5,14 @@ import type { ArticleType } from '@/types';
 import Link from 'next/link';
 import { useFocusIdStore } from '../../../utils/hooks/useFocusIdStore';
 import { shallow } from 'zustand/shallow';
+import { MailDataType } from '@/api/hooks/useUnreadQuery';
 
 interface ScrollNavigationProps {
-  articleData: ArticleType[];
+  articleData: MailDataType[];
 }
 
 const ScrollNavigation = ({ articleData }: ScrollNavigationProps) => {
-  const [activeId, setActiveId] = useState<string | null>(articleData[0].id);
+  const [activeId, setActiveId] = useState<string | null>(articleData[0].mailId);
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const itemRef = useRef<HTMLDivElement>(null);
   const focusId = useFocusIdStore(state => state.focusId, shallow);
@@ -30,17 +31,17 @@ const ScrollNavigation = ({ articleData }: ScrollNavigationProps) => {
         <div className='flex flex-col gap-2 w-[13.5rem] rounded-xl shadow-[0_0_12px_0_rgba(0,0,0,0.25)] p-4 bg-white'>
           {articleData.map((article, index) => (
             <Link
-              key={article.id}
+              key={article.mailId}
               href={{
                 pathname: `/main`,
                 query: { tab: 'today' },
-                hash: article.id,
+                hash: article.mailId,
               }}
               className={`overflow-hidden whitespace-nowrap text-caption text-ellipsis ${
                 focusId === index ? 'text-blue' : 'text-darkgrey'
               }`}
             >
-              {article.title}
+              {article.subject}
             </Link>
           ))}
         </div>
@@ -49,7 +50,7 @@ const ScrollNavigation = ({ articleData }: ScrollNavigationProps) => {
         {articleData.map((article, index) => (
           <span
             className={`w-full rounded-full h-0.5 ${focusId === index ? 'bg-darkgrey' : 'bg-lightgrey'}`}
-            key={article.id}
+            key={article.mailId}
           />
         ))}
       </div>

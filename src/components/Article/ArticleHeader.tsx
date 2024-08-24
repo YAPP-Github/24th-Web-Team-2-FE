@@ -2,21 +2,15 @@ import Image from 'next/image';
 import { Chip } from '@/components/Chip';
 import { formatToMonthDayKorean } from '@/utils/formatDate/formatToMonthDayKorean';
 import Link from 'next/link';
+import { MailDataType } from '@/api/hooks/useUnreadQuery';
 
-interface ArticleHeaderProps {
+interface ArticleHeaderProps extends MailDataType {
   headerType: 'default' | 'simplified';
-  id: string;
-  title: string;
-  type: string;
-  date: string;
-  from: {
-    domain: string;
-    profile: string;
-  };
+
   group?: string;
 }
 
-const ArticleHeader = ({ headerType, id, title, type, date, from, group }: ArticleHeaderProps) => {
+const ArticleHeader = ({ headerType, mailId, subject, date, from, group }: ArticleHeaderProps) => {
   return (
     <div className='sticky top-0 flex flex-col items-center w-screen bg-white border-b border-b-lightgrey'>
       <div
@@ -27,13 +21,13 @@ const ArticleHeader = ({ headerType, id, title, type, date, from, group }: Artic
             {group ?? 'Digest'}
           </div>
           <div className='flex flex-row items-center gap-2'>
-            <h1 className={`font-bold text-black ${headerType === 'default' ? 'text-h1' : 'text-h2'}`}>{title}</h1>
+            <h1 className={`font-bold text-black ${headerType === 'default' ? 'text-h1' : 'text-h2'}`}>{subject}</h1>
           </div>
         </div>
         <div className='flex flex-row items-center gap-4'>
-          <Link href={`/domain/${id}`} className='flex flex-row items-center gap-2.5 text-body3'>
-            <Image src={from.profile} width={36} height={36} alt='Profile' className='rounded-full' />
-            <span className='text-body2 text-darkgrey'>{from.domain}</span>
+          <Link href={`/domain/${mailId}`} className='flex flex-row items-center gap-2.5 text-body3'>
+            {/* <Image src={from.profile} width={36} height={36} alt='Profile' className='rounded-full' /> */}
+            <span className='text-body2 text-darkgrey'>{from.address}</span>
           </Link>
           <span className='text-body2 text-blue'>{formatToMonthDayKorean(new Date(date))}</span>
         </div>
