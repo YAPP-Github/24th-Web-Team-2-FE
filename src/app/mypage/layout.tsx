@@ -18,19 +18,17 @@ export default async function MypageLayout({ children }: Readonly<PropsWithChild
                   <UserDataCard />
                 </span>
               </div>
-              <div className='flex flex-col pb-6 gap-3 text-caption'>
+              <div className='flex flex-col pb-6 gap-3 text-body2'>
                 <Link href='/setting'>설정</Link>
                 <Link href='/contact'>문의하기</Link>
                 <div className='flex flex-row gap-4'>
                   <Link
                     href='/privacy' // Link to Privacy Policy
-                    className='underline decoration-black underline-offset-2'
                   >
                     이용 약관
                   </Link>
                   <Link
                     href='/terms' // Link to Terms of Service
-                    className='underline decoration-black underline-offset-2'
                   >
                     개인정보 처리방침
                   </Link>

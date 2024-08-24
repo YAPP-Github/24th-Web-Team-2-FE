@@ -3,6 +3,8 @@ import AlternateListTap from '@/components/ListTap/AlternateListTap';
 import ListItem from '@/components/ListTap/ListItem';
 import SubscribeButton from '@/components/SubscribeButton';
 import { GET } from '@/network';
+import RightFoldIcon from '@/assets/icons/RightFoldIcon.svg';
+import Image from 'next/image';
 
 interface SubscribeDataType {
   id: string;
@@ -15,17 +17,21 @@ const SubscribePage = async () => {
   const subscribeList: SubscribeDataType[] = await getSubscribeList();
 
   return (
-    <div className='flex flex-col gap-6 w-articleCard pt-[7.625rem]'>
+    <div className='flex flex-col gap-11 w-articleCard pt-[7.625rem]'>
       <div className='flex flex-col gap-2'>
-        <span className='text-caption text-darkgrey'>{`마이페이지 >`}</span>
-        <span className='text-h2'>뉴스레터 구독 관리</span>
-        <span className='text-body3'>InspoMailClub에서 더 이상 읽고 싶지 않은 뉴스레터를 선택하세요</span>
+        <span className='flex flex-row gap-1 text-sm font-medium text-darkgrey'>
+          마이페이지
+          <Image src={RightFoldIcon} alt='RightFoldIcon' width={18} height={18} />
+        </span>
+        <span className='text-lg font-bold'>뉴스레터 구독 관리</span>
       </div>
-      <AlternateListTap tapName='발신인' />
-      <div className='flex flex-col max-w-max_domainCard'>
-        {subscribeList.map(subscribe => (
-          <DomainListItem domainData={subscribe} isSubscribed={true} />
-        ))}
+      <div className='flex flex-col gap-4'>
+        <AlternateListTap tapName='뉴스레터 구독 목록' tapCnt={20} />
+        <div className='flex flex-col max-w-max_domainCard'>
+          {subscribeList.map(subscribe => (
+            <DomainListItem domainData={subscribe} />
+          ))}
+        </div>
       </div>
     </div>
   );

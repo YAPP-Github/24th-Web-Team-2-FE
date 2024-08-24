@@ -1,4 +1,5 @@
 import DomainListItem from '@/components/Domain/DomainListItem';
+import DomainListWithSubscribeButton from '@/components/Domain/DomainListWithSubscribeButton';
 import { GET } from '@/network';
 import { DomainType } from '@/types';
 import Link from 'next/link';
@@ -62,7 +63,7 @@ const RecommendArea = () => {
             key={index}
             className={`${index === recommendDomainData.length - 1 ? 'border-b-white' : 'border-b-lightgrey'} border-b`}
           >
-            <DomainListItem domainData={domain} isSubscribed={false} />
+            <DomainListWithSubscribeButton domainData={domain} isSubscribed={false} />
           </div>
         ))}
       </div>

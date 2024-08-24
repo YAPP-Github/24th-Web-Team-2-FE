@@ -45,7 +45,7 @@ const MainPage = ({ searchParams }: pageProps) => {
   }, []);
 
   return (
-    <div className='flex flex-col items-center w-full gap-10 mb-10'>
+    <div className='flex flex-col items-center w-full mb-10 gap-10'>
       {currentTab === 'today' ? (
         <>
           <TodayTab articleData={articleApiData} isArticleArea={true} />
@@ -61,7 +61,7 @@ const MainPage = ({ searchParams }: pageProps) => {
         </>
       ) : currentTab === 'search' ? (
         <SearchTab />
-      ) : currentTab === 'digest' ? (
+      ) : currentTab === 'Digest' ? (
         <DigestTab />
       ) : (
         notFound()

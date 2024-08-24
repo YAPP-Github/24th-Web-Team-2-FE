@@ -38,6 +38,7 @@ const DomainPage = async ({ params }: DomainPageProps) => {
 
           <DomainInteractionArea domainArticleData={domainArticleData} />
         </div>
+
         <div className='mt-20'>
           <DomainCard domainData={domainData} isSubscribed={isSubscribed} />
         </div>

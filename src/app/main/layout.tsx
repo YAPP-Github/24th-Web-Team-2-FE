@@ -20,7 +20,7 @@ export default function MainPageLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
+    <main className='flex flex-col'>
       <MainPageHeader />
       <div className='flex flex-col items-center w-full'>
         <Suspense fallback={<div></div>}>
@@ -28,6 +28,6 @@ export default function MainPageLayout({
         </Suspense>
         <div className='flex justify-center h-full w-content'>{children}</div>
       </div>
-    </>
+    </main>
   );
 }

@@ -11,14 +11,9 @@ interface ScrollNavigationProps {
 }
 
 const ScrollNavigation = ({ articleData }: ScrollNavigationProps) => {
-  const [activeId, setActiveId] = useState<string | null>(articleData[0].id);
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const itemRef = useRef<HTMLDivElement>(null);
   const focusId = useFocusIdStore(state => state.focusId, shallow);
-
-  useEffect(() => {
-    console.log(activeId);
-  }, [activeId]);
 
   return (
     <div
@@ -45,7 +40,7 @@ const ScrollNavigation = ({ articleData }: ScrollNavigationProps) => {
           ))}
         </div>
       )}
-      <div className='flex flex-col w-4 gap-3 cursor-pointer' onMouseEnter={() => setIsHovered(true)}>
+      <div className='flex flex-col w-4 cursor-pointer gap-3' onMouseEnter={() => setIsHovered(true)}>
         {articleData.map((article, index) => (
           <span
             className={`w-full rounded-full h-0.5 ${focusId === index ? 'bg-darkgrey' : 'bg-lightgrey'}`}
