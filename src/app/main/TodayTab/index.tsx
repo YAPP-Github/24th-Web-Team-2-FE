@@ -12,10 +12,9 @@ import ScrollNavigation from './ScrollNavigation';
 interface TodayTabProps {
   articleData: ArticleType[];
   isArticleArea: boolean;
-  isReady: boolean;
 }
 
-const TodayTab = ({ articleData, isArticleArea, isReady }: TodayTabProps) => {
+const TodayTab = ({ articleData, isArticleArea }: TodayTabProps) => {
   return articleData.length > 0 ? (
     <>
       <div className='flex flex-col items-center mt-10 gap-3'>
@@ -52,7 +51,7 @@ const TodayTab = ({ articleData, isArticleArea, isReady }: TodayTabProps) => {
         </Link>
       )}
       {/* FIXME: @우찬 */}
-      <ScrollNavigation articleData={articleData} isReady={isReady} />
+      <ScrollNavigation articleData={articleData} />
     </>
   ) : (
     <>Loading...</>
