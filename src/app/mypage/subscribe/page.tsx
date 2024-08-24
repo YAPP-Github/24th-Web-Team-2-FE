@@ -21,7 +21,7 @@ const SubscribePage = async () => {
         <span className='text-h2'>뉴스레터 구독 관리</span>
         <span className='text-body3'>InspoMailClub에서 더 이상 읽고 싶지 않은 뉴스레터를 선택하세요</span>
       </div>
-      <AlternateListTap tapName='발신인' tapCount={subscribeList.length} />
+      <AlternateListTap tapName='발신인' />
       <div className='flex flex-col max-w-max_domainCard'>
         {subscribeList.map(subscribe => (
           <DomainListItem domainData={subscribe} isSubscribed={true} />
