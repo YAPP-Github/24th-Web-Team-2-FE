@@ -13,24 +13,24 @@ const ArticleCard = ({ title, url, id, content, date, thumbnail, isRead, from, i
     <Link
       // https://stackoverflow.com/questions/66821351/nextjs-error-message-failed-prop-type-the-prop-href-expects-a-string-or-o
       href={{ pathname: isToday ? `/main` : `${url}`, hash: isToday ? id : null }}
-      className={`${isRead ? 'bg-background_grey' : isToday ? 'border-gradient_vertical bg-white' : 'border border-lightgrey bg-white'}  w-articleCard `}
+      className={`${isRead ? 'bg-background_grey' : isToday ? 'border-gradient_horizontal bg-white' : 'border border-lightgrey bg-white'} rounded-xl w-articleCard `}
     >
-      <div className='flex flex-row items-center gap-20 p-6'>
-        <div className='flex flex-col gap-8'>
+      <div className='flex flex-row items-center justify-between px-6 py-5'>
+        <div className='flex flex-col gap-6 w-[460px]'>
           <div className='flex flex-col gap-1'>
-            <span className='text-h1'>{title}</span>
-            <span className='text-body3 line-clamp-3'>{content}</span>
+            <span className='text-h3 line-clamp-2'>{title}</span>
+            <span className='text-body2 line-clamp-2'>{content}</span>
           </div>
           <div className='flex flex-row items-center gap-4'>
             <span className='flex flex-row items-center gap-2'>
               <Image className='rounded-full' src={from.profile} alt='profile' width={36} height={36} />
-              <span className='text-caption'>{from.domain}</span>
+              <span className='text-body2 text-darkgrey'>{from.domain}</span>
             </span>
-            <span className='text-caption'>{formatToMonthDayKorean(new Date(date))}</span>
+            <span className='text-body2 text-blue'>{formatToMonthDayKorean(new Date(date))}</span>
           </div>
         </div>
 
-        <Image className='shrink-0' width={156} height={156} src={thumbnail} alt={`thumbnail for ${title} article`} />
+        <Image className='shrink-0' width={160} height={160} src={thumbnail} alt={`thumbnail for ${title} article`} />
       </div>
     </Link>
   );

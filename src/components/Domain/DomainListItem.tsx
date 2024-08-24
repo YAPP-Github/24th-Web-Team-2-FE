@@ -22,8 +22,7 @@ const DomainListItem = ({ domainData, isSubscribed }: DomainListItemProps) => {
             height={48}
             className='rounded-full'
           />
-          <span className='text-body3'>{domainData.name}</span>
-          <Chip text={domainData.type} />
+          <span className='text-body2'>{domainData.name}</span>
         </span>
       </span>
       <SubscribeButton isSubscribed={isSubscribed} />

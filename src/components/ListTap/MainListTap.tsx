@@ -2,7 +2,7 @@
 
 import ListItem from '@/components/ListTap/ListItem';
 import { useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface TabData {
   name: string;
@@ -24,6 +24,11 @@ const MainListTap = ({ tabData }: MainListTapProps) => {
   const handleClickListItem = (id: string) => {
     setCurrentTab(id);
   };
+
+  useEffect(() => {
+    setCurrentTab(searchParams.get('tab') ?? 'today');
+  }, [searchParams]);
+
   return (
     <div className='flex justify-center w-full h-12 border-b border-lightgrey'>
       <div className='flex flex-row h-full gap-4 w-content'>
