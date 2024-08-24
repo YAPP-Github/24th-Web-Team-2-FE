@@ -32,7 +32,7 @@ const DomainCard = ({ domainData, isSubscribed }: DomainCardProps) => {
       <Link
         target='_blank'
         href={domainData.website}
-        className='flex flex-row items-center gap-2 underline w-fit text-body3 decoration-black underline-offset-2'
+        className='flex flex-row items-center underline gap-2 w-fit text-body3 decoration-black underline-offset-2'
       >
         Website
         <Image src={WebsiteIcon} alt='Website' width={14} height={14} />

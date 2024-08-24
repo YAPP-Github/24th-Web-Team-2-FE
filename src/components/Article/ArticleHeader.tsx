@@ -18,7 +18,7 @@ interface ArticleHeaderProps {
 const ArticleHeader = ({ id, title, type, date, from, group }: ArticleHeaderProps) => {
   return (
     <div className='flex flex-col items-center w-screen border-b border-b-lightgrey'>
-      <div className='flex flex-col gap-3 py-4 w-content'>
+      <div className='flex flex-col py-4 gap-3 w-content'>
         <div className='flex flex-col gap-1'>
           <div className='text-body1 text-darkgrey'>{group ?? 'Digest'}</div>
           <div className='flex flex-row items-center gap-2'>

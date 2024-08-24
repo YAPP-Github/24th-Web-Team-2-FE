@@ -11,7 +11,7 @@ const Landing5 = () => {
     <div
       id='4'
       ref={elementRef}
-      className='relative flex flex-col items-center justify-end w-full gap-16 overflow-hidden snap-start h-landingPageHeight shrink-0'
+      className='relative flex flex-col items-center justify-end w-full overflow-hidden gap-16 snap-start h-landingPageHeight shrink-0'
     >
       <span className='flex flex-row gap-10'>
         <h2

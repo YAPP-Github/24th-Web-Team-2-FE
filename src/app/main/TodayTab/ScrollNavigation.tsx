@@ -69,7 +69,7 @@ const ScrollNavigation = ({ articleData, isReady }: ScrollNavigationProps) => {
           ))}
         </div>
       )}
-      <div className='flex flex-col w-4 gap-3 cursor-pointer' onMouseEnter={() => setIsHovered(true)}>
+      <div className='flex flex-col w-4 cursor-pointer gap-3' onMouseEnter={() => setIsHovered(true)}>
         {articleData.map(article => (
           <span
             className={`w-full rounded-full h-0.5 ${activeId === article.id ? 'bg-darkgrey' : 'bg-lightgrey'}`}

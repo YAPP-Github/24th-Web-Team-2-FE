@@ -6,9 +6,9 @@ interface SectionContentProps {
 
 const SectionContent = ({ tab }: SectionContentProps) => {
   return (
-    <div className='flex flex-col gap-5 overflow-x-scroll'>
+    <div className='flex flex-col overflow-x-scroll gap-5'>
       <span className='text-xl font-bold'>{tab}</span>
-      <div className='flex flex-row gap-4 overflow-x-scroll noScrollbar'>
+      <div className='flex flex-row overflow-x-scroll gap-4 noScrollbar'>
         <ArticleCard />
         <ArticleCard />
         <ArticleCard />

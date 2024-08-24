@@ -26,7 +26,7 @@ const DomainPage = async ({ params }: DomainPageProps) => {
   return (
     <div className='flex flex-col items-center w-full'>
       <MainPageHeader />
-      <div className='flex flex-row gap-10 mb-10 w-content'>
+      <div className='flex flex-row mb-10 gap-10 w-content'>
         <div className='flex flex-col gap-6 w-articleCard'>
           <div className='relative w-full aspect-[792/216]'>
             <Image src={domainData.profile} alt={domainData.domain} fill className='object-cover w-full h-full' />

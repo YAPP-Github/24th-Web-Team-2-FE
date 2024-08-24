@@ -18,7 +18,7 @@ export default async function MypageLayout({ children }: Readonly<PropsWithChild
                   <UserDataCard />
                 </span>
               </div>
-              <div className='flex flex-col gap-3 pb-6 text-caption'>
+              <div className='flex flex-col pb-6 gap-3 text-caption'>
                 <Link href='/setting'>설정</Link>
                 <Link href='/contact'>문의하기</Link>
                 <div className='flex flex-row gap-4'>
