@@ -4,13 +4,12 @@ import ListItem from '@/components/ListTap/ListItem';
 
 interface AlternateListTapProps {
   tapName: string;
-  tapCount: number;
 }
 
-const AlternateListTap = ({ tapName, tapCount }: AlternateListTapProps) => {
+const AlternateListTap = ({ tapName }: AlternateListTapProps) => {
   return (
     <div className='flex flex-row w-full h-12 gap-4 border-b border-lightgrey'>
-      <ListItem id={tapName} name={tapName} count={tapCount} isActive={true} />
+      <ListItem id={tapName} name={tapName} isActive={true} />
     </div>
   );
 };
