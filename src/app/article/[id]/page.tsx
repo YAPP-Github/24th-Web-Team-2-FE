@@ -6,7 +6,7 @@ interface ArticlePageProps extends pageProps {
   params: { id: string };
 }
 
-const ArticlePage = async ({ searchParams, params }: ArticlePageProps) => {
+const ArticlePage = ({ searchParams, params }: ArticlePageProps) => {
   const isToday = (searchParams.tab ?? 'today') === 'today';
 
   return (

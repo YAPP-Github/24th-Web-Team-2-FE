@@ -1,7 +1,6 @@
 import { IconProps } from '@/types/icon';
 
 const Landing6_2 = ({ width, height, fill, className }: IconProps) => {
-  console.log(fill);
   return (
     <svg
       width={width || 334}

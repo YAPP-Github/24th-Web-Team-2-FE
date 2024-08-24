@@ -13,6 +13,7 @@ const ArticleCard = ({ title, url, id, content, date, thumbnail, isRead, from, i
     <Link
       // https://stackoverflow.com/questions/66821351/nextjs-error-message-failed-prop-type-the-prop-href-expects-a-string-or-o
       href={{ pathname: isToday ? `/main` : `${url}`, hash: isToday ? id : null }}
+      scroll={true}
       className={`${isRead ? 'bg-background_grey' : isToday ? 'border-gradient_horizontal bg-white' : 'border border-lightgrey bg-white'} rounded-xl w-articleCard `}
     >
       <div className='flex flex-row items-center justify-between px-6 py-5'>
@@ -30,7 +31,7 @@ const ArticleCard = ({ title, url, id, content, date, thumbnail, isRead, from, i
           </div>
         </div>
 
-        <Image className='shrink-0' width={160} height={160} src={thumbnail} alt={`thumbnail for ${title} article`} />
+        <Image className='shrink-0' width={160} height={160} src={thumbnail!} alt={`thumbnail for ${title} article`} />
       </div>
     </Link>
   );

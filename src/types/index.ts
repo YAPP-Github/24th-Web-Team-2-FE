@@ -17,9 +17,11 @@ export interface DomainType {
   name: string;
   type: string;
   domain: string;
+  newsLetter: string;
   profile: string;
   description: string;
   website: string;
+  subscriberCnt: number;
 }
 
 export interface UserDataType {

@@ -15,7 +15,7 @@ const ScrollNavigation = ({ articleData, isReady }: ScrollNavigationProps) => {
 
   useEffect(() => {
     // FIXME: @우찬
-    console.log('isReady', isReady);
+
     if (isReady) {
       const handleIntersection = (entries: IntersectionObserverEntry[]) => {
         entries.forEach(entry => {
@@ -47,7 +47,7 @@ const ScrollNavigation = ({ articleData, isReady }: ScrollNavigationProps) => {
 
   return (
     <div
-      className='fixed flex flex-row items-center gap-4 transform -translate-y-1/2 right-10 top-1/2'
+      className='fixed z-50 flex flex-row items-center gap-4 transform -translate-y-1/2 right-10 top-1/2'
       onMouseLeave={() => setIsHovered(false)}
     >
       {isHovered && (
@@ -69,7 +69,7 @@ const ScrollNavigation = ({ articleData, isReady }: ScrollNavigationProps) => {
           ))}
         </div>
       )}
-      <div className='flex flex-col w-4 cursor-pointer gap-3' onMouseEnter={() => setIsHovered(true)}>
+      <div className='flex flex-col w-4 gap-3 cursor-pointer' onMouseEnter={() => setIsHovered(true)}>
         {articleData.map(article => (
           <span
             className={`w-full rounded-full h-0.5 ${activeId === article.id ? 'bg-darkgrey' : 'bg-lightgrey'}`}

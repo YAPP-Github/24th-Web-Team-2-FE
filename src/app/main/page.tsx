@@ -13,7 +13,7 @@ import { notFound } from 'next/navigation';
 const MainPage = ({ searchParams }: pageProps) => {
   const currentTab = (searchParams.tab ?? 'today') as string;
   const [articleApiData, setArticleApiData] = useState<ArticleType[]>([]);
-  const { isVisible, elementRef } = useIntersectionObserver(0);
+  const { isVisible, elementRef } = useIntersectionObserver(0.1);
 
   useEffect(() => {
     if (articleApiData.length) return;
@@ -26,7 +26,7 @@ const MainPage = ({ searchParams }: pageProps) => {
   }, []);
 
   return (
-    <div className='flex flex-col items-center w-full mb-10 gap-10'>
+    <div className='flex flex-col items-center w-full gap-10 mb-10'>
       {currentTab === 'today' ? (
         <>
           {/* FIXME: @우찬 */}
