@@ -2,23 +2,25 @@ import { useEffect, useState, useRef } from 'react';
 
 const useIntersectionObserver = (threshold: number = 1) => {
   const [isVisible, setIsVisible] = useState(false);
-  const elementRef = useRef<HTMLDivElement>(null);
+  const elementRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    if (!elementRef.current) return;
+
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             setIsVisible(true);
+          } else {
+            setIsVisible(false);
           }
         });
       },
       { threshold },
     );
 
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
-    }
+    observer.observe(elementRef.current);
 
     return () => {
       if (elementRef.current) {

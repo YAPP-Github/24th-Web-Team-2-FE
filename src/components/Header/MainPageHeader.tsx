@@ -1,17 +1,19 @@
 import HomeIcon from '@/assets/icons/HomeIcon';
-import ServiceIcon from '@/assets/icons/ServiceIcon';
+
 import Link from 'next/link';
+import ServiceIcon from '@/assets/icons/ServiceIcon.svg';
+import Image from 'next/image';
 
 const MainPageHeader = () => {
   return (
-    <div className={`py-8 justify-between px-6 flex items-center w-full bg-white`}>
+    <div className={`py-8 justify-between flex items-center w-content bg-white`}>
       <Link href='/'>
-        <ServiceIcon width={195} />
+        <Image src={ServiceIcon} alt='ServiceIcon' width={153} height={64} />
       </Link>
 
-      <Link href='/mypage' className='flex flex-row items-center gap-1 cursor-pointer '>
-        <HomeIcon width={24} />
-        <span className='text-body3'>My Page</span>
+      <Link href='/mypage' className='flex flex-row items-center gap-1 cursor-pointer text-blue'>
+        <HomeIcon width={24} fill='#168FD0' />
+        <span className='text-body3'>마이 페이지</span>
       </Link>
     </div>
   );

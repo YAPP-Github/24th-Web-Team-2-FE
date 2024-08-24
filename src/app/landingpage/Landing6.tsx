@@ -23,13 +23,17 @@ const Landing6 = () => {
     }
   }, [isVisible]);
   return (
-    <div id='5' ref={elementRef} className='flex flex-col w-full pb-20 snap-start shrink-0'>
+    <div
+      id='5'
+      ref={elementRef}
+      className='flex flex-col w-full pb-20 overflow-y-scroll snap-start shrink-0 h-landingPageHeight noScrollbar'
+    >
       <div
         className={`${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} transition delay-100 flex flex-col items-center w-full gap-1 pt-24 pb-16`}
       >
         <span className='text-body1-onboard text-darkgrey'>8월 말 예정</span>
         <span className='text-h1-onboard'>Upcoming!</span>
-        <span className='text-body2-onboard'>조만간 추가 될 기능들에 대해서 알려줄게요</span>
+        <span className='text-body2-onboard'>조만간 추가될 기능들에 대해서 알려줄게요</span>
       </div>
       <div className='flex flex-col items-center gap-32'>
         <div

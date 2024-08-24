@@ -32,7 +32,7 @@ module.exports = {
         inputBox: '30.375rem',
         emailSenderButton: '26.375rem',
         content: '75rem',
-        articleCard: '49.5rem',
+        articleCard: '43.3125rem',
         domainCard: '20.25rem',
         max_domainCard: '30.5rem',
         landingPageHeight: 'calc(100vh - 4rem)',

@@ -7,31 +7,31 @@
 }
 
 .text-h1 {
-  @apply text-3xl font-semibold leading-normal tracking-tighter;
+  @apply text-[1.75rem] font-bold leading-9 tracking-tighter;
 }
 
 .text-h2 {
-  @apply font-medium leading-normal tracking-tighter text-21px;
+  @apply text-xl font-bold leading-7 tracking-tighter;
+}
+
+.text-h3 {
+  @apply text-lg font-bold leading-[1.625rem] tracking-tighter;
 }
 
 .text-body1 {
-  @apply text-4xl font-normal leading-normal tracking-tighter;
+  @apply text-base font-normal leading-6 tracking-tighter;
 }
 
 .text-body2 {
-  @apply text-lg font-light leading-normal tracking-tighter;
-}
-
-.text-body3 {
-  @apply font-light leading-normal tracking-tighter text-15px;
+  @apply text-sm font-normal leading-6 tracking-tighter;
 }
 
 .text-caption {
-  @apply text-sm font-light leading-normal tracking-tighter;
+  @apply text-xs font-normal leading-normal tracking-tighter;
 }
 
 .text-btn1 {
-  @apply text-base font-normal leading-normal tracking-tighter;
+  @apply text-sm font-normal leading-[1.125rem] tracking-tighter;
 }
 
 .text-h1-onboard {

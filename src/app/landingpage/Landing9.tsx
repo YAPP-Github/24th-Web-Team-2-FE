@@ -25,9 +25,7 @@ const Landing9 = () => {
           InspoMailClub 멤버가 되어주세요!
           <Link
             className='flex items-center justify-center text-white w-[17.625rem] h-16 rounded text-body1-onboard border-gradient_horizontal_black'
-            // href='/onboard'
-            href={'https://tally.so/r/mZlV1e'}
-            target='_blank'
+            href='/onboard'
           >
             {'인사이트 받으러 가기 →'}
           </Link>

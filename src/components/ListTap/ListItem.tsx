@@ -3,12 +3,11 @@ import Link from 'next/link';
 interface ListItemProps {
   id: string;
   name: string;
-  count: number;
   isActive: boolean;
   onClick?: () => void;
 }
 
-const ListItem = ({ id, name, count, isActive, onClick }: ListItemProps) => {
+const ListItem = ({ id, name, isActive, onClick }: ListItemProps) => {
   return (
     <Link
       href={{
@@ -16,10 +15,9 @@ const ListItem = ({ id, name, count, isActive, onClick }: ListItemProps) => {
         query: { tab: id },
       }}
       onClick={onClick}
-      className={`${isActive && 'border-bottom-gradient'} flex flex-row items-center gap-4 px-6 py-3 text-body3`}
+      className={`${isActive ? (id === 'Digest' ? 'bg-background_grey rounded-t border-bottom-gradient text-black' : 'border-bottom-gradient text-black') : 'text-darkgrey'} flex flex-row items-center gap-4 px-6 py-3 whitespace-pre-wrap text-body3`}
     >
       {name}
-      <span className={`${name === '오늘의 인사이트' && 'text-red'}`}>{count}</span>
     </Link>
   );
 };
