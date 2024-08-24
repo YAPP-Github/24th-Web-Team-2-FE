@@ -1,7 +1,7 @@
 'use client';
 
 import ServiceIcon from '@/assets/icons/ServiceIcon';
-import Carousel from '@/components/Carousel/Carousel';
+// import Carousel from '@/components/Carousel/Carousel';
 import Image from 'next/image';
 import Link from 'next/link';
 import { GOOGLE_AUTH_API_URL } from '@/utils/constants/api/api';

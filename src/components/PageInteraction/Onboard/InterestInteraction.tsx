@@ -1,14 +1,19 @@
 'use client';
 
+import { useInterestMutation } from '@/api/hooks/useInterestMutation';
 import { OnboardButton } from '@/components/OnboardButton';
 import type { Interest } from '@/types/onboard';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface InterestInteractionProps {
   interestList: Interest[];
 }
 const InterestInteraction = ({ interestList }: InterestInteractionProps) => {
   const [selectedCategory, setSelectedCategory] = useState<string[]>([]);
+  const router = useRouter();
+
+  const interestMutation = useInterestMutation();
 
   const handleCategoryClick = (category: string) => {
     if (selectedCategory.includes(category)) {
@@ -20,7 +25,12 @@ const InterestInteraction = ({ interestList }: InterestInteractionProps) => {
   };
 
   const handleConfirmBtnClick = () => {
-    console.log('confirm button clicked with selected category: ', selectedCategory);
+    interestMutation.mutate(
+      { interestList: selectedCategory },
+      {
+        onSuccess: () => router.push('/onboard/emailList'), // TODO: 백엔드 개발 미완, 수정필요
+      },
+    );
   };
 
   return (

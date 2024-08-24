@@ -8,6 +8,7 @@ interface SubscribeDataType {
   id: string;
   name: string;
   type: string;
+  profile: string;
 }
 
 const SubscribePage = async () => {

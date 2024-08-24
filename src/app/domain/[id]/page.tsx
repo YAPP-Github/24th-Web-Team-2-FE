@@ -51,7 +51,7 @@ const DomainPage = async ({ params }: DomainPageProps) => {
 
 export default DomainPage;
 
-export const getDomainPageData = async (id: string) => {
+const getDomainPageData = async (id: string) => {
   const response = await GET(`/domainData/${id}`);
   return response;
 };
