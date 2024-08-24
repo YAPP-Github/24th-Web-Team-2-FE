@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const MainPageHeader = () => {
   return (
-    <div className={`py-8 justify-between px-6 flex items-center w-full bg-white`}>
+    <div className={`py-8 justify-between px-6 flex items-center w-content bg-white`}>
       <Link href='/'>
         <ServiceIcon width={195} />
       </Link>

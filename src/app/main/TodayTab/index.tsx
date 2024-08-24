@@ -32,6 +32,7 @@ const TodayTab = async ({ articleData }: TodayTabProps) => {
       </div>
       <Link
         href={`/main#${articleData[0].id}`}
+        scroll={true}
         className='flex flex-row justify-center w-full gap-1 cursor-pointer text-darkgrey'
       >
         첫 번째부터 읽기

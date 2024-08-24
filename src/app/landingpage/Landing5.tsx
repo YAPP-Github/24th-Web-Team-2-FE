@@ -43,24 +43,24 @@ const Landing5 = () => {
           </span>
         </div>
       </span>
-      <div className='flex flex-row items-start justify-center w-full gap-9 h-3/5'>
+      <div className='flex flex-row items-start justify-center w-fit gap-9 h-3/5'>
         <Image
           src={Image1}
-          alt='Article Image'
-          className={`${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} transition delay-[1100ms] object-contain h-1/3`}
+          alt='Message Image'
+          className={`${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} transition delay-[1100ms] object-contain h-[20vh] object-right w-fit`}
         />
-        <span className='relative flex flex-col h-full pb-20'>
+        <span className='relative flex flex-col h-full pb-20 w-fit'>
           <div
-            className={`${isVisible ? 'translate-y-0' : 'translate-y-full'} transition delay-[1300ms] flex flex-col h-full gap-2 z-10`}
+            className={`${isVisible ? 'translate-y-0' : 'translate-y-full'} transition delay-[1300ms] flex flex-col h-full gap-2 z-10 w-fit`}
           >
-            <Image src={Image2} alt='Article Image' className='object-contain h-1/3' />
-            <Image src={Image3} alt='Article Image' className='object-contain h-1/3' />
-            <Image src={Image3} alt='Article Image' className='object-contain h-1/3' />
+            <Image src={Image2} alt='Article Image' className='object-contain object-left h-fit w-[66vh]' />
+            <Image src={Image3} alt='Article Image' className='object-contain object-left h-fit w-[66vh]' />
+            <Image src={Image3} alt='Article Image' className='object-contain object-left h-fit w-[66vh]' />
           </div>
           <span
             className={`${
               isVisible ? 'rotate-180' : 'rotate-0'
-            } overflow-hidden transition delay-[900ms] h-[calc(130%)] aspect-square rounded-full absolute bottom-[100px] translate-y-1/2 translate-x-[9%]`}
+            } overflow-hidden transition delay-[900ms] h-[75.4vh] aspect-square rounded-full absolute bottom-[100px] left-0 translate-y-1/2 -translate-x-[4.6vh]`}
           >
             <div className='bg-[#E1F1FD] h-1/2 w-full'></div>
             <div className='bg-[#FFF6C6] h-1/2 w-full'></div>

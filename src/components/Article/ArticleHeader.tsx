@@ -16,7 +16,7 @@ interface ArticleHeaderProps {
 const ArticleHeader = ({ isToday, title, type, date, from }: ArticleHeaderProps) => {
   return (
     <div className='flex flex-col w-full gap-3 p-6 border-b border-b-lightgrey'>
-      <p>
+      <div>
         {isToday && <div className='text-blue text-caption'>오늘의 발견</div>}
         <div className='flex flex-row items-center gap-2'>
           <h1 className='font-bold text-black text-h1'>{title}</h1>
@@ -24,7 +24,7 @@ const ArticleHeader = ({ isToday, title, type, date, from }: ArticleHeaderProps)
             <Chip text={type} />
           </span>
         </div>
-      </p>
+      </div>
       <div className='flex flex-row items-center w-full gap-4'>
         <div className='flex flex-row items-center gap-2.5 text-body3'>
           <Image src={from.profile} width={36} height={36} alt='Profile' className='rounded-full' />

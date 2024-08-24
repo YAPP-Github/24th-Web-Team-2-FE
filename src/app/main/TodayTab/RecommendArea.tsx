@@ -1,9 +1,6 @@
-import { Chip } from '@/components/Chip';
 import DomainListItem from '@/components/Domain/DomainListItem';
-import SubscribeButton from '@/components/SubscribeButton';
 import { GET } from '@/network';
 import { DomainType } from '@/types';
-import Image from 'next/image';
 
 const RecommendArea = async () => {
   const recommendDomainData: DomainType[] = await getRecommendDomainData();

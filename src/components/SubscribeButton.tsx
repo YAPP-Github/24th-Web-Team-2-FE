@@ -4,9 +4,10 @@ import { useState } from 'react';
 
 interface SubscribeButtonProps {
   isSubscribed: boolean;
+  internalSubscribe?: boolean;
 }
 
-const SubscribeButton = ({ isSubscribed: initialIsSubscribed }: SubscribeButtonProps) => {
+const SubscribeButton = ({ isSubscribed: initialIsSubscribed, internalSubscribe = false }: SubscribeButtonProps) => {
   const [isSubscribed, setIsSubscribed] = useState(initialIsSubscribed);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -17,13 +18,21 @@ const SubscribeButton = ({ isSubscribed: initialIsSubscribed }: SubscribeButtonP
 
   return (
     <div
-      className={`w-20 py-1 rounded flex justify-center items-center cursor-pointer transition text-btn1 border border-blue ${isSubscribed ? 'text-blue' : 'bg-blue text-white'} ${isHovered && 'bg-blue text-white shadow-md shadow-blue'}`}
+      className={`w-[4.5rem] py-1 h-fit rounded flex justify-center items-center cursor-pointer transition text-btn1 border border-blue ${isSubscribed ? 'text-blue' : 'bg-blue text-white'} ${isHovered && 'bg-blue text-white shadow-md shadow-blue'}`}
       role='button'
       onClick={handleButtonClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {isSubscribed ? (isHovered ? '구독 해제' : '구독 중') : isHovered ? '구독하기' : '구독'}
+      {isSubscribed
+        ? isHovered
+          ? '구독 해제'
+          : '구독 중'
+        : isHovered
+          ? '구독하기'
+          : internalSubscribe
+            ? '바로 구독'
+            : '구독'}
     </div>
   );
 };
