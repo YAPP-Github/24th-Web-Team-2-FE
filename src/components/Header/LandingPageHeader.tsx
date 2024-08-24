@@ -63,15 +63,13 @@ const LandingPageHeader = ({ backgroundFill }: { backgroundFill: 'black' | 'whit
     <span className='flex flex-row justify-end gap-3 basis-1/5 text-body2-onboard'>
       <Link
         className={`${backgroundFill === 'white' ? 'text-black' : 'text-white'} w-[6.375rem] py-2 flex items-center justify-center`}
-        href={'https://tally.so/r/mZlV1e'}
-        target='_blank'
+        href={GOOGLE_AUTH_API_URL}
       >
         로그인
       </Link>
       <Link
         className={`${backgroundFill === 'white' ? 'border-gradient_horizontal_black text-white' : 'border-gradient_horizontal text-black'} w-[6.375rem] flex items-center justify-center rounded`}
-        href={'https://tally.so/r/mZlV1e'}
-        target='_blank'
+        href='/onboard'
       >
         시작하기
       </Link>

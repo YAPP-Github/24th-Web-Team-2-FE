@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 
 const useIntersectionObserver = (threshold: number = 1) => {
   const [isVisible, setIsVisible] = useState(false);
-  const elementRef = useRef<HTMLElement | HTMLDivElement | null>(null);
+  const elementRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!elementRef.current) return;

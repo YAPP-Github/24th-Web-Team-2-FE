@@ -91,6 +91,7 @@ const Landing8: React.FC = () => {
         <span className='text-h2-onboard'>InspoMailClub로 확 바뀐 뉴스레터 읽기</span>
         <Link
           className='text-body2-onboard'
+          //TODO: Add the correct link
           href={'https://tally.so/r/mZlV1e'}
           target='_blank'
         >{`나도 후기 작성하러 가기 →`}</Link>
