@@ -1,12 +1,12 @@
 'use client';
 
+import { MailDataType } from '@/api/hooks/useUnreadQuery';
 import ArticleCard from '@/components/Article/ArticleCard';
 import ExploreTabButton from '@/components/ExploreTabButton';
-import { ArticleType } from '@/types';
 import { useState } from 'react';
 
 interface DomainInteractionAreaProps {
-  domainArticleData: ArticleType[];
+  domainArticleData: MailDataType[];
 }
 
 const DomainInteractionArea = ({ domainArticleData }: DomainInteractionAreaProps) => {
@@ -33,7 +33,7 @@ const DomainInteractionArea = ({ domainArticleData }: DomainInteractionAreaProps
             return true;
           })
           .map(article => (
-            <ArticleCard key={article.id} {...article} currentTab={'currentTab'} />
+            <ArticleCard key={article.mailId} {...article} currentTab={'currentTab'} />
           ))}
       </div>
     </div>

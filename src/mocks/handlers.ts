@@ -1,4 +1,5 @@
 import type { UserDataType } from '@/types';
+import mailListData from './data/mailListData.json';
 import { HttpResponse, http } from 'msw';
 
 export const handlers = [
@@ -196,6 +197,10 @@ export const handlers = [
         },
       ],
     });
+  }),
+
+  http.get('/inbox/unreadMails', req => {
+    return HttpResponse.json(mailListData);
   }),
 
   http.get('/domainData/:id', req => {

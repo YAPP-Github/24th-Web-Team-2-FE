@@ -9,8 +9,8 @@ interface AlternateListTapProps {
 
 const AlternateListTap = ({ tapName, tapCnt }: AlternateListTapProps) => {
   return (
-    <div className='flex flex-row w-full h-12 border-b gap-4 border-lightgrey'>
-      <ListItem id={tapName} name={tapName} tapCnt={tapCnt} isActive={true} />
+    <div className='flex flex-row w-full h-12 gap-4 border-b border-lightgrey'>
+      <ListItem id={tapName} name={tapName} isActive={true} />
     </div>
   );
 };

@@ -8,16 +8,17 @@ import Image from 'next/image';
 import DoubleArrow from '@/assets/icons/DoubleArrow.svg';
 import Link from 'next/link';
 import ScrollNavigation from './ScrollNavigation';
+import { MailDataType } from '@/api/hooks/useUnreadQuery';
 
 interface TodayTabProps {
-  articleData: ArticleType[];
+  articleData: MailDataType[];
   isArticleArea: boolean;
 }
 
 const TodayTab = ({ articleData, isArticleArea }: TodayTabProps) => {
   return articleData.length > 0 ? (
     <>
-      <div className='flex flex-col items-center mt-10 gap-3'>
+      <div className='flex flex-col items-center gap-3 mt-10'>
         <span className='text-blue text-body1'>{formatToYMD(new Date())}</span>
         <span className='text-center text-h1'>
           {/* TODO: 이름 api를 통해 받아오기 */}
@@ -31,8 +32,8 @@ const TodayTab = ({ articleData, isArticleArea }: TodayTabProps) => {
       </div>
       <div className='flex flex-col gap-6'>
         {articleData.map(article => (
-          <div key={article.id} className='flex flex-col gap-3'>
-            <ArticleCard key={article.id} {...article} isToday={true} currentTab='today' />
+          <div key={article.mailId} className='flex flex-col gap-3'>
+            <ArticleCard key={article.mailId} {...article} isToday={true} currentTab='today' />
           </div>
         ))}
       </div>
@@ -40,7 +41,7 @@ const TodayTab = ({ articleData, isArticleArea }: TodayTabProps) => {
         <Link href='/main' scroll={true} className={`fixed w-10 h-10 bottom-4 left-4 rounded-full bg-green z-50`} />
       ) : (
         <Link
-          href={`/main#${articleData[0].id}`}
+          href={`/main#${articleData[0].mailId}`}
           scroll={true}
           className={`fixed -translate-x-1/2 cursor-pointer left-1/2 bottom-8 text-darkgrey`}
         >
@@ -50,7 +51,6 @@ const TodayTab = ({ articleData, isArticleArea }: TodayTabProps) => {
           </div>
         </Link>
       )}
-      {/* FIXME: @우찬 */}
       <ScrollNavigation articleData={articleData} />
     </>
   ) : (

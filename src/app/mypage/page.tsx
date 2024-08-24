@@ -19,7 +19,7 @@ const MyPage = async () => {
         </div>
         <div className='text-xl font-bold -bottom-6'>{userData?.name}</div>
       </div>
-      <div className='flex flex-col w-full text-btn1'>
+      <div className='flex flex-col w-full gap-8 pl-4 text-btn1'>
         <Link
           className='py-4 font-bold w-fit'
           href='/mypage/subscribe' // Link to Subscribe Management Page
