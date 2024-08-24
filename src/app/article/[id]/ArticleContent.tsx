@@ -18,10 +18,8 @@ const ArticleContent = ({ isToday, mailData }: ArticleContentProps) => {
     <div id={mailData.mailId} className='flex flex-col items-center w-full gap-2'>
       <ArticleHeader {...mailData} headerType={headerType} />
 
-      {/* <div className='w-content h-[1200px] bg-blue'></div> */}
       <div
-        style={{ width: '100%', overflow: 'scroll' }}
-        className='w-content h-[1200px]'
+        className='w-content h-[1200px] overflow-x-scroll'
         dangerouslySetInnerHTML={{ __html: mailData.payload[0].body }}
       ></div>
     </div>
