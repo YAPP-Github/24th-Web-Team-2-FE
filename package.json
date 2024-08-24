@@ -8,8 +8,7 @@
     "serve:bg": "pm2 start server.js -i 2",
     "serve:kill": "pm2 kill",
     "serve:monit": "pm2 monit",
-    "build:dev": "env-cmd -f .env next build",
-    "build:prod": "env-cmd -f .env.production next build",
+    "build": "env-cmd -f .env next build",
     "storybook": "storybook dev -p 6006",
     "dev:mock": "npx tsx watch src/mocks/server/index.ts",
     "build-storybook": "storybook build"

@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Inject .env file
-        run: echo "${{ secrets.FRONTEND_ENV }}" > ./.env.production
+        run: echo "${{ secrets.FRONTEND_ENV }}" > ./.env
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
