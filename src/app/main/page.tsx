@@ -1,7 +1,7 @@
 import type { pageProps } from '@/types/page';
 import TodayTab from '@/app/main/TodayTab';
 import DigestTab from '@/app/main/DigestTab';
-import ArticleContent from './article/[id]/ArticleContent';
+import ArticleContent from '../article/[id]/ArticleContent';
 import { GET } from '@/network';
 import type { ArticleType } from '@/types';
 import SearchTab from './SearchTab';
@@ -23,9 +23,9 @@ const MainPage = async ({ searchParams }: pageProps) => {
           </div>
         </>
       ) : currentTab === 'search' ? (
-        <SearchTab currentTab={currentTab} />
+        <SearchTab />
       ) : (
-        <DigestTab currentTab={currentTab} />
+        <DigestTab />
       )}
     </div>
   );

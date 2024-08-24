@@ -9,9 +9,9 @@ const ArticleContent = async ({ isToday, articleId }: ArticleContentProps) => {
   const articleData = await getArticleData(articleId);
 
   return (
-    <div id={articleId} className='flex flex-col w-full gap-2'>
-      <ArticleHeader {...articleData} isToday={isToday} />
-      <div className='w-full h-[1200px] bg-darkgrey'></div>
+    <div id={articleId} className='flex flex-col items-center w-full gap-2'>
+      <ArticleHeader {...articleData} />
+      <div className='w-content h-[1200px] bg-darkgrey'></div>
     </div>
   );
 };
@@ -28,5 +28,6 @@ const getArticleData = async (id: string) => {
       domain: 'official@git',
       profile: 'https://picsum.photos/36',
     },
+    group: '채민이의 유용한 아티클',
   };
 };

@@ -15,7 +15,7 @@ const ListItem = ({ id, name, isActive, onClick }: ListItemProps) => {
         query: { tab: id },
       }}
       onClick={onClick}
-      className={`${isActive ? 'border-bottom-gradient text-black' : 'text-darkgrey'} flex flex-row items-center gap-4 px-6 py-3 whitespace-pre-wrap text-body3`}
+      className={`${isActive ? (id === 'Digest' ? 'bg-background_grey rounded-t border-bottom-gradient text-black' : 'border-bottom-gradient text-black') : 'text-darkgrey'} flex flex-row items-center gap-4 px-6 py-3 whitespace-pre-wrap text-body3`}
     >
       {name}
     </Link>

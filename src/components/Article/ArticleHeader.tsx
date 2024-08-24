@@ -3,7 +3,6 @@ import { Chip } from '@/components/Chip';
 import { formatToMonthDayKorean } from '@/utils/formatDate/formatToMonthDayKorean';
 
 interface ArticleHeaderProps {
-  isToday: boolean;
   title: string;
   type: string;
   date: string;
@@ -11,26 +10,26 @@ interface ArticleHeaderProps {
     domain: string;
     profile: string;
   };
+  group?: string;
 }
 
-const ArticleHeader = ({ isToday, title, type, date, from }: ArticleHeaderProps) => {
+const ArticleHeader = ({ title, type, date, from, group }: ArticleHeaderProps) => {
   return (
-    <div className='flex flex-col w-full gap-3 p-6 border-b border-b-lightgrey'>
-      <div>
-        {isToday && <div className='text-blue text-caption'>오늘의 발견</div>}
-        <div className='flex flex-row items-center gap-2'>
-          <h1 className='font-bold text-black text-h1'>{title}</h1>
-          <span className='h-fit'>
-            <Chip text={type} />
-          </span>
+    <div className='flex flex-col items-center w-screen border-b border-b-lightgrey'>
+      <div className='flex flex-col gap-3 py-4 w-content'>
+        <div className='flex flex-col gap-1'>
+          <div className='text-body1 text-darkgrey'>{group ?? 'Digest'}</div>
+          <div className='flex flex-row items-center gap-2'>
+            <h1 className='font-bold text-black text-h1'>{title}</h1>
+          </div>
         </div>
-      </div>
-      <div className='flex flex-row items-center w-full gap-4'>
-        <div className='flex flex-row items-center gap-2.5 text-body3'>
-          <Image src={from.profile} width={36} height={36} alt='Profile' className='rounded-full' />
-          <span className='text-body3'>{from.domain}</span>
+        <div className='flex flex-row items-center w-full gap-4'>
+          <div className='flex flex-row items-center gap-2.5 text-body3'>
+            <Image src={from.profile} width={36} height={36} alt='Profile' className='rounded-full' />
+            <span className='text-body2 text-darkgrey'>{from.domain}</span>
+          </div>
+          <span className='text-body2 text-blue'>{formatToMonthDayKorean(new Date(date))}</span>
         </div>
-        <span className='text-body3'>{formatToMonthDayKorean(new Date(date))}</span>
       </div>
     </div>
   );

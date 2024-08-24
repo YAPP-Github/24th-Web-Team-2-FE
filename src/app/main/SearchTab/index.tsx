@@ -4,13 +4,9 @@ import { useState } from 'react';
 import TopSection from './TopSection';
 import SectionContent from './SectionContent';
 
-interface SearchTabProps {
-  currentTab: string;
-}
-
 export const TabContent = ['시사 / 경제', 'IT / 테크', '트렌드', '커리어', '스타트업', '디자인'];
 
-const SearchTab = ({ currentTab }: SearchTabProps) => {
+const SearchTab = () => {
   const [selectedTab, setSelectedTab] = useState<string[]>([]);
 
   const isAllSelected = selectedTab.length === 0 || selectedTab.includes('전체');

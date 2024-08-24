@@ -5,25 +5,14 @@ import Link from 'next/link';
 
 interface ArticleCardProps extends ArticleType {
   isToday?: boolean;
-  currentTab: string;
+  currentTab?: string;
 }
 
-const ArticleCard = ({
-  title,
-  url,
-  id,
-  content,
-  date,
-  thumbnail,
-  isRead,
-  from,
-  isToday = false,
-  currentTab,
-}: ArticleCardProps) => {
+const ArticleCard = ({ title, url, id, content, date, thumbnail, isRead, from, isToday = false }: ArticleCardProps) => {
   return (
     <Link
       // https://stackoverflow.com/questions/66821351/nextjs-error-message-failed-prop-type-the-prop-href-expects-a-string-or-o
-      href={{ pathname: isToday ? `/main` : `/main${url}`, hash: id, query: { tab: currentTab } }}
+      href={{ pathname: isToday ? `/main` : `${url}`, hash: isToday ? id : null }}
       className={`${isRead ? 'bg-background_grey' : isToday ? 'border-gradient_vertical bg-white' : 'border border-lightgrey bg-white'}  w-articleCard `}
     >
       <div className='flex flex-row items-center gap-20 p-6'>

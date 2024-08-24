@@ -7,7 +7,7 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/:path((?!main/article|domain).*)',
+        source: '/:path((?!article|domain|main).*)',
         destination: `${
           process.env.NEXT_PUBLIC_API_MOCK === 'enabled'
             ? process.env.NEXT_PUBLIC_MOCK_URL
