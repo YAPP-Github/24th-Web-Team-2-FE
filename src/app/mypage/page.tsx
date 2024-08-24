@@ -17,7 +17,7 @@ const MyPage = async () => {
         <div className='absolute bottom-0 w-full h-2/5 bg-gradient-to-t from-white' />
         <div className='absolute ml-4 -bottom-6 text-h1'>{userData?.name}</div>
       </div>
-      <div className='flex flex-col w-full gap-8 pl-4 text-btn1'>
+      <div className='flex flex-col w-full pl-4 gap-8 text-btn1'>
         <Link
           className='w-fit'
           href='/mypage/subscribe' // Link to Subscribe Management Page

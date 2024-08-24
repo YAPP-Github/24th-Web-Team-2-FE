@@ -31,7 +31,7 @@
 }
 
 .text-btn1 {
-  @apply text-sm font-normal leading-[1.125rem] tracking-tighter;
+  @apply text-sm font-medium leading-[1.125rem] tracking-tighter;
 }
 
 .text-h1-onboard {

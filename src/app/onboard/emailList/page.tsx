@@ -7,7 +7,7 @@ const EmailList = async () => {
   const incomingSenders = await getIncomingSenders();
   const incomingSenders2 = await getIncomingSenders2();
   return (
-    <div className='flex flex-col items-center gap-10 mb-24'>
+    <div className='flex flex-col items-center mb-24 gap-10'>
       <span className='flex flex-col items-center gap-2'>
         <span className='flex flex-row items-center'>
           <ServiceIcon width={195} />

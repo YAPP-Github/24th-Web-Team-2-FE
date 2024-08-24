@@ -5,7 +5,7 @@ import Link from 'next/link';
 const Footer = () => {
   return (
     <div className='w-full h-[35.5vh] flex pt-6 bg-black justify-center shrink-0'>
-      <div className='flex flex-row gap-8 text-white text-body1-onboard h-fit'>
+      <div className='flex flex-row text-white gap-8 text-body1-onboard h-fit'>
         {/* TODO: Link로 교체 */}
         <Link target='_blank' href=''>
           InspoMailClub 소개

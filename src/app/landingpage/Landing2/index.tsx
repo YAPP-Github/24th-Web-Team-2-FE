@@ -10,7 +10,7 @@ const Landing2 = () => {
       ref={elementRef}
       className='flex flex-col items-center justify-end w-full snap-start h-landingPageHeight shrink-0'
     >
-      <span className='flex flex-row gap-10 mt-20'>
+      <span className='flex flex-row mt-20 gap-10'>
         <h2
           className={`${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-[100vh]'} transition delay-100 text-red text-h1-onboard`}
         >

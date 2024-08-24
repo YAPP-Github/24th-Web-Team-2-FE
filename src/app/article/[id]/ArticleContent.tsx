@@ -1,18 +1,31 @@
+'use client';
+
 import ArticleHeader from '@/components/Article/ArticleHeader';
+import { ArticleType } from '@/types';
+import useIntersectionObserver from '@/utils/hooks/useIntersectionObserver';
+import { useEffect, useState } from 'react';
 
 interface ArticleContentProps {
   isToday: boolean;
   articleId: string;
 }
 
-const ArticleContent = async ({ isToday, articleId }: ArticleContentProps) => {
-  const articleData = await getArticleData(articleId);
+const ArticleContent = ({ isToday, articleId }: ArticleContentProps) => {
+  const [articleData, setArticleData] = useState<ArticleType>();
+  const [headerType, setHeaderType] = useState<'default' | 'simplified'>('default');
+
+  useEffect(() => {
+    getArticleData(articleId).then(data => setArticleData(data));
+  }, [articleId]);
 
   return (
-    <div id={articleId} className='flex flex-col items-center w-full gap-2'>
-      <ArticleHeader {...articleData} />
-      <div className='w-content h-[1200px] bg-darkgrey'></div>
-    </div>
+    articleData && (
+      <div id={articleId} className='flex flex-col items-center w-full gap-2'>
+        <ArticleHeader {...articleData} headerType={headerType} />
+
+        <div className='w-content h-[1200px] bg-blue'></div>
+      </div>
+    )
   );
 };
 

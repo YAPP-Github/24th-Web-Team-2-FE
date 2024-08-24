@@ -11,7 +11,7 @@ const MainPageHeader = () => {
         <Image src={ServiceIcon} alt='ServiceIcon' width={153} height={64} />
       </Link>
 
-      <Link href='/mypage' className='flex flex-row items-center gap-1 cursor-pointer text-blue'>
+      <Link href='/mypage' className='flex flex-row items-center cursor-pointer gap-1 text-blue'>
         <HomeIcon width={24} fill='#168FD0' />
         <span className='text-body3'>마이 페이지</span>
       </Link>

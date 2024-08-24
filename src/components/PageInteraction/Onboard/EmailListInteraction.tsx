@@ -33,7 +33,7 @@ const EmailListInteraction = ({ userName, interest, incomingSenders, techSenders
             <span className='text-blue'>{userName}님의 메일함에서 발견된</span>
             <span className='text-darkgrey'> 뉴스레터에요.</span>
           </span>
-          <div className='flex flex-col max-h-full gap-2 overflow-auto noScrollbar'>
+          <div className='flex flex-col max-h-full overflow-auto gap-2 noScrollbar'>
             {incomingSenders.senders.map(({ senderId, fullAddress, localPart, domain, category }) => {
               return (
                 <EmailSenderButton
@@ -56,7 +56,7 @@ const EmailListInteraction = ({ userName, interest, incomingSenders, techSenders
             <span className='text-blue'>{interest}에 관심이 있다면,</span>
             <span className='text-darkgrey'> 이런 발신인은 어때요?</span>
           </span>
-          <div className='flex flex-col max-h-full gap-2 overflow-auto noScrollbar'>
+          <div className='flex flex-col max-h-full overflow-auto gap-2 noScrollbar'>
             {techSenders.senders.map(({ senderId, fullAddress, localPart, domain, category }) => {
               return (
                 <EmailSenderButton

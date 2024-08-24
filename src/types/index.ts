@@ -1,12 +1,12 @@
 export interface ArticleType {
   id: string;
-  url: string;
+  url?: string;
   title: string;
   type: string;
-  content: string;
+  content?: string;
   date: string;
-  thumbnail: string;
-  isRead: boolean;
+  thumbnail?: string;
+  isRead?: boolean;
   from: {
     domain: string;
     profile: string;
@@ -17,9 +17,11 @@ export interface DomainType {
   name: string;
   type: string;
   domain: string;
+  newsLetter: string;
   profile: string;
   description: string;
   website: string;
+  subscriberCnt: number;
 }
 
 export interface UserDataType {

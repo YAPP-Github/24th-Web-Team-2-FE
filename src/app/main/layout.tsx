@@ -22,11 +22,11 @@ export default function MainPageLayout({
   return (
     <>
       <MainPageHeader />
-      <div className='flex flex-col w-content'>
+      <div className='flex flex-col items-center w-full'>
         <Suspense fallback={<div></div>}>
           <MainListTap tabData={tabData} />
         </Suspense>
-        <div className='flex justify-center w-full h-full'>{children}</div>
+        <div className='flex justify-center h-full w-content'>{children}</div>
       </div>
     </>
   );

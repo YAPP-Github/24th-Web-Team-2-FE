@@ -1,8 +1,11 @@
 import Image from 'next/image';
 import { Chip } from '@/components/Chip';
 import { formatToMonthDayKorean } from '@/utils/formatDate/formatToMonthDayKorean';
+import Link from 'next/link';
 
 interface ArticleHeaderProps {
+  headerType: 'default' | 'simplified';
+  id: string;
   title: string;
   type: string;
   date: string;
@@ -13,21 +16,25 @@ interface ArticleHeaderProps {
   group?: string;
 }
 
-const ArticleHeader = ({ title, type, date, from, group }: ArticleHeaderProps) => {
+const ArticleHeader = ({ headerType, id, title, type, date, from, group }: ArticleHeaderProps) => {
   return (
-    <div className='flex flex-col items-center w-screen border-b border-b-lightgrey'>
-      <div className='flex flex-col gap-3 py-4 w-content'>
-        <div className='flex flex-col gap-1'>
-          <div className='text-body1 text-darkgrey'>{group ?? 'Digest'}</div>
+    <div className='sticky top-0 flex flex-col items-center w-screen bg-white border-b border-b-lightgrey'>
+      <div
+        className={`flex py-4 w-content ${headerType === 'default' ? 'flex-col gap-3' : 'flex-row justify-between items-center'}`}
+      >
+        <div className={`flex ${headerType === 'default' ? 'flex-col gap-1' : 'flex-row gap-3 items-center'}`}>
+          <div className={`text-body1 ${headerType === 'default' ? 'text-darkgrey' : 'text-black'}`}>
+            {group ?? 'Digest'}
+          </div>
           <div className='flex flex-row items-center gap-2'>
-            <h1 className='font-bold text-black text-h1'>{title}</h1>
+            <h1 className={`font-bold text-black ${headerType === 'default' ? 'text-h1' : 'text-h2'}`}>{title}</h1>
           </div>
         </div>
-        <div className='flex flex-row items-center w-full gap-4'>
-          <div className='flex flex-row items-center gap-2.5 text-body3'>
+        <div className='flex flex-row items-center gap-4'>
+          <Link href={`/domain/${id}`} className='flex flex-row items-center gap-2.5 text-body3'>
             <Image src={from.profile} width={36} height={36} alt='Profile' className='rounded-full' />
             <span className='text-body2 text-darkgrey'>{from.domain}</span>
-          </div>
+          </Link>
           <span className='text-body2 text-blue'>{formatToMonthDayKorean(new Date(date))}</span>
         </div>
       </div>
