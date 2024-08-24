@@ -1,12 +1,8 @@
 import { getInterestList } from '@/api/onboard';
 import InterestInteraction from '@/components/PageInteraction/Onboard/InterestInteraction';
 
-interface InterestProps {
-  userName: string;
-}
-
-const Interest = async ({ userName = '채현' }: InterestProps) => {
-  // const interestList = await getInterestList();
+const Interest = async () => {
+  const userName = '채현';
 
   const interestList = [
     {

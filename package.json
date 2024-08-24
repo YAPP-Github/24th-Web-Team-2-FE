@@ -9,6 +9,7 @@
     "serve:kill": "pm2 kill",
     "serve:monit": "pm2 monit",
     "build:dev": "env-cmd -f .env next build",
+    "build:prod": "env-cmd -f .env.production next build",
     "storybook": "storybook dev -p 6006",
     "dev:mock": "npx tsx watch src/mocks/server/index.ts",
     "build-storybook": "storybook build"
@@ -26,6 +27,7 @@
   "dependencies": {
     "@tanstack/react-query": "^5.51.23",
     "axios": "^1.7.2",
+    "dotenv": "^16.4.5",
     "next": "^14.2.3",
     "react-cookie": "^7.1.4",
     "react-fast-marquee": "^1.6.5",

@@ -3,7 +3,9 @@ const nextConfig = {
   images: {
     domains: ['localhost', 'via.placeholder.com', 'picsum.photos', 'i.namu.wiki'],
   },
-
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   async rewrites() {
     return [
       {

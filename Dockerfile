@@ -9,4 +9,6 @@ RUN npm i pm2 -g
 
 COPY . .
 
+RUN npm run build:prod
+
 CMD ["npm", "run", "serve"]

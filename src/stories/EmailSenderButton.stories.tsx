@@ -27,7 +27,6 @@ type Story = StoryObj<typeof meta>;
 export const BeforeRegister: Story = {
   args: {
     title: 'LinkedIn 채용공고 알림',
-    email: 'jobalerts-noreply@linkedin.com',
     tag: '채용',
     ChildIcon: <LinkedInIcon width={48} disabled={true} />,
     type: 'subscribe',
@@ -39,7 +38,6 @@ export const BeforeRegister: Story = {
 export const AfterRegister: Story = {
   args: {
     title: 'LinkedIn 채용공고 알림',
-    email: 'jobalerts-noreply@linkedin.com',
     tag: '채용',
     ChildIcon: <LinkedInIcon width={48} />,
     type: 'subscribe',
@@ -51,7 +49,6 @@ export const AfterRegister: Story = {
 export const BeforeSpam: Story = {
   args: {
     title: 'LinkedIn 채용공고 알림',
-    email: 'jobalerts-noreply@linkedin.com',
     tag: '채용',
     ChildIcon: <LinkedInIcon width={48} disabled={true} />,
     type: 'spam',
@@ -63,7 +60,6 @@ export const BeforeSpam: Story = {
 export const AfterSpam: Story = {
   args: {
     title: 'LinkedIn 채용공고 알림',
-    email: 'jobalerts-noreply@linkedin.com',
     tag: '채용',
     ChildIcon: <LinkedInIcon width={48} disabled={false} />,
     type: 'spam',
