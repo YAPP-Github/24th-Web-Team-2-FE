@@ -31,7 +31,7 @@
     "react-cookie": "^7.1.4",
     "react-fast-marquee": "^1.6.5",
     "typescript": "^5.4.5",
-    "zustand": "^4.5.2"
+    "zustand": "^4.5.5"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.5.0",
