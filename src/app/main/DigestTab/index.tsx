@@ -111,7 +111,7 @@ const DigestTab = () => {
   }, []);
 
   return (
-    <div className='flex flex-row justify-between w-full h-full'>
+    <div className='flex flex-row w-full h-full gap-16'>
       <div className='flex flex-col gap-3 pt-3'>
         <TopSection selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
         {articleData.map(article => (

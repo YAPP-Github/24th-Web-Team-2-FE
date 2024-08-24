@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import { Chip } from '@/components/Chip';
 import { formatToMonthDayKorean } from '@/utils/formatDate/formatToMonthDayKorean';
+import Link from 'next/link';
 
 interface ArticleHeaderProps {
+  id: string;
   title: string;
   type: string;
   date: string;
@@ -13,7 +15,7 @@ interface ArticleHeaderProps {
   group?: string;
 }
 
-const ArticleHeader = ({ title, type, date, from, group }: ArticleHeaderProps) => {
+const ArticleHeader = ({ id, title, type, date, from, group }: ArticleHeaderProps) => {
   return (
     <div className='flex flex-col items-center w-screen border-b border-b-lightgrey'>
       <div className='flex flex-col gap-3 py-4 w-content'>
@@ -24,10 +26,10 @@ const ArticleHeader = ({ title, type, date, from, group }: ArticleHeaderProps) =
           </div>
         </div>
         <div className='flex flex-row items-center w-full gap-4'>
-          <div className='flex flex-row items-center gap-2.5 text-body3'>
+          <Link href={`/domain/${id}`} className='flex flex-row items-center gap-2.5 text-body3'>
             <Image src={from.profile} width={36} height={36} alt='Profile' className='rounded-full' />
             <span className='text-body2 text-darkgrey'>{from.domain}</span>
-          </div>
+          </Link>
           <span className='text-body2 text-blue'>{formatToMonthDayKorean(new Date(date))}</span>
         </div>
       </div>

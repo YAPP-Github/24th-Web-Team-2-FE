@@ -1,40 +1,49 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { ArticleType } from '@/types';
 import Link from 'next/link';
 
 interface ScrollNavigationProps {
   articleData: ArticleType[];
+  isReady: boolean;
 }
 
-const ScrollNavigation = ({ articleData }: ScrollNavigationProps) => {
+const ScrollNavigation = ({ articleData, isReady }: ScrollNavigationProps) => {
   const [activeId, setActiveId] = useState<string | null>(articleData[0].id);
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
   useEffect(() => {
-    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setActiveId(entry.target.id);
-        }
+    // FIXME: @우찬
+    console.log('isReady', isReady);
+    if (isReady) {
+      const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(handleIntersection, {
+        root: null,
+        threshold: 0.1,
       });
-    };
 
-    const observer = new IntersectionObserver(handleIntersection, {
-      root: null,
-      threshold: 0.1,
-    });
+      articleData.forEach(article => {
+        const element = document.getElementById(article.id);
+        if (element) observer.observe(element);
+      });
 
-    articleData.forEach(article => {
-      const element = document.getElementById(article.id);
-      if (element) observer.observe(element);
-    });
+      return () => {
+        observer.disconnect();
+      };
+    }
+  }, [articleData, isReady]);
 
-    return () => {
-      observer.disconnect();
-    };
-  }, [articleData]);
+  useEffect(() => {
+    console.log(activeId);
+  }, [activeId]);
 
   return (
     <div

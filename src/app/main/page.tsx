@@ -1,22 +1,37 @@
+'use client';
+
 import type { pageProps } from '@/types/page';
 import TodayTab from '@/app/main/TodayTab';
 import DigestTab from '@/app/main/DigestTab';
 import ArticleContent from '../article/[id]/ArticleContent';
-import { GET } from '@/network';
 import type { ArticleType } from '@/types';
 import SearchTab from './SearchTab';
+import useIntersectionObserver from '@/utils/hooks/useIntersectionObserver';
+import { useEffect, useState } from 'react';
+import { notFound } from 'next/navigation';
 
-const MainPage = async ({ searchParams }: pageProps) => {
-  // apiData에서 tab에 들어갈 데이터 fetch
+const MainPage = ({ searchParams }: pageProps) => {
   const currentTab = (searchParams.tab ?? 'today') as string;
-  const articleApiData = await getMainPageArticleData();
+  const [articleApiData, setArticleApiData] = useState<ArticleType[]>([]);
+  const { isVisible, elementRef } = useIntersectionObserver(0);
+
+  useEffect(() => {
+    if (articleApiData.length) return;
+    console.log('loaded');
+    console.log(isVisible);
+  }, [isVisible, articleApiData]);
+
+  useEffect(() => {
+    getMainPageArticleData().then(data => setArticleApiData(data));
+  }, []);
 
   return (
     <div className='flex flex-col items-center w-full gap-10 mb-10'>
       {currentTab === 'today' ? (
         <>
-          <TodayTab articleData={articleApiData} />
-          <div className='flex flex-col w-full gap-20'>
+          {/* FIXME: @우찬 */}
+          <TodayTab articleData={articleApiData} isArticleArea={isVisible} isReady={true} />
+          <div className='flex flex-col w-full gap-20' ref={elementRef}>
             {articleApiData.map(article => (
               <ArticleContent key={article.id} isToday={true} articleId={article.id} />
             ))}
@@ -24,8 +39,10 @@ const MainPage = async ({ searchParams }: pageProps) => {
         </>
       ) : currentTab === 'search' ? (
         <SearchTab />
-      ) : (
+      ) : currentTab === 'Digest' ? (
         <DigestTab />
+      ) : (
+        notFound()
       )}
     </div>
   );
