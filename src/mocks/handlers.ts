@@ -199,7 +199,7 @@ export const handlers = [
     });
   }),
 
-  http.get('/inbox/unreadMails', req => {
+  http.get('/inbox/unread-mails', req => {
     return HttpResponse.json(mailListData);
   }),
 

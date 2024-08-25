@@ -5,7 +5,7 @@ import { GET } from '@/network';
 const EmailList = async () => {
   const userName = '채현';
   const incomingSenders = await getIncomingSenders();
-  const incomingSenders2 = await getIncomingSenders2();
+  // const incomingSenders2 = await getIncomingSenders2();
   return (
     <div className='flex flex-col items-center mb-24 gap-10'>
       <span className='flex flex-col items-center gap-2'>
@@ -20,7 +20,7 @@ const EmailList = async () => {
         userName={userName}
         interest={'IT/테크'}
         incomingSenders={incomingSenders}
-        techSenders={incomingSenders2}
+        // techSenders={incomingSenders2}
       />
     </div>
   );
@@ -29,7 +29,7 @@ const EmailList = async () => {
 export default EmailList;
 
 const getIncomingSenders = async () => {
-  const response = GET('/incomingSenders/1');
+  const response = GET('/onboarding/incoming-senders');
   return response;
 };
 
