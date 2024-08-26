@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { axiosInstance } from '../axiosInstance';
 import { AxiosError, AxiosResponse } from 'axios';
 
-interface Newsletter {
+export interface Newsletter {
   name: string;
   companyName: string;
   isAutomated: boolean;
@@ -20,10 +20,14 @@ export interface SubscriptionList {
   startup: Newsletter[];
 }
 
+const fetchSubscribtionList = () => {
+  return axiosInstance.get('/inbox/subscriptions-list');
+};
+
 export const useSearchTabQuery = () => {
   return useQuery<AxiosResponse, AxiosError, SubscriptionList>({
     queryKey: ['searchTab'],
-    queryFn: () => axiosInstance.get('/inbox/subscriptions-list'),
-    select: ({ data }) => data.subscriptions,
+    queryFn: () => fetchSubscribtionList(),
+    select: ({ data }) => data,
   });
 };
