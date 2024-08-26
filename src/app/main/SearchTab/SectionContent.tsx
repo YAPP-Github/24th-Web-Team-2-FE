@@ -1,14 +1,23 @@
 import ArticleCard from '@/app/main/SearchTab/ArticleCard';
+import useDragScroll from '@/utils/hooks/useDragScroll';
 
 interface SectionContentProps {
   tab: string;
 }
 
 const SectionContent = ({ tab }: SectionContentProps) => {
+  const { scrollRef, onDragStart, onThrottleDragMove, onDragEnd, isDrag } = useDragScroll();
   return (
-    <div className='flex flex-col overflow-x-scroll gap-5'>
+    <div className='flex flex-col gap-5 overflow-x-scroll'>
       <span className='text-xl font-bold'>{tab}</span>
-      <div className='flex flex-row overflow-x-scroll gap-4 noScrollbar'>
+      <div
+        onMouseDown={onDragStart}
+        onMouseMove={isDrag ? onThrottleDragMove : () => {}}
+        onMouseUp={onDragEnd}
+        onMouseLeave={onDragEnd}
+        ref={scrollRef}
+        className='flex flex-row gap-4 overflow-x-scroll noScrollbar scroll-auto'
+      >
         <ArticleCard />
         <ArticleCard />
         <ArticleCard />

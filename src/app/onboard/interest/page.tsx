@@ -7,12 +7,12 @@ const Interest = async () => {
   const interestList = [
     {
       id: 'randomstring1',
-      interest: '시사',
-      desc: '세상 돌아가는',
+      interest: '스타트업',
+      desc: '핵심 기업',
     },
     {
       id: 'randomstring2',
-      interest: 'IT/테크',
+      interest: 'IT / 테크',
       desc: '최신 테크',
     },
     {
@@ -22,8 +22,8 @@ const Interest = async () => {
     },
     {
       id: 'randomstring4',
-      interest: '경제',
-      desc: '핵심 기업',
+      interest: '시사 / 경제',
+      desc: '세상 돌아가는',
     },
     {
       id: 'randomstring5',
@@ -32,7 +32,7 @@ const Interest = async () => {
     },
     {
       id: 'randomstring6',
-      interest: '채용',
+      interest: '커리어',
       desc: '신규 채용',
     },
   ];

@@ -19,8 +19,8 @@ const ArticleContent = ({ isToday, mailData }: ArticleContentProps) => {
       <ArticleHeader {...mailData} headerType={headerType} />
 
       <div
-        className='w-content h-[1200px] overflow-x-scroll'
-        dangerouslySetInnerHTML={{ __html: mailData.payload[0].body }}
+        className='py-4 overflow-x-scroll w-content h-fit shrink-0'
+        dangerouslySetInnerHTML={{ __html: mailData.payload.find(pl => pl.mimeType === 'text/html')!.body }}
       ></div>
     </div>
   );

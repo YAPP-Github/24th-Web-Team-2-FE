@@ -34,6 +34,8 @@ const MainPage = ({ searchParams }: pageProps) => {
       );
 
       const boxes = containerRef.current.querySelectorAll('.content-box');
+      console.log(containerRef.current);
+      console.log(containerRef.current.getElementsByClassName('content-box'));
       boxes.forEach(box => observer.observe(box));
 
       return () => {

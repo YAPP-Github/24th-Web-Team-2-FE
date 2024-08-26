@@ -29,7 +29,7 @@ const ArticleCard = ({
     >
       <div className='flex flex-row items-center justify-between px-6 py-5'>
         <div className='flex flex-col gap-6 w-[460px]'>
-          <div className='flex flex-col gap-1'>
+          <div className='flex flex-col gap-1 text-black'>
             <span className='text-h3 line-clamp-2'>{subject}</span>
             {/* <span className='text-body2 line-clamp-2'>{content}</span> */}
             <span className='text-body2 line-clamp-2'>{snippet}</span>
@@ -37,7 +37,7 @@ const ArticleCard = ({
           <div className='flex flex-row items-center gap-4'>
             <span className='flex flex-row items-center gap-2'>
               {/* <Image className='rounded-full' src={from.profile} alt='profile' width={36} height={36} /> */}
-              <span className='text-body2 text-darkgrey'>{from.address}</span>
+              <span className='text-body2 text-darkgrey'>{from.name}</span>
             </span>
             <span className='text-body2 text-blue'>{formatToMonthDayKorean(new Date(date))}</span>
           </div>
