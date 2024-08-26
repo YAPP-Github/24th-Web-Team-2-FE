@@ -10,10 +10,9 @@ interface EmailListInteractionProps {
   userName: string;
   interest: string;
   incomingSenders: IncomingSenders;
-  techSenders: IncomingSenders;
 }
 
-const EmailListInteraction = ({ userName, interest, incomingSenders, techSenders }: EmailListInteractionProps) => {
+const EmailListInteraction = ({ userName, interest, incomingSenders }: EmailListInteractionProps) => {
   const [selectedEmailList, setSelectedEmailList] = useState<string[]>([]);
 
   const handleAddEmail = (email: string) => {
@@ -56,7 +55,7 @@ const EmailListInteraction = ({ userName, interest, incomingSenders, techSenders
             <span className='text-blue'>{interest}에 관심이 있다면,</span>
             <span className='text-darkgrey'> 이런 발신인은 어때요?</span>
           </span>
-          <div className='flex flex-col max-h-full overflow-auto gap-2 noScrollbar'>
+          {/* <div className='flex flex-col max-h-full overflow-auto gap-2 noScrollbar'>
             {techSenders.senders.map(({ senderId, fullAddress, localPart, domain, category }) => {
               return (
                 <EmailSenderButton
@@ -72,7 +71,7 @@ const EmailListInteraction = ({ userName, interest, incomingSenders, techSenders
                 />
               );
             })}
-          </div>
+          </div> */}
         </div>
         <div className='absolute bottom-0 right-0 w-full h-16 pointer-events-none bg-gradient-to-t from-white to-transparent' />
       </div>

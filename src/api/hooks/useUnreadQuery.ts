@@ -34,7 +34,7 @@ interface Response {
 }
 
 export const fetchUnReadMails = ({ group, sender }: fetchUnreadMailsParams) => {
-  const data = axiosInstance.get('/inbox/unreadMails', { params: { group, sender } });
+  const data = axiosInstance.get('/inbox/unread-mails', { params: { group, sender } });
   return data;
 };
 
