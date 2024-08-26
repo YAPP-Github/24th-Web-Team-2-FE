@@ -1,5 +1,4 @@
-import DomainListItem from '@/components/Domain/DomainListItem';
-import { GET } from '@/network';
+import DomainListWithSubscribeButton from '@/components/Domain/DomainListWithSubscribeButton';
 import { DomainType } from '@/types';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -42,7 +41,7 @@ const RecommendArea = () => {
   return (
     <div className='flex flex-col gap-3 min-w-domainCard'>
       <div className='flex flex-row items-center justify-between'>
-        <div className='flex flex-col gap-1'>
+        <div className='flex flex-col gap-1 text-black'>
           <span className='text-body3'>채현님이 놓치고 있는 뉴스레터</span>
           <span className='text-caption text-darkgrey'>더 많은 인사이트를 얻으세요</span>
         </div>
@@ -62,7 +61,7 @@ const RecommendArea = () => {
             key={index}
             className={`${index === recommendDomainData.length - 1 ? 'border-b-white' : 'border-b-lightgrey'} border-b`}
           >
-            <DomainListItem domainData={domain} isSubscribed={false} />
+            <DomainListWithSubscribeButton domainData={domain} isSubscribed={false} />
           </div>
         ))}
       </div>

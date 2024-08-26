@@ -12,34 +12,34 @@ interface ScrollNavigationProps {
 }
 
 const ScrollNavigation = ({ articleData }: ScrollNavigationProps) => {
-  const [activeId, setActiveId] = useState<string | null>(articleData[0].mailId);
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const itemRef = useRef<HTMLDivElement>(null);
   const focusId = useFocusIdStore(state => state.focusId, shallow);
 
   useEffect(() => {
-    console.log(activeId);
-  }, [activeId]);
+    console.log(focusId);
+  }, [focusId]);
 
   return (
     <div
       ref={itemRef}
-      className='fixed flex flex-row items-center gap-4 transform -translate-y-1/2 right-10 top-1/2'
+      className='fixed flex flex-row items-center gap-4 transform -translate-y-1/2 right-10 top-1/2 z-[9999]'
       onMouseLeave={() => setIsHovered(false)}
     >
       {isHovered && (
         <div className='flex flex-col gap-2 w-[13.5rem] rounded-xl shadow-[0_0_12px_0_rgba(0,0,0,0.25)] p-4 bg-white'>
           {articleData.map((article, index) => (
             <Link
+              style={{
+                color: focusId === index ? 'rgb(22 143 208)' : 'rgb(121 121 121)',
+              }}
               key={article.mailId}
               href={{
                 pathname: `/main`,
                 query: { tab: 'today' },
                 hash: article.mailId,
               }}
-              className={`overflow-hidden whitespace-nowrap text-caption text-ellipsis ${
-                focusId === index ? 'text-blue' : 'text-darkgrey'
-              }`}
+              className={`overflow-hidden whitespace-nowrap text-caption text-ellipsis`}
             >
               {article.subject}
             </Link>

@@ -10,15 +10,10 @@ const UserDataCard = async () => {
 
   return (
     <div className='flex flex-col w-full h-full gap-3'>
-      <Image src={userData.profile} alt='profile' width={80} height={80} className='rounded-full' />
+      <Image src={userData.profile} alt='profile' width={80} height={80} className='rounded' />
       <div className='flex flex-col'>
-        <span className='text-h2'>{userData.name}</span>
-        <span className='text-body3'>{userData.email}</span>
-      </div>
-      <div className='flex flex-row gap-2'>
-        {userData.typeList.map(type => (
-          <Chip key={type} text={type} />
-        ))}
+        <span className='text-h3'>{userData.name}</span>
+        <span className='text-xs font-normal text-darkgrey'>{userData.email}</span>
       </div>
     </div>
   );

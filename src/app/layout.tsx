@@ -29,6 +29,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
     <html lang='ko'>
       <body className='flex flex-col items-center w-full'>
         <ReactQueryProviders>{children}</ReactQueryProviders>
+        <div id='portal' />
       </body>
     </html>
   );

@@ -199,8 +199,79 @@ export const handlers = [
     });
   }),
 
-  http.get('/inbox/unread-mails', req => {
+  http.get('/inbox/unread-mails', () => {
     return HttpResponse.json(mailListData);
+  }),
+
+  http.get('/inbox/subscriptions-list', () => {
+    return HttpResponse.json({
+      tech: [
+        {
+          name: 'FE News',
+          companyName: 'FE News',
+          isAutomated: false,
+          content:
+            '네이버 FE 엔지니어들이 엄선한 양질의 FE 및 주요한 기술 소식들을 큐레이션 해 공유하는 것을 목표로 합니다. 매월 첫째 주 수요일, 월 1회 발행 됩니다.',
+          subscriptionLink: 'https://fenews.substack.com/embed',
+          contentLink: 'https://github.com/naver/fe-news/blob/master/issues/2024-08.md',
+        },
+      ],
+      business: [
+        {
+          name: '머니레터',
+          companyName: '어피티',
+          isAutomated: false,
+          content: '경제 공부, 선택 아닌 필수막막한 경제 공부, 머니레터로 시작하세요.',
+          subscriptionLink: 'https://uppity.co.kr/newsletter/money-letter/',
+          contentLink: 'https://uppity.co.kr/newsletter/money-letter/',
+        },
+      ],
+      health: [
+        {
+          name: '디자인 나침반 뉴스레터',
+          companyName: '디자인 나침반',
+          isAutomated: false,
+          content: ' 매주 화요일 아침, 16년 차 디자이너가큐레이션한 디자인 트렌드를 모아보세요.',
+          subscriptionLink: 'https://designcompass.org/',
+          contentLink: 'https://designcompass.org/',
+        },
+      ],
+      trend: [
+        {
+          name: '캐릿',
+          companyName: '대학내일',
+          isAutomated: false,
+          content: 'MZ세대와 세 발 더 가까워질 수 있는 인사이트를 매주 화요일 출근 전에 쏴드립니다. 렛츠 캐릿!',
+          subscriptionLink: 'https://www.careet.net/Subscribe',
+          contentLink: 'https://universitytomorrow.com/',
+        },
+      ],
+      career: [
+        {
+          name: '서핏',
+          companyName: '서핏',
+          isAutomated: false,
+          content: '스타트업 사람들을 위한 뉴스레터',
+          subscriptionLink: 'https://surfside.stibee.com/',
+          contentLink: 'https://surfside.stibee.com/',
+        },
+      ],
+      startup: [
+        {
+          name: '조쉬의 프로덕트 레터',
+          companyName: '조쉬의 프로덕트 레터',
+          isAutomated: false,
+          content: '퀄리티 있는 비즈니스, 프로덕트, 디자인, 1인 창업가 이야기를 주 1회 들려드릴게요.',
+          subscriptionLink: 'https://maily.so/josh',
+          contentLink: 'https://maily.so/josh',
+        },
+      ],
+    });
+  }),
+
+  http.get('/inbox/:id', req => {
+    const { id } = req.params;
+    return HttpResponse.json(mailListData.mails.find(mail => mail.mailId === id));
   }),
 
   http.get('/domainData/:id', req => {

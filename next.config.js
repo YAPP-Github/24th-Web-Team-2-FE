@@ -1,7 +1,12 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['localhost', 'via.placeholder.com', 'picsum.photos', 'i.namu.wiki'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
   eslint: {
     ignoreDuringBuilds: true,

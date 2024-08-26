@@ -10,7 +10,7 @@ import { useEffect, useRef, useState } from 'react';
 import { notFound } from 'next/navigation';
 import { shallow } from 'zustand/shallow';
 import { useFocusIdStore } from '../../utils/hooks/useFocusIdStore';
-import { useUnreadQuery } from '@/api/hooks/useUnreadQuery';
+import { useUnreadQuery } from '@/api/hooks/useFetchMailQuery';
 
 const MainPage = ({ searchParams }: pageProps) => {
   const currentTab = (searchParams.tab ?? 'today') as string;
@@ -34,6 +34,8 @@ const MainPage = ({ searchParams }: pageProps) => {
       );
 
       const boxes = containerRef.current.querySelectorAll('.content-box');
+      console.log(containerRef.current);
+      console.log(containerRef.current.getElementsByClassName('content-box'));
       boxes.forEach(box => observer.observe(box));
 
       return () => {
@@ -41,10 +43,6 @@ const MainPage = ({ searchParams }: pageProps) => {
       };
     }
   }, [setFocusId]);
-
-  // useEffect(() => {
-  //   getMainPageArticleData().then(data => setArticleApiData(data));
-  // }, []);
 
   return (
     <div className='flex flex-col items-center w-full gap-10 mb-10'>
@@ -55,7 +53,7 @@ const MainPage = ({ searchParams }: pageProps) => {
             <div ref={containerRef}>
               {data?.map((article, index) => (
                 <div className='content-box' key={article.mailId} data-index={index}>
-                  <ArticleContent isToday={true} mailData={article} />
+                  <ArticleContent mailData={article} />
                 </div>
               ))}
             </div>
