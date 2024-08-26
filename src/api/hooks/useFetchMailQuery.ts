@@ -45,3 +45,15 @@ export const useUnreadQuery = ({ group, sender }: fetchUnreadMailsParams) => {
     select: ({ data }) => [...data.mails],
   });
 };
+
+export const fetchMailById = (mailId: string) => {
+  return axiosInstance.get(`/inbox/${mailId}`);
+};
+
+export const useMailByIdQuery = (mailId: string) => {
+  return useQuery<AxiosResponse<MailDataType>, AxiosError, MailDataType>({
+    queryKey: ['mailById', mailId],
+    queryFn: () => fetchMailById(mailId),
+    select: ({ data }) => data,
+  });
+};

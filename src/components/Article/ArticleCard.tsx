@@ -2,7 +2,7 @@ import type { ArticleType } from '@/types';
 import Image from 'next/image';
 import { formatToMonthDayKorean } from '@/utils/formatDate/formatToMonthDayKorean';
 import Link from 'next/link';
-import { MailDataType } from '@/api/hooks/useUnreadQuery';
+import { MailDataType } from '@/api/hooks/useFetchMailQuery';
 
 interface ArticleCardProps extends MailDataType {
   isToday?: boolean;
@@ -23,7 +23,7 @@ const ArticleCard = ({
   return (
     <Link
       // https://stackoverflow.com/questions/66821351/nextjs-error-message-failed-prop-type-the-prop-href-expects-a-string-or-o
-      href={{ pathname: isToday ? `/main` : `${mailId}`, hash: isToday ? mailId : null }}
+      href={{ pathname: isToday ? `/main` : `/article/${mailId}`, hash: isToday ? mailId : null }}
       scroll={true}
       className={`${isRead ? 'bg-background_grey' : isToday ? 'border-gradient_horizontal bg-white' : 'border border-lightgrey bg-white'} rounded-xl w-articleCard `}
     >

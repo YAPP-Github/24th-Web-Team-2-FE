@@ -2,11 +2,10 @@ import Image from 'next/image';
 import { Chip } from '@/components/Chip';
 import { formatToMonthDayKorean } from '@/utils/formatDate/formatToMonthDayKorean';
 import Link from 'next/link';
-import { MailDataType } from '@/api/hooks/useUnreadQuery';
+import { MailDataType } from '@/api/hooks/useFetchMailQuery';
 
 interface ArticleHeaderProps extends MailDataType {
   headerType: 'default' | 'simplified';
-
   group?: string;
 }
 

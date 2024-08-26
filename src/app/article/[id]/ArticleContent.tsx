@@ -1,17 +1,16 @@
 'use client';
 
-import { MailDataType } from '@/api/hooks/useUnreadQuery';
+import { MailDataType } from '@/api/hooks/useFetchMailQuery';
 import ArticleHeader from '@/components/Article/ArticleHeader';
 import { ArticleType } from '@/types';
 import useIntersectionObserver from '@/utils/hooks/useIntersectionObserver';
 import { useEffect, useState } from 'react';
 
 interface ArticleContentProps {
-  isToday: boolean;
   mailData: MailDataType;
 }
 
-const ArticleContent = ({ isToday, mailData }: ArticleContentProps) => {
+const ArticleContent = ({ mailData }: ArticleContentProps) => {
   const [headerType, setHeaderType] = useState<'default' | 'simplified'>('default');
 
   return (
