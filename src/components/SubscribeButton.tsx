@@ -5,16 +5,24 @@ import { useState } from 'react';
 interface SubscribeButtonProps {
   isSubscribed: boolean;
   internalSubscribe?: boolean;
+  onClick?: () => void;
 }
 
-const SubscribeButton = ({ isSubscribed: initialIsSubscribed, internalSubscribe = false }: SubscribeButtonProps) => {
+const SubscribeButton = ({
+  isSubscribed: initialIsSubscribed,
+  internalSubscribe = false,
+  onClick,
+}: SubscribeButtonProps) => {
   const [isSubscribed, setIsSubscribed] = useState(initialIsSubscribed);
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
 
-  const handleButtonClick = () => setIsSubscribed(!isSubscribed);
+  const handleButtonClick = () => {
+    setIsSubscribed(!isSubscribed);
+    if (onClick) onClick();
+  };
 
   return (
     <div

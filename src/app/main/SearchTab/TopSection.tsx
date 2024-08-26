@@ -28,7 +28,11 @@ const TopSection = ({ selectedTab, setSelectedTab }: TopSectionProps) => {
           전체
         </ExploreTabButton>
         {TabContent.map((tab, index) => (
-          <ExploreTabButton key={index} selected={selectedTab.includes(tab.label)} onClick={() => handleClickTab(tab)}>
+          <ExploreTabButton
+            key={index}
+            selected={selectedTab.includes(tab.label)}
+            onClick={() => handleClickTab(tab.label)}
+          >
             {tab.label}
           </ExploreTabButton>
         ))}
