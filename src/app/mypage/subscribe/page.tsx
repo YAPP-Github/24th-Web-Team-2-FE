@@ -29,7 +29,7 @@ const SubscribePage = async () => {
         <AlternateListTap tapName='뉴스레터 구독 목록' tapCnt={20} />
         <div className='flex flex-col max-w-max_domainCard'>
           {subscribeList.map(subscribe => (
-            <DomainListItem domainData={subscribe} />
+            <DomainListItem key={subscribe.id} domainData={subscribe} />
           ))}
         </div>
       </div>
