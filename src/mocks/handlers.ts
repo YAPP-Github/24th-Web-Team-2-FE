@@ -146,6 +146,18 @@ export const handlers = [
     });
   }),
 
+  http.get('/inbox/groups', req => {
+    return HttpResponse.json({
+      groups: [
+        {
+          groupId: 'mongo objecrt Id',
+          name: '그룹 이름',
+          senders: [{ name: '발신인 이름', address: '발신인 주소' }],
+        },
+      ],
+    });
+  }),
+
   http.get('/articleList', req => {
     const { currentTab } = req.params;
     return HttpResponse.json({
