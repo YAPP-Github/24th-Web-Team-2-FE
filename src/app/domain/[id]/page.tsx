@@ -25,10 +25,12 @@ const DomainPage = async ({ params }: DomainPageProps) => {
     domainArticleData: ArticleType[];
   } = await getDomainPageData(params.id);
 
+  console.log(domainData, domainArticleData);
+
   return (
     <div className='flex flex-col items-center w-full'>
       <MainPageHeader />
-      <div className='flex flex-row justify-between mb-10 w-content'>
+      <div className='flex flex-row justify-center mb-10 w-content'>
         <div className='flex flex-col gap-3 w-articleCard'>
           <div className='relative w-full aspect-[693/216]'>
             <Image src={domainData.profile} alt={domainData.domain} fill className='object-cover w-full h-full' />
@@ -37,9 +39,6 @@ const DomainPage = async ({ params }: DomainPageProps) => {
           <div className='relative text-h1'>{domainData.name}</div>
 
           <DomainInteractionArea domainArticleData={domainArticleData} />
-        </div>
-        <div className='mt-20'>
-          <DomainCard domainData={domainData} isSubscribed={isSubscribed} />
         </div>
       </div>
     </div>
