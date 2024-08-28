@@ -35,7 +35,7 @@ export const EmailSenderButton = ({
         <div className={`${isActivated ? 'text-black' : 'text-darkgrey'} flex flex-col justify-between h-full`}>
           <span className='flex flex-row gap-1'>
             <span className='text-body3'>{title}</span>
-            <Chip text={tag} isActivated={isActivated} />
+            {/* <Chip text={tag} isActivated={isActivated} /> */}
           </span>
         </div>
       </div>

@@ -5,7 +5,7 @@ import type { ArticleType } from '@/types';
 import Link from 'next/link';
 import { useFocusIdStore } from '../../../utils/hooks/useFocusIdStore';
 import { shallow } from 'zustand/shallow';
-import { MailDataType } from '@/api/hooks/useUnreadQuery';
+import { MailDataType } from '@/api/hooks/useFetchMailQuery';
 
 interface ScrollNavigationProps {
   articleData: MailDataType[];

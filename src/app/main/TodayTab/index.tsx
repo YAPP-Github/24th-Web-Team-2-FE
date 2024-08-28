@@ -1,14 +1,13 @@
 'use client';
 
 import ArticleCard from '@/components/Article/ArticleCard';
-import { Chip } from '@/components/Chip';
-import type { ArticleType } from '@/types';
 import { formatToYMD } from '@/utils/formatDate/formatToYMD';
 import Image from 'next/image';
 import DoubleArrow from '@/assets/icons/DoubleArrow.svg';
 import Link from 'next/link';
 import ScrollNavigation from './ScrollNavigation';
-import { MailDataType } from '@/api/hooks/useUnreadQuery';
+import { MailDataType } from '@/api/hooks/useFetchMailQuery';
+import { useProfileQuery } from '@/api/hooks/useFetchProfileQuery';
 
 interface TodayTabProps {
   articleData: MailDataType[];
@@ -16,6 +15,8 @@ interface TodayTabProps {
 }
 
 const TodayTab = ({ articleData, isArticleArea }: TodayTabProps) => {
+  const { data } = useProfileQuery();
+
   return articleData.length > 0 ? (
     <>
       <div className='flex flex-col items-center gap-3 mt-10'>

@@ -5,11 +5,24 @@ export interface Interest {
 }
 
 interface IncomingSender {
-  senderId: string;
-  fullAddress: string;
-  localPart: string;
-  domain: string;
-  category: string;
+  mailId: string;
+  subject: string;
+  date: Date;
+  snippet: string;
+  from: {
+    name: string;
+    address: string;
+  };
+  to: {
+    name: string;
+    address: string;
+  };
+  mimeType: string;
+  payload: {
+    partId: number;
+    mimeType: string;
+    body: string;
+  }[];
 }
 
 export interface IncomingSenders {
