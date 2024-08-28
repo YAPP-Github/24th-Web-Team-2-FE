@@ -1,6 +1,6 @@
 'use client';
 
-import { MailDataType } from '@/api/hooks/useUnreadQuery';
+import { MailDataType } from '@/api/hooks/useFetchMailQuery';
 import ArticleCard from '@/components/Article/ArticleCard';
 import ExploreTabButton from '@/components/ExploreTabButton';
 import { useState } from 'react';
