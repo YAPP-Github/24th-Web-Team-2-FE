@@ -38,7 +38,7 @@ const MainListTap = () => {
           onClick={() => handleClickListItem('탐색')}
           key={'탐색'}
           id={'search'}
-          name={'탐색'}
+          name={'탐색🔎'}
           isActive={currentTab === '탐색'}
         />
         <div>
