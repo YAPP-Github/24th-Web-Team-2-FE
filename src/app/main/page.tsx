@@ -10,14 +10,15 @@ import { useEffect, useRef, useState } from 'react';
 import { notFound } from 'next/navigation';
 import { shallow } from 'zustand/shallow';
 import { useFocusIdStore } from '../../utils/hooks/useFocusIdStore';
-import { useUnreadQuery } from '@/api/hooks/useFetchMailQuery';
+import { MailDataType, useUnreadQuery } from '@/api/hooks/useFetchMailQuery';
 
 const MainPage = ({ searchParams }: pageProps) => {
   const currentTab = (searchParams.tab ?? 'today') as string;
   const containerRef = useRef<HTMLDivElement>(null);
   const setFocusId = useFocusIdStore(state => state.setFocusId, shallow);
+  const [todayArticleData, setTodayArticleData] = useState<MailDataType[]>([]);
 
-  const { data } = useUnreadQuery({});
+  const { data, isError } = useUnreadQuery({});
 
   useEffect(() => {
     if (containerRef.current) {
@@ -44,14 +45,35 @@ const MainPage = ({ searchParams }: pageProps) => {
     }
   }, [setFocusId]);
 
+  useEffect(() => {
+    const filteredData: MailDataType[] =
+      data?.filter(d => {
+        const today = new Date();
+        const articleDate = new Date(d.date);
+        return (
+          articleDate.getFullYear() === today.getFullYear() &&
+          articleDate.getMonth() === today.getMonth() &&
+          articleDate.getDate() === today.getDate()
+        );
+      }) ?? [];
+
+    setTodayArticleData(filteredData);
+  }, [data]);
+
+  useEffect(() => {
+    if (isError) {
+      // notFound();
+    }
+  }, [isError]);
+
   return (
     <div className='flex flex-col items-center w-full gap-10 mb-10'>
       {currentTab === 'today' ? (
         <>
-          <TodayTab articleData={data ? data : []} isArticleArea={true} />
+          <TodayTab articleData={todayArticleData} isArticleArea={true} />
           <div className='flex flex-col w-full gap-20'>
             <div ref={containerRef}>
-              {data?.map((article, index) => (
+              {todayArticleData?.map((article, index) => (
                 <div className='content-box' key={article.mailId} data-index={index}>
                   <ArticleContent mailData={article} />
                 </div>

@@ -2,10 +2,9 @@ import { Chip } from '@/components/Chip';
 import { Checkbox } from '@/components/Checkbox';
 
 interface EmailSenderButtonProps {
-  ChildIcon: any;
   title: string;
-  tag: string;
   onClick?: () => void;
+  domain: string;
   type: 'spam' | 'subscribe';
   isActivated: boolean;
   setIsActivated: (value: boolean) => void;
@@ -13,31 +12,26 @@ interface EmailSenderButtonProps {
 
 export const EmailSenderButton = ({
   title,
-  tag,
-  ChildIcon,
   onClick,
+  domain,
   type,
   isActivated,
   setIsActivated,
 }: EmailSenderButtonProps) => {
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
     setIsActivated(!isActivated);
   };
 
   return (
     <div
       role='button'
-      className={`${isActivated ? (type === 'subscribe' ? 'border-blue' : 'border-red') : 'border-lightgrey'} border w-emailSenderButton max-h-20 py-4 px-6 flex justify-between items-center rounded-smaller`}
-      onClick={handleClick}
+      className={`${isActivated ? (type === 'subscribe' ? 'border-blue bg-[#E1F1FD]' : 'border-red') : 'border-lightgrey'} border w-emailSenderButton h-16 py-3 px-4 gap-3 flex justify-between items-center rounded-smaller shrink-0`}
+      onClick={onClick}
     >
-      <div className='flex items-center w-full gap-4'>
-        {ChildIcon}
-        <div className={`${isActivated ? 'text-black' : 'text-darkgrey'} flex flex-col justify-between h-full`}>
-          <span className='flex flex-row gap-1'>
-            <span className='text-body3'>{title}</span>
-            {/* <Chip text={tag} isActivated={isActivated} /> */}
-          </span>
-        </div>
+      <div className={`${isActivated ? 'text-blue' : 'text-darkgrey'} flex flex-col w-full text-body1`}>
+        <span className={`overflow-hidden break-all whitespace-nowrap text-ellipsis`}>{title}</span>
+        <span className='text-caption'>{domain}</span>
       </div>
       <Checkbox checked={isActivated} onClick={handleClick} />
     </div>

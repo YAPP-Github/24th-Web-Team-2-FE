@@ -6,7 +6,7 @@ interface CheckboxProps {
   /**
    * Optional click handler
    */
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent) => void;
 }
 
 export const Checkbox = ({ checked = false, onClick }: CheckboxProps) => {

@@ -26,8 +26,8 @@ export const metadata = {
 
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
-    <html lang='ko'>
-      <body className='flex flex-col items-center w-full'>
+    <html lang='ko' className='flex w-full h-full'>
+      <body className='flex flex-col items-center w-full h-full'>
         <ReactQueryProviders>{children}</ReactQueryProviders>
         <div id='portal' />
       </body>

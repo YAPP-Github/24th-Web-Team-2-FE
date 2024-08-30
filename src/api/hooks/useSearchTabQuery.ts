@@ -28,6 +28,6 @@ export const useSearchTabQuery = () => {
   return useQuery<AxiosResponse, AxiosError, SubscriptionList>({
     queryKey: ['searchTab'],
     queryFn: () => fetchSubscribtionList(),
-    select: ({ data }) => data,
+    select: ({ data }) => data.subscriptions,
   });
 };

@@ -20,7 +20,7 @@ const ArticleCard = ({ newsLetter }: ArticleCardProps) => {
         </div>
         <SubscribeButton
           isSubscribed={false}
-          internalSubscribe={!!newsLetter.subscriptionLink}
+          internalSubscribe={newsLetter.isAutomated}
           onClick={() => {
             window.open(newsLetter.subscriptionLink, '_blank');
           }}

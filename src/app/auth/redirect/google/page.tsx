@@ -30,9 +30,9 @@ const AuthRedirectPage = () => {
 
             if (data && typeof data.isGuest !== 'undefined') {
               if (data.isGuest) {
-                router.push('/onboard/interest');
+                router.push('/onboard/emailList');
               } else {
-                router.push('/interest');
+                router.push('/main');
               }
             } else {
               console.error('Invalid response data', data);
