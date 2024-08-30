@@ -32,6 +32,15 @@ export interface UserDataType {
   profile: string;
 }
 
+export interface UserDataTypes {
+  id: string;
+  username: string;
+  onboardingStep: string;
+  created_at: string;
+  updated_at: string;
+  deleted_at: string;
+}
+
 export const DomainSpecificType = [
   {
     id: '1',

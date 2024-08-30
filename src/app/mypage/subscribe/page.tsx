@@ -1,20 +1,21 @@
 import DomainListItem from '@/components/Domain/DomainListItem';
 import AlternateListTap from '@/components/ListTap/AlternateListTap';
-import ListItem from '@/components/ListTap/ListItem';
-import SubscribeButton from '@/components/SubscribeButton';
 import { GET } from '@/network';
 import RightFoldIcon from '@/assets/icons/RightFoldIcon.svg';
 import Image from 'next/image';
 
 interface SubscribeDataType {
-  id: string;
   name: string;
-  type: string;
-  profile: string;
+  address: string;
+}
+
+interface SubscriptionResponseType {
+  subscriptions: SubscribeDataType[];
 }
 
 const SubscribePage = async () => {
-  const subscribeList: SubscribeDataType[] = await getSubscribeList();
+  const data: SubscriptionResponseType = await getSubscribeList();
+  console.log(data);
 
   return (
     <div className='flex flex-col gap-11 w-articleCard pt-[7.625rem]'>
@@ -28,8 +29,8 @@ const SubscribePage = async () => {
       <div className='flex flex-col gap-4'>
         <AlternateListTap tapName='뉴스레터 구독 목록' tapCnt={20} />
         <div className='flex flex-col max-w-max_domainCard'>
-          {subscribeList.map(subscribe => (
-            <DomainListItem key={subscribe.id} domainData={subscribe} />
+          {data.subscriptions.map(subscribe => (
+            <DomainListItem key={subscribe.name} name={subscribe.name} />
           ))}
         </div>
       </div>
@@ -40,6 +41,7 @@ const SubscribePage = async () => {
 export default SubscribePage;
 
 const getSubscribeList = async () => {
-  const response = await GET('/domainSubscribeList');
-  return response.data;
+  const response = await GET('/inbox/subscriptions');
+
+  return response;
 };

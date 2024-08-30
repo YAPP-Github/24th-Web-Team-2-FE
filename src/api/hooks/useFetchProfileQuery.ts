@@ -2,7 +2,7 @@ import { axiosInstance } from '@/api/axiosInstance';
 import { useQuery } from '@tanstack/react-query';
 import { AxiosError, AxiosResponse } from 'axios';
 
-interface Response {
+export interface ProfileType {
   user_id: string;
   username: string;
   onboardingStatus: string;
@@ -16,7 +16,7 @@ export const fetchProfileData = () => {
 };
 
 export const useProfileQuery = () => {
-  return useQuery<AxiosResponse<Response>, AxiosError, Response>({
+  return useQuery<AxiosResponse<ProfileType>, AxiosError, ProfileType>({
     queryKey: ['profile'],
     queryFn: fetchProfileData,
     select: ({ data }) => data,

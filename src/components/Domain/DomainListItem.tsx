@@ -1,21 +1,17 @@
 'use client';
 
-import type { DomainType } from '@/types';
 import Image from 'next/image';
 import MoreBtnIcon from '@/assets/icons/MoreBtnIcon.svg';
 import CloseIcon from '@/assets/icons/CloseIcon';
 import FolderIcon from '@/assets/icons/FolderIcon.svg';
-import { useRef, useState } from 'react';
-import Portal from '@/utils/Portal';
+import { useState } from 'react';
 import DomainPortal from './DomainPortal';
 
-type DomainDataforListItem = Omit<DomainType, 'description' | 'website' | 'domain' | 'newsLetter' | 'subscriberCnt'>;
-
-interface DomainListItemProps {
-  domainData: DomainDataforListItem;
+interface Props {
+  name: string;
 }
 
-const DomainListItem = ({ domainData }: DomainListItemProps) => {
+const DomainListItem = ({ name }: Props) => {
   const [isHover, setIsHover] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -44,14 +40,14 @@ const DomainListItem = ({ domainData }: DomainListItemProps) => {
     <div className='flex flex-row items-center justify-between w-[28.5rem] p-4'>
       <span className='flex flex-col'>
         <span className='flex flex-row items-center gap-3'>
-          <Image
-            src={domainData.profile}
-            alt={`thumbnail-${domainData.name}`}
+          {/* <Image
+            src={subscriptions.profile}
+            alt={`thumbnail-${subscriptions.name}`}
             width={48}
             height={48}
             className='rounded'
-          />
-          <span className='text-btn1'>{domainData.name}</span>
+          /> */}
+          <span className='text-btn1'>{name}</span>
         </span>
       </span>
       <span className='relative w-10 h-10 rounded' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>

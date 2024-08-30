@@ -281,7 +281,30 @@ export const handlers = [
     });
   }),
 
-  http.get('/inbox/:id', req => {
+  http.get('/inbox/subscriptions-random-list', () => {
+    return HttpResponse.json([
+      {
+        name: 'string',
+        isPublished: false,
+        address: 'string@gmail.com',
+        thumbnailImage: 'https://picsum.photos/48',
+      },
+      {
+        name: 'string1',
+        isPublished: false,
+        address: 'string@gmail.com',
+        thumbnailImage: 'https://picsum.photos/48',
+      },
+      {
+        name: 'string2',
+        isPublished: false,
+        address: 'string@gmail.com',
+        thumbnailImage: 'https://picsum.photos/48',
+      },
+    ]);
+  }),
+
+  http.get('/inbox/mails/:id', req => {
     const { id } = req.params;
     return HttpResponse.json(mailListData.mails.find(mail => mail.mailId === id));
   }),

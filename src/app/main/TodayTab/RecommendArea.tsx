@@ -1,42 +1,13 @@
+'use client';
+
+import { useFetchSubscriptionListQuery } from '@/api/hooks/useFetchSubscriptionListQuery';
+import { useSubscribtionMutation } from '@/api/hooks/useSubscribtionMutation';
 import DomainListWithSubscribeButton from '@/components/Domain/DomainListWithSubscribeButton';
-import { DomainType } from '@/types';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 
 const RecommendArea = () => {
-  const [recommendDomainData, setRecommendDomainData] = useState<DomainType[]>([]);
-
-  const fetchData = async () => {
-    const data = [
-      {
-        id: 'randomString111',
-        name: '요즘IT',
-        profile: 'https://picsum.photos/48',
-        type: 'IT/테크',
-        isSubscribed: false,
-      },
-      {
-        id: 'randomString112',
-        name: '요즘IT',
-        profile: 'https://picsum.photos/48',
-        type: 'IT/테크',
-        isSubscribed: false,
-      },
-      {
-        id: 'randomString113',
-        name: '요즘IT',
-        profile: 'https://picsum.photos/48',
-        type: 'IT/테크',
-        isSubscribed: false,
-      },
-    ];
-    return data;
-  };
-
-  useEffect(() => {
-    // 임시로 unknown 변환(api로 받아올때 바꿔야해서)
-    fetchData().then(data => setRecommendDomainData(data as unknown as DomainType[]));
-  }, []);
+  const { data } = useFetchSubscriptionListQuery();
+  console.log(data?.subscriptions);
 
   return (
     <div className='flex flex-col gap-3 min-w-domainCard'>
@@ -56,12 +27,12 @@ const RecommendArea = () => {
         </Link>
       </div>
       <div className='flex flex-col'>
-        {recommendDomainData.map((domain, index: number) => (
+        {data?.subscriptions.map((domain, index: number) => (
           <div
             key={index}
-            className={`${index === recommendDomainData.length - 1 ? 'border-b-white' : 'border-b-lightgrey'} border-b`}
+            className={`${index === data.subscriptions.length - 1 ? 'border-b-white' : 'border-b-lightgrey'} border-b`}
           >
-            <DomainListWithSubscribeButton domainData={domain} isSubscribed={false} />
+            <DomainListWithSubscribeButton domainData={domain} />
           </div>
         ))}
       </div>
