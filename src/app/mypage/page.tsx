@@ -1,14 +1,11 @@
-import type { UserDataType } from '@/types';
+import type { UserDataType, UserDataTypes } from '@/types';
 import Link from 'next/link';
 import { GET } from '@/network';
 
-interface MyPageProps {
-  userData: UserDataType;
-}
-
 const MyPage = async () => {
   //TODO: 추후 로그인 로직 완성 후 주석 교체
-  const userData: UserDataType = await getUserData();
+  const userData: UserDataTypes = await getUserData();
+  console.log(userData);
   // const userData = cookies().get('userData');
 
   return (
@@ -17,7 +14,7 @@ const MyPage = async () => {
         <div className='relative w-full aspect-[792/216] bg-[#E1F1FD]'>
           <div className='absolute bottom-0 w-full h-2/5 bg-gradient-to-t from-white' />
         </div>
-        <div className='text-xl font-bold -bottom-6'>{userData?.name}</div>
+        <div className='text-xl font-bold -bottom-6'>{userData?.username}</div>
       </div>
       <div className='flex flex-col w-full pl-4 gap-8 text-btn1'>
         <Link
@@ -49,6 +46,7 @@ export default MyPage;
 
 // TODO: 추후 로그인 로직 완성 후 아래 제거
 const getUserData = async () => {
-  const response = await GET('/userData');
+  const response = await GET('/users');
+  console.log(response);
   return response.data;
 };

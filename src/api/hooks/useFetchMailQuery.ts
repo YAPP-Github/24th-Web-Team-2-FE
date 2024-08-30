@@ -47,7 +47,7 @@ export const useUnreadQuery = ({ group, sender }: fetchUnreadMailsParams) => {
 };
 
 export const fetchMailById = (mailId: string) => {
-  return axiosInstance.get(`/inbox/${mailId}`);
+  return axiosInstance.get(`/inbox/mails/${mailId}`);
 };
 
 export const useMailByIdQuery = (mailId: string) => {

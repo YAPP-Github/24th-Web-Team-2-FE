@@ -1,5 +1,4 @@
-// const https = require('https');
-const http = require('http');
+const https = require('https');
 const dotenv = require('dotenv');
 const fs = require('fs');
 
@@ -17,27 +16,17 @@ const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
   const options = {
-    // key: fs.readFileSync('./localhost+1-key.pem'),
-    // cert: fs.readFileSync('./localhost+1.pem'),
+    key: fs.readFileSync('./localhost+1-key.pem'),
+    cert: fs.readFileSync('./localhost+1.pem'),
   };
 
-  // https
-  //   .createServer(options, (req, res) => {
-  //     const parsedURL = parse(req.url, true);
-  //     handle(req, res, parsedURL);
-  //   })
-  //   .listen(PORT, err => {
-  //     if (err) throw err;
-  //     console.log(`running server on https://localhost:${PORT}`);
-  //   });
-
-  http
+  https
     .createServer(options, (req, res) => {
       const parsedURL = parse(req.url, true);
       handle(req, res, parsedURL);
     })
     .listen(PORT, err => {
       if (err) throw err;
-      console.log(`running server on http://localhost:${PORT}`);
+      console.log(`running server on https://localhost:${PORT}`);
     });
 });

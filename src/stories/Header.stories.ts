@@ -23,12 +23,16 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const OnBoard: Story = {
   args: {
-    isMain: false,
+    isBtn: true,
+    isReady: true,
+    onClick: () => {},
   },
 };
 
 export const MainPage: Story = {
   args: {
-    isMain: true,
+    isBtn: true,
+    isReady: true,
+    onClick: () => {},
   },
 };

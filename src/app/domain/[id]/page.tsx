@@ -7,6 +7,7 @@ import { GET } from '@/network';
 import { ArticleType, DomainType } from '@/types';
 import ExploreTabButton from '@/components/ExploreTabButton';
 import DomainInteractionArea from '@/components/PageInteraction/Domain/DomainInteraction';
+import { MailDataType } from '@/api/hooks/useFetchMailQuery';
 
 interface DomainPageProps {
   params: {
@@ -22,7 +23,7 @@ const DomainPage = async ({ params }: DomainPageProps) => {
   }: {
     domainData: DomainType;
     isSubscribed: boolean;
-    domainArticleData: ArticleType[];
+    domainArticleData: MailDataType[];
   } = await getDomainPageData(params.id);
 
   console.log(domainData, domainArticleData);
