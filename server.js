@@ -8,16 +8,16 @@ const next = require('next');
 
 dotenv.config();
 
-const isDev = process.env.NEXT_PUBLIC_NODE_ENV !== 'production';
+const isProd = process.env.NEXT_PUBLIC_NODE_ENV === 'production';
 
 const PORT = 3000;
-const app = next({ dev: isDev, hostname: 'localhost', port: PORT });
+const app = next({ dev: !isProd, hostname: 'localhost', port: PORT });
 const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
   const options = {
-    key: fs.readFileSync('./localhost+1-key.pem'),
-    cert: fs.readFileSync('./localhost+1.pem'),
+    key: isProd ? fs.readFileSync('./privkey.pem') : fs.readFileSync('./localhost+1-key.pem'),
+    cert: isProd ? fs.readFileSync('./fullchain.pem') : fs.readFileSync('./localhost+1.pem'),
   };
 
   https
