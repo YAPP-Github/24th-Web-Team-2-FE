@@ -19,6 +19,12 @@ jobs:
       - name: Inject .env file
         run: echo "${{ secrets.FRONTEND_ENV }}" > ./.env
 
+      - name: Inject fullchainkey file
+        run: echo "${{ secrets.FULLCHAIN_PEM }}" > ./.localhost+1.pem
+
+      - name: Inject privkey file
+        run: echo "${{ secrets.PRIVKEY_PEM }}" > ./.localhost+1-key.pem
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
