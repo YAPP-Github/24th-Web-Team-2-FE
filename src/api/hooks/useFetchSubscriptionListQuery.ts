@@ -9,7 +9,7 @@ export interface SubscriptionListType {
   thumbnailImage: string;
 }
 
-type Response = { subscription: SubscriptionListType[] };
+type Response = { subscriptions: SubscriptionListType[] };
 
 export const fetchSubscriptionList = () => {
   const data = axiosInstance.get('/inbox/subscriptions-random-list');

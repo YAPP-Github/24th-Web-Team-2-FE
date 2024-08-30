@@ -7,7 +7,6 @@ import Link from 'next/link';
 
 const RecommendArea = () => {
   const { data } = useFetchSubscriptionListQuery();
-  console.log(data?.subscriptions);
 
   return (
     <div className='flex flex-col gap-3 min-w-domainCard'>
