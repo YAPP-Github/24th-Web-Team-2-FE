@@ -6,6 +6,8 @@ import OnboardHeader from '@/components/Header/OnboardHeader';
 import type { IncomingSenders } from '@/types/onboard';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import FoldIcon from '@/assets/icons/FoldIcon.svg';
+import CloseIcon from '@/assets/icons/CloseIcon';
 
 interface EmailListInteractionProps {
   incomingSenders: IncomingSenders;
@@ -50,9 +52,11 @@ const EmailListInteraction = ({ incomingSenders }: EmailListInteractionProps) =>
   return (
     <>
       <OnboardHeader isBtn isReady={isReady} onClick={handleClickNextProcess} />
-      <div className={`flex flex-row w-full gap-16 ${targetEmail ? 'justify-between' : 'justify-center'}`}>
-        <div className='flex flex-col items-center h-[calc(100%-4rem)] gap-12 mb-24 grow-0'>
-          <span className='flex flex-col items-center gap-2'>
+      <div
+        className={`flex flex-row w-full gap-16 h-[calc(100%-4rem)] ${targetEmail ? 'justify-between' : 'justify-center'}`}
+      >
+        <div className='flex flex-col items-center h-full gap-12 mb-24 grow-0'>
+          <span className='flex flex-col items-center gap-2 pt-12'>
             <span className='text-black text-h2'>인스포메일클럽에서 골라 볼 뉴스레터를 선택하세요</span>
 
             <span className='flex flex-col items-center text-body2'>
@@ -93,7 +97,15 @@ const EmailListInteraction = ({ incomingSenders }: EmailListInteractionProps) =>
           </div>
         </div>
         {targetEmail && (
-          <div className='w-full h-full bg-white shadow-[-4px_0_23.5px_0_rgba(0,0,0,0.25)] rounded-tl-2xl'>test123</div>
+          <div className='w-full h-full bg-white shadow-[-4px_0_23.5px_0_rgba(0,0,0,0.25)] rounded-tl-2xl'>
+            <div className='flex w-full h-[2.875rem] justify-between items-center px-4 border-b border-b-lightgrey py-3'>
+              <div className='flex justify-between w-full'>
+                <span className='flex gap-6'>
+                  <CloseIcon width={24} />
+                </span>
+              </div>
+            </div>
+          </div>
         )}
       </div>
     </>

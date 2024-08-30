@@ -75,7 +75,7 @@ const OnBoard = () => {
   return (
     <div className='flex flex-col w-full h-full'>
       <OnboardHeader isBtn={false} />
-      <div className='flex flex-col items-center gap-10 mb-[3.125rem]'>
+      <div className='flex flex-col items-center gap-10 mb-[3.125rem] pt-12'>
         <h1 className='flex text-h2'>반가워요! 구글 로그인으로 인스포메일클럽을 시작해보세요</h1>
         <div className='grid grid-cols-3 gap-x-3 gap-y-4'>
           {CardData.map((card, index) => (

@@ -14,7 +14,7 @@ const DigestTab = () => {
 
   return (
     <div className='flex flex-row w-full h-full gap-16'>
-      <div className='flex flex-col gap-3 pt-3'>
+      <div className='flex flex-col pt-3 gap-3'>
         <TopSection selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
         {data?.map(article => <ArticleCard key={article.mailId} {...article} />)}
       </div>

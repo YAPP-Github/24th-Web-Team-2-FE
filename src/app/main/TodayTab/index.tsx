@@ -19,7 +19,7 @@ const TodayTab = ({ articleData, isArticleArea }: TodayTabProps) => {
 
   return articleData.length > 0 ? (
     <>
-      <div className='flex flex-col items-center gap-3 mt-10'>
+      <div className='flex flex-col items-center mt-10 gap-3'>
         <span className='text-blue text-body1'>{formatToYMD(new Date())}</span>
         <span className='text-center text-h1'>
           {/* TODO: 이름 api를 통해 받아오기 */}

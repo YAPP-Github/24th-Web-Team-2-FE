@@ -78,11 +78,11 @@ const DigestTabOverlay = ({ data }: TabOverlayProps) => {
           background: 'var(--Color-Neutral-white, #FFF)',
           boxShadow: '0px 0px 12px 0px rgba(0, 0, 0, 0.25)',
         }}
-        className='absolute p-4 text-body2 m-2'
+        className='absolute p-4 m-2 text-body2'
       >
         <div>뉴스레터 그룹을 만들어</div>
         <div className='pb-2'>주제별로 편하게 모아보세요!</div>
-        <div className='w-full flex justify-end text-body2 text-blue cursor-pointer' onClick={handleGroupMake}>
+        <div className='flex justify-end w-full cursor-pointer text-body2 text-blue' onClick={handleGroupMake}>
           + 뉴스레터 그룹 만들기
         </div>
       </div>
@@ -97,12 +97,12 @@ const DigestTabOverlay = ({ data }: TabOverlayProps) => {
         background: 'var(--Color-Neutral-white, #FFF)',
         boxShadow: '0px 0px 12px 0px rgba(0, 0, 0, 0.25)',
       }}
-      className='absolute p-4 text-body2 m-2'
+      className='absolute p-4 m-2 text-body2'
     >
       {data.map(group => (
         <div className='pb-2'>{group.name}</div>
       ))}
-      <div className='w-full flex justify-end text-body2 text-blue cursor-pointer' onClick={handleGroupMake}>
+      <div className='flex justify-end w-full cursor-pointer text-body2 text-blue' onClick={handleGroupMake}>
         + 뉴스레터 그룹 만들기
       </div>
     </div>

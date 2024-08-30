@@ -19,7 +19,7 @@ const SubscribePage = async () => {
   return (
     <div className='flex flex-col gap-11 w-articleCard pt-[7.625rem]'>
       <div className='flex flex-col gap-2'>
-        <span className='flex flex-row gap-1 text-sm font-medium text-darkgrey'>
+        <span className='flex flex-row text-sm font-medium gap-1 text-darkgrey'>
           마이페이지
           <Image src={RightFoldIcon} alt='RightFoldIcon' width={18} height={18} />
         </span>
