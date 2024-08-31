@@ -23,7 +23,7 @@ const TodayTab = ({ articleData, isArticleArea }: TodayTabProps) => {
         <span className='text-blue text-body1'>{formatToYMD(new Date())}</span>
         <span className='text-center text-h1'>
           {/* TODO: 이름 api를 통해 받아오기 */}
-          채현님에게
+          {data?.username}님에게
           <br />
           오늘 도착한 메일이에요
         </span>

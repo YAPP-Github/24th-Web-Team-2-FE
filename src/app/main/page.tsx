@@ -19,6 +19,7 @@ const MainPage = ({ searchParams }: pageProps) => {
   const [todayArticleData, setTodayArticleData] = useState<MailDataType[]>([]);
 
   const { data, isError } = useUnreadQuery({});
+  console.log(data);
 
   useEffect(() => {
     if (containerRef.current) {
