@@ -3,11 +3,16 @@
 import { useProfileQuery } from '@/api/hooks/useFetchProfileQuery';
 import { EmailSenderButton } from '@/components/EmailSenderButton';
 import OnboardHeader from '@/components/Header/OnboardHeader';
-import type { IncomingSenders } from '@/types/onboard';
+import type { IncomingSender, IncomingSenders } from '@/types/onboard';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import FoldIcon from '@/assets/icons/FoldIcon.svg';
 import CloseIcon from '@/assets/icons/CloseIcon';
+import FoldIconWithDirection from '@/assets/icons/FoldIconWithDirection';
+import Image from 'next/image';
+import SubscribeButton from '@/components/SubscribeButton';
+import { formatToMonthDayKorean } from '@/utils/formatDate/formatToMonthDayKorean';
+import { useSubscribtionMutation } from '@/api/hooks/useSubscribtionMutation';
 
 interface EmailListInteractionProps {
   incomingSenders: IncomingSenders;
@@ -17,8 +22,9 @@ const EmailListInteraction = ({ incomingSenders }: EmailListInteractionProps) =>
   const { data } = useProfileQuery();
   const [selectedEmailList, setSelectedEmailList] = useState<string[]>([]);
   const [emailSet, setEmailSet] = useState<Set<string>>(new Set());
-  const [targetEmail, setTargetEmail] = useState<string | null>(null);
+  const [targetEmail, setTargetEmail] = useState<IncomingSender | null>(null);
   const router = useRouter();
+  const subscribtionMutation = useSubscribtionMutation();
   const isReady = selectedEmailList.length > 0;
 
   useEffect(() => {
@@ -45,8 +51,20 @@ const EmailListInteraction = ({ incomingSenders }: EmailListInteractionProps) =>
   };
 
   const handleClickNextProcess = () => {
-    // API call to subscribe selected emails
+    subscribtionMutation.mutate({
+      subscriptions: selectedEmailList.map(email => {
+        const sender = incomingSenders.senders.find(sender => sender.from.address === email)!;
+        return {
+          name: sender.from.name,
+          address: sender.from.address,
+        };
+      }),
+    });
     router.push('/onboard/interest');
+  };
+
+  const handleSubscribeBtnClick = () => {
+    console.log(targetEmail);
   };
 
   return (
@@ -86,7 +104,7 @@ const EmailListInteraction = ({ incomingSenders }: EmailListInteractionProps) =>
                         domain={sender.from.address}
                         type='subscribe'
                         isActivated={selectedEmailList.includes(email)}
-                        onClick={() => setTargetEmail(email)}
+                        onClick={() => setTargetEmail(sender)}
                         setIsActivated={isActivated => (isActivated ? handleAddEmail(email) : handleRemoveEmail(email))}
                       />
                     );
@@ -97,13 +115,45 @@ const EmailListInteraction = ({ incomingSenders }: EmailListInteractionProps) =>
           </div>
         </div>
         {targetEmail && (
-          <div className='w-full h-full bg-white shadow-[-4px_0_23.5px_0_rgba(0,0,0,0.25)] rounded-tl-2xl'>
+          <div className='w-full h-full flex flex-col items-center bg-white shadow-[-4px_0_23.5px_0_rgba(0,0,0,0.25)] rounded-tl-2xl'>
             <div className='flex w-full h-[2.875rem] justify-between items-center px-4 border-b border-b-lightgrey py-3'>
               <div className='flex justify-between w-full'>
                 <span className='flex gap-6'>
-                  <CloseIcon width={24} />
+                  <Image src={FoldIcon} width={16} height={16} alt='Fold Page' />
+                  <span className='flex flex-row items-center gap-2'>
+                    <FoldIconWithDirection width={24} height={24} rotate='up' />
+                    <FoldIconWithDirection width={24} height={24} rotate='down' fill='#797979' />
+                  </span>
                 </span>
+                <SubscribeButton
+                  isSubscribed={selectedEmailList.includes(targetEmail.from.address)}
+                  onClick={handleSubscribeBtnClick}
+                />
               </div>
+            </div>
+            <div className='flex max-w-[60rem] flex-col items-center w-full gap-3 p-10 h-full overflow-y-scroll'>
+              <div className='flex flex-col w-full gap-6'>
+                <div className='flex flex-row gap-3'>
+                  <span className='text-h3'>{targetEmail.from.name}</span>
+                  <span className='text-body2'>{targetEmail.from.address}</span>
+                </div>
+                <div className='flex flex-row justify-between'>
+                  <div className='flex flex-row gap-3'>
+                    <span className='text-body2 text-blue shrink-0 basis-[170px]'>이런 뉴스레터를 읽을 수 있어요</span>
+                    <span className='max-w-[22rem] overflow-x-hidden text-black break-all shrink-0 whitespace-nowrap text-h2 text-ellipsis'>
+                      {targetEmail.subject}
+                    </span>
+                  </div>
+                  <div className='flex flex-row gap-5 text-body2'>
+                    <span className='text-darkgrey'>{targetEmail.from.name}</span>
+                    <span className='text-blue basis-[4rem]'>{formatToMonthDayKorean(new Date(targetEmail.date))}</span>
+                  </div>
+                </div>
+              </div>
+              <div
+                className='py-4 overflow-x-scroll h-fit shrink-0 noScrollbar'
+                dangerouslySetInnerHTML={{ __html: targetEmail.payload.find(p => p.mimeType === 'text/html')!.body }}
+              ></div>
             </div>
           </div>
         )}

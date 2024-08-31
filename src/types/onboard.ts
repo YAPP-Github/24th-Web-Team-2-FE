@@ -4,7 +4,7 @@ export interface Interest {
   desc: string;
 }
 
-interface IncomingSender {
+export interface IncomingSender {
   mailId: string;
   subject: string;
   date: Date;

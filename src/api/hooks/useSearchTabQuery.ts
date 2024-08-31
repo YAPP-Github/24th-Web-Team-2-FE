@@ -9,6 +9,7 @@ export interface Newsletter {
   content: string;
   subscriptionLink: string;
   contentLink: string;
+  thumbnailImage: string;
 }
 
 export interface SubscriptionList {

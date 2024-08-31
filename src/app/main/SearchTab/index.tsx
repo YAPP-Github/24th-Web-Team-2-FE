@@ -27,21 +27,22 @@ export const TabContent = [
     value: '스타트업',
   },
   {
-    label: 'health',
+    label: 'design',
     value: '디자인',
   },
 ];
 
 const SearchTab = () => {
   const { data } = useSearchTabQuery();
+  console.log(data);
 
   const [selectedTab, setSelectedTab] = useState<string[]>([]);
 
   const isAllSelected = selectedTab.length === 0 || selectedTab.includes('전체');
 
   useEffect(() => {
-    console.log(data);
-  }, [data]);
+    console.log(selectedTab);
+  }, [selectedTab]);
 
   return (
     <div className='flex flex-col h-full overflow-x-visible w-content'>
@@ -51,7 +52,7 @@ const SearchTab = () => {
         <div className='flex w-[calc(50vw+37.5rem)] gap-20 flex-col'>
           {TabContent.map((tab, index) => {
             return (
-              (isAllSelected || selectedTab.includes(tab.value)) && (
+              (isAllSelected || selectedTab.includes(tab.label)) && (
                 <SectionContent key={index} tab={tab.value} newsLetters={data[tab.label as keyof SubscriptionList]} />
               )
             );

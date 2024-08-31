@@ -21,7 +21,7 @@ const CardComponent = ({ title, description, Icon, bgColor }: CardProps) => {
   return (
     <div
       style={{ backgroundColor: bgColor }}
-      className='w-[15rem] h-[15rem] shrink-0 flex flex-col gap-3 p-6 rounded-2xl'
+      className='w-[15rem] h-[15rem] shrink-0 flex flex-col gap-3 p-6 rounded-2xl hover:brightness-[0.88] cursor-pointer'
     >
       <Image src={Icon} alt='service icon' width={100} height={100} className='rounded-lg' />
       <div className='flex flex-col'>
@@ -37,37 +37,37 @@ const CardData: CardProps[] = [
     title: 'Gmail에서\n뉴스레터만 뽑아보기',
     description: '원하는 뉴스레터만 골라 읽으세요',
     Icon: Onboard1,
-    bgColor: '#EAFBCC',
+    bgColor: '#FFFDEB',
   },
   {
     title: '오늘 도착한\n뉴스레터만 모아보기',
     description: '오늘의 인사이트를 충전하세요',
     Icon: Onboard2,
-    bgColor: '#FCEBFB',
+    bgColor: '#FCE4E5',
   },
   {
     title: '새로운 뉴스레터\n1초 만에 바로 구독하기',
     description: '관심 분야의 뉴스레터를 탐색하세요',
     Icon: Onboard3,
-    bgColor: '#E1F1FD',
+    bgColor: '#EAFBCC',
   },
   {
     title: '그룹을 만들어\n깔끔히 관리하기',
     description: '뉴스레터를 주제별로 모아보세요',
     Icon: Onboard4,
-    bgColor: '#FFF6C6',
+    bgColor: '#E1F1FD',
   },
   {
     title: '아직 안 읽은\n뉴스레터 확인하기',
     description: '중요한 뉴스레터 놓치지 마세요',
     Icon: Onboard5,
-    bgColor: '#FCE4E5',
+    bgColor: '#FCEBFB',
   },
   {
     title: '필요 없는 뉴스레터\n1초 만에 삭제하기',
     description: '메일함을 쉽게 정리하세요',
     Icon: Onboard6,
-    bgColor: '#FFFDEB',
+    bgColor: '#FFF6C6',
   },
 ];
 

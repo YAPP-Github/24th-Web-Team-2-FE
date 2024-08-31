@@ -40,7 +40,12 @@ export const handlers = [
     });
   }),
   http.post('/inbox/interests', () => {
-    return HttpResponse.json({}, { status: 201 });
+    return HttpResponse.json(
+      {
+        Cookie: '',
+      },
+      { status: 201 },
+    );
   }),
 
   http.get('/auth/google', () => {

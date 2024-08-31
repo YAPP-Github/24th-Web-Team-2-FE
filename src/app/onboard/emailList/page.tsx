@@ -4,7 +4,6 @@ import { GET } from '@/network';
 
 const EmailList = async () => {
   const incomingSenders = await getIncomingSenders();
-
   return (
     <div className='flex flex-col h-screen'>
       <EmailListInteraction incomingSenders={incomingSenders} />

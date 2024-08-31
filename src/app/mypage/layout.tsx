@@ -18,17 +18,21 @@ export default async function MypageLayout({ children }: Readonly<PropsWithChild
                   <UserDataCard />
                 </span>
               </div>
-              <div className='flex flex-col pb-6 gap-3 text-caption'>
-                <Link href='/setting'>설정</Link>
-                <Link href='/contact'>문의하기</Link>
+              <div className='flex flex-col gap-3 pb-6 text-caption'>
+                <Link href='/mypage'>설정</Link>
+                <Link href='http://pf.kakao.com/_xdxfaxoG' target='_blank'>
+                  문의하기
+                </Link>
                 <div className='flex flex-row gap-4'>
                   <Link
-                    href='/privacy' // Link to Privacy Policy
+                    target='_blank'
+                    href='https://standing-lift-8bd.notion.site/74d694878a174139a8a5286ddb3d919c?pvs=4'
                   >
                     이용 약관
                   </Link>
                   <Link
-                    href='/terms' // Link to Terms of Service
+                    target='_blank'
+                    href='https://standing-lift-8bd.notion.site/161372fadec848e9a6533d4ee1f4efa5?pvs=4'
                   >
                     개인정보 처리방침
                   </Link>
