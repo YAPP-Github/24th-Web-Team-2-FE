@@ -41,15 +41,13 @@ const MainListTap = () => {
           name={'탐색    🔎'}
           isActive={currentTab === 'search'}
         />
-        <div>
+        <div onMouseOver={() => handleMouseoverDigest(true)} onMouseOut={() => handleMouseoverDigest(false)}>
           <ListItem
             onClick={() => handleClickListItem('Digest')}
             key={'Digest'}
             id={'Digest'}
             name={'Digest'}
             isActive={currentTab === 'Digest'}
-            onMouseOver={() => handleMouseoverDigest(true)}
-            onMouseOut={() => handleMouseoverDigest(false)}
           />
           {showOverlay ? <DigestTabOverlay data={data ? data.groups : []} /> : <></>}
         </div>
@@ -78,7 +76,7 @@ const DigestTabOverlay = ({ data }: TabOverlayProps) => {
           background: 'var(--Color-Neutral-white, #FFF)',
           boxShadow: '0px 0px 12px 0px rgba(0, 0, 0, 0.25)',
         }}
-        className='absolute z-50 p-4 m-2 text-body2'
+        className='absolute z-50 p-4 text-body2'
       >
         <div>뉴스레터 그룹을 만들어</div>
         <div className='pb-2'>주제별로 편하게 모아보세요!</div>

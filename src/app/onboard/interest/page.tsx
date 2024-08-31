@@ -1,9 +1,10 @@
+import { useProfileQuery } from '@/api/hooks/useFetchProfileQuery';
 import { getInterestList } from '@/api/onboard';
 import OnboardHeader from '@/components/Header/OnboardHeader';
 import InterestInteraction from '@/components/PageInteraction/Onboard/InterestInteraction';
 
 const Interest = async () => {
-  const userName = '채현';
+  const userName = useProfileQuery().data?.username!;
 
   const interestList = [
     {

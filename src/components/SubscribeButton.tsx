@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface SubscribeButtonProps {
   isSubscribed: boolean;
@@ -23,6 +23,10 @@ const SubscribeButton = ({
     setIsSubscribed(!isSubscribed);
     if (onClick) onClick();
   };
+
+  useEffect(() => {
+    setIsSubscribed(initialIsSubscribed);
+  }, [initialIsSubscribed]);
 
   return (
     <div

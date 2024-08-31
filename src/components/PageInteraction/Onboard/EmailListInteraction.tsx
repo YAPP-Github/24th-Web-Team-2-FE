@@ -50,6 +50,27 @@ const EmailListInteraction = ({ incomingSenders }: EmailListInteractionProps) =>
     setSelectedEmailList(Array.from(emailSet));
   };
 
+  const getCurrentEmailIndex = () => {
+    if (!targetEmail) return -1;
+    return incomingSenders.senders.findIndex(sender => sender.from.address === targetEmail.from.address);
+  };
+
+  // Function to handle navigating to the previous email
+  const handlePrevArticle = () => {
+    const currentIndex = getCurrentEmailIndex();
+    if (currentIndex < incomingSenders.senders.length - 1) {
+      setTargetEmail(incomingSenders.senders[currentIndex + 1]);
+    }
+  };
+
+  // Function to handle navigating to the next email
+  const handleNextArticle = () => {
+    const currentIndex = getCurrentEmailIndex();
+    if (currentIndex > 0) {
+      setTargetEmail(incomingSenders.senders[currentIndex - 1]);
+    }
+  };
+
   const handleClickNextProcess = () => {
     subscribtionMutation.mutate({
       subscriptions: selectedEmailList.map(email => {
@@ -64,14 +85,21 @@ const EmailListInteraction = ({ incomingSenders }: EmailListInteractionProps) =>
   };
 
   const handleSubscribeBtnClick = () => {
-    console.log(targetEmail);
+    if (selectedEmailList.includes(targetEmail!.from.address)) {
+      handleRemoveEmail(targetEmail!.from.address);
+    } else {
+      handleAddEmail(targetEmail!.from.address);
+    }
   };
+
+  const hasPrevArticle = getCurrentEmailIndex() < incomingSenders.senders.length - 1;
+  const hasNextArticle = getCurrentEmailIndex() > 0;
 
   return (
     <>
       <OnboardHeader isBtn isReady={isReady} onClick={handleClickNextProcess} />
       <div
-        className={`flex flex-row w-full gap-16 h-[calc(100%-4rem)] ${targetEmail ? 'justify-between' : 'justify-center'}`}
+        className={`bg-white flex flex-row w-full gap-16 h-[calc(100%-4rem)] ${targetEmail ? 'justify-between' : 'justify-center'}`}
       >
         <div className='flex flex-col items-center h-full gap-12 mb-24 grow-0'>
           <span className='flex flex-col items-center gap-2 pt-12'>
@@ -119,10 +147,31 @@ const EmailListInteraction = ({ incomingSenders }: EmailListInteractionProps) =>
             <div className='flex w-full h-[2.875rem] justify-between items-center px-4 border-b border-b-lightgrey py-3'>
               <div className='flex justify-between w-full'>
                 <span className='flex gap-6'>
-                  <Image src={FoldIcon} width={16} height={16} alt='Fold Page' />
+                  <Image
+                    src={FoldIcon}
+                    width={16}
+                    height={16}
+                    alt='Fold Page'
+                    className='cursor-pointer'
+                    onClick={() => setTargetEmail(null)}
+                  />
                   <span className='flex flex-row items-center gap-2'>
-                    <FoldIconWithDirection width={24} height={24} rotate='up' />
-                    <FoldIconWithDirection width={24} height={24} rotate='down' fill='#797979' />
+                    <FoldIconWithDirection
+                      width={24}
+                      height={24}
+                      rotate='up'
+                      fill={hasNextArticle ? '#797979' : '#DBDBDB'}
+                      onClick={handleNextArticle}
+                      className='cursor-pointer'
+                    />
+                    <FoldIconWithDirection
+                      width={24}
+                      height={24}
+                      rotate='down'
+                      fill={hasPrevArticle ? '#797979' : '#DBDBDB'}
+                      onClick={handlePrevArticle}
+                      className='cursor-pointer'
+                    />
                   </span>
                 </span>
                 <SubscribeButton

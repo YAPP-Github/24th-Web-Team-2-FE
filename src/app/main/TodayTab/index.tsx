@@ -16,14 +16,14 @@ interface TodayTabProps {
 
 const TodayTab = ({ articleData, isArticleArea }: TodayTabProps) => {
   const { data } = useProfileQuery();
+  const { data: userData } = useProfileQuery();
 
   return articleData.length > 0 ? (
     <>
-      <div className='flex flex-col items-center mt-10 gap-3'>
+      <div className='flex flex-col items-center gap-3 mt-10'>
         <span className='text-blue text-body1'>{formatToYMD(new Date())}</span>
         <span className='text-center text-h1'>
-          {/* TODO: 이름 api를 통해 받아오기 */}
-          채현님에게
+          {userData?.username}님에게
           <br />
           오늘 도착한 메일이에요
         </span>
