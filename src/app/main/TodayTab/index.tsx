@@ -15,7 +15,6 @@ interface TodayTabProps {
 }
 
 const TodayTab = ({ articleData, isArticleArea }: TodayTabProps) => {
-  const { data } = useProfileQuery();
   const { data: userData } = useProfileQuery();
 
   return articleData.length > 0 ? (

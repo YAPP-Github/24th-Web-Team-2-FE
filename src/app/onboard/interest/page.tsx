@@ -1,6 +1,4 @@
 import { useProfileQuery } from '@/api/hooks/useFetchProfileQuery';
-import { getInterestList } from '@/api/onboard';
-import OnboardHeader from '@/components/Header/OnboardHeader';
 import InterestInteraction from '@/components/PageInteraction/Onboard/InterestInteraction';
 
 const Interest = async () => {
