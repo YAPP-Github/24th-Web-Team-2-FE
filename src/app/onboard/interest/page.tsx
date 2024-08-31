@@ -1,8 +1,10 @@
+'use client';
+
 import { useProfileQuery } from '@/api/hooks/useFetchProfileQuery';
 import InterestInteraction from '@/components/PageInteraction/Onboard/InterestInteraction';
 
-const Interest = async () => {
-  const userName = useProfileQuery().data?.username!;
+const Interest = () => {
+  const { data } = useProfileQuery();
 
   const interestList = [
     {
@@ -39,7 +41,7 @@ const Interest = async () => {
 
   return (
     <>
-      <InterestInteraction userName={userName} interestList={interestList} />
+      <InterestInteraction userName={data ? data.username : ''} interestList={interestList} />
     </>
   );
 };
