@@ -18,8 +18,8 @@ const TopSection = ({ selectedTab, setSelectedTab }: TopSectionProps) => {
   };
 
   return (
-    <div className='flex flex-col w-full py-10 gap-8'>
-      <div className='flex flex-col text-black gap-2 text-h1'>
+    <div className='flex flex-col w-full gap-8 py-10'>
+      <div className='flex flex-col gap-2 text-black text-h1'>
         오늘 많이 주목된 뉴스레터
         <span className='text-body2'>취향에 맞는 새로운 뉴스레터를 발견해보세요</span>
       </div>
@@ -33,7 +33,7 @@ const TopSection = ({ selectedTab, setSelectedTab }: TopSectionProps) => {
             selected={selectedTab.includes(tab.label)}
             onClick={() => handleClickTab(tab.label)}
           >
-            {tab.label}
+            {tab.value}
           </ExploreTabButton>
         ))}
       </div>
