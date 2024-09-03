@@ -1,8 +1,10 @@
+import Image from 'next/image';
 import Link from 'next/link';
+import LandingImage3 from '@/assets/images/Landing1_3.png';
 
 const Landing1 = () => {
   return (
-    <div className='flex flex-col gap-[6.75rem] items-center justify-center text-white'>
+    <div className='relative flex flex-col gap-[6.75rem] items-center justify-center text-white'>
       <span className='flex flex-col items-center gap-3'>
         <h3 className='text-h3-onboard'>Your Daily Insight Source</h3>
         <h1 className='text-h1-onboard'>매일 인사이트 얻고 싶은 사람들의 모임</h1>
@@ -20,6 +22,7 @@ const Landing1 = () => {
       >
         시작하기
       </Link>
+      {/* <Image src={LandingImage3} className='absolute bottom-0 -translate-x-1/2 left-1/2' alt='Landing3' /> */}
     </div>
   );
 };
