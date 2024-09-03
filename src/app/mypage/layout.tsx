@@ -24,18 +24,8 @@ export default async function MypageLayout({ children }: Readonly<PropsWithChild
                   문의하기
                 </Link>
                 <div className='flex flex-row gap-4'>
-                  <Link
-                    target='_blank'
-                    href='https://standing-lift-8bd.notion.site/74d694878a174139a8a5286ddb3d919c?pvs=4'
-                  >
-                    이용 약관
-                  </Link>
-                  <Link
-                    target='_blank'
-                    href='https://standing-lift-8bd.notion.site/161372fadec848e9a6533d4ee1f4efa5?pvs=4'
-                  >
-                    개인정보 처리방침
-                  </Link>
+                  <Link href='/terms-of-service'>이용 약관</Link>
+                  <Link href='/privacy-policy'>개인정보 처리방침</Link>
                 </div>
               </div>
             </div>

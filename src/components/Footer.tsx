@@ -7,7 +7,7 @@ const Footer = () => {
     <div className='w-full h-[35.5vh] flex pt-6 bg-black justify-center shrink-0'>
       <div className='flex flex-row gap-8 text-white text-body1-onboard h-fit'>
         {/* TODO: Link로 교체 */}
-        <Link target='_blank' href=''>
+        <Link target='_blank' href='https://standing-lift-8bd.notion.site/937d0c8aa7dc4a97b0519402d4cabd47'>
           InspoMailClub 소개
         </Link>
         <Link target='_blank' href='https://standing-lift-8bd.notion.site/FAQ-08e9d1f9f21e4db9bd107a10cb2923ed?pvs=4'>
@@ -16,10 +16,10 @@ const Footer = () => {
         <Link target='_blank' href='mailto:thenewhedwig@gmail.com'>
           비즈니스 문의
         </Link>
-        <Link target='_blank' href='https://standing-lift-8bd.notion.site/161372fadec848e9a6533d4ee1f4efa5?pvs=4'>
+        <Link href='/privacy-policy' scroll={true}>
           개인정보보호정책
         </Link>
-        <Link target='_blank' href='https://standing-lift-8bd.notion.site/74d694878a174139a8a5286ddb3d919c?pvs=4'>
+        <Link href='/terms-of-service' scroll={true}>
           서비스이용약관
         </Link>
         <Link target='_blank' href='https://www.instagram.com/inspomailclub/'>
