@@ -16,6 +16,7 @@ const DomainListWithSubscribeButton = ({ domainData }: DomainListWithSubscribeBu
 
   const subscribtionMutation = useSubscribtionMutation();
 
+  //TODO: 구독 버튼 클릭 시 구독 페이지로 이동 로직 추가
   const handleSubscribe = (name: string, address: string) => {
     subscribtionMutation.mutate(
       {
@@ -36,13 +37,14 @@ const DomainListWithSubscribeButton = ({ domainData }: DomainListWithSubscribeBu
     <div className='flex flex-row items-center justify-between w-full py-3'>
       <span className='flex flex-col'>
         <span className='flex flex-row items-center gap-3'>
-          <Image
-            src={domainData.thumbnailImage}
-            alt={`thumbnail-${domainData.name}`}
-            width={48}
-            height={48}
-            className='rounded-full'
-          />
+          <span className='relative w-12 h-12 rounded-full'>
+            <Image
+              src={domainData.thumbnailImage}
+              alt={`thumbnail-${domainData.name}`}
+              fill
+              className='object-cover rounded-full'
+            />
+          </span>
           <span className='text-body2'>{domainData.name}</span>
         </span>
       </span>
