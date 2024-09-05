@@ -18,8 +18,7 @@ const MainPage = ({ searchParams }: pageProps) => {
   const setFocusId = useFocusIdStore(state => state.setFocusId, shallow);
   const [todayArticleData, setTodayArticleData] = useState<MailDataType[]>([]);
 
-  const { data, isError } = useUnreadQuery({});
-  console.log(data);
+  const { data, isError, isFetched } = useUnreadQuery({});
 
   useEffect(() => {
     if (containerRef.current) {
@@ -66,6 +65,9 @@ const MainPage = ({ searchParams }: pageProps) => {
       // notFound();
     }
   }, [isError]);
+
+  console.log(todayArticleData, isFetched);
+  if (!todayArticleData.length && isFetched) return <div>No Today's Contents</div>;
 
   return (
     <div className='flex flex-col items-center w-full mb-10 gap-10'>
