@@ -16,12 +16,15 @@ import { shallow } from 'zustand/shallow';
 
 const TodayTab = () => {
   const { data: userData } = useProfileQuery();
-  const { data, isError, error } = useUnreadQuery({});
+  const { data, isError, error, isFetched } = useUnreadQuery({});
   const containerRef = useRef<HTMLDivElement>(null);
   const [focusId, setFocusId] = useFocusIdStore(state => [state.focusId, state.setFocusId], shallow);
   const [todayArticleData, setTodayArticleData] = useState<MailDataType[]>([]);
   const router = useRouter();
   const isArticleArea = focusId > 0;
+
+  console.log(todayArticleData, isFetched);
+  if (!todayArticleData.length && isFetched) return <div>No Today's Contents</div>;
 
   useEffect(() => {
     if (containerRef.current) {
