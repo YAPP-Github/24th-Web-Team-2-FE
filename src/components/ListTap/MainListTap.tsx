@@ -98,7 +98,9 @@ const DigestTabOverlay = ({ data }: TabOverlayProps) => {
       className='absolute z-50 p-4 m-2 text-body2'
     >
       {data.map(group => (
-        <div className='pb-2'>{group.name}</div>
+        <div key={group.name} className='pb-2'>
+          {group.name}
+        </div>
       ))}
       <div className='flex justify-end w-full cursor-pointer text-body2 text-blue' onClick={handleGroupMake}>
         + 뉴스레터 그룹 만들기
