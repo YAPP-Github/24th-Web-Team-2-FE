@@ -2,15 +2,14 @@
 
 import { useProfileQuery } from '@/api/hooks/useFetchProfileQuery';
 import { useFetchSubscriptionListQuery } from '@/api/hooks/useFetchSubscriptionListQuery';
-import { useSubscribtionMutation } from '@/api/hooks/useSubscribtionMutation';
 import DomainListWithSubscribeButton from '@/components/Domain/DomainListWithSubscribeButton';
 import Link from 'next/link';
 
 const RecommendArea = () => {
-  const { data } = useFetchSubscriptionListQuery();
+  const { data, isFetched } = useFetchSubscriptionListQuery();
   const { data: userData } = useProfileQuery();
 
-  return (
+  return isFetched ? (
     <div className='flex flex-col gap-3 min-w-domainCard'>
       <div className='flex flex-row items-center justify-between'>
         <div className='flex flex-col gap-1 text-black'>
@@ -38,6 +37,8 @@ const RecommendArea = () => {
         ))}
       </div>
     </div>
+  ) : (
+    <div>Loading...</div>
   );
 };
 
