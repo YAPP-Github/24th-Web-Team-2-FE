@@ -191,18 +191,18 @@ const EmailListInteraction = ({ incomingSenders }: EmailListInteractionProps) =>
                     <span className='text-h3'>{targetEmail.from.name}</span>
                     <span className='text-body2'>{targetEmail.from.address}</span>
                   </div>
-                  <div className='flex flex-row items-center justify-between border-y border-lightgrey'>
+                  <div className='flex h-[3.75rem] flex-row items-center justify-between border-y border-lightgrey'>
                     <div className='flex flex-row gap-3'>
-                      <span className='text-body2 text-blue shrink-0 basis-[170px]'>
+                      <span className='text-body2 text-blue shrink-0 basis-[163px]'>
                         이런 뉴스레터를 읽을 수 있어요
                       </span>
-                      <span className='max-w-[22rem] overflow-x-hidden text-black break-all shrink-0 whitespace-nowrap text-h2 text-ellipsis'>
+                      <span className='max-w-[calc(50vw-26.5rem)] overflow-x-hidden text-black break-all shrink-0 whitespace-nowrap text-h2 text-ellipsis'>
                         {targetEmail.subject}
                       </span>
                     </div>
                     <div className='flex flex-row gap-5 text-body2'>
-                      <span className='text-darkgrey'>{targetEmail.from.name}</span>
-                      <span className='text-blue basis-[4rem]'>
+                      <span className='text-darkgrey basis-[100px]'>{targetEmail.from.name}</span>
+                      <span className='text-blue basis-[56px] shrink-0'>
                         {formatToMonthDayKorean(new Date(targetEmail.date))}
                       </span>
                     </div>
