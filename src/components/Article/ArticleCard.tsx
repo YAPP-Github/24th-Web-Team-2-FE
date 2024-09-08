@@ -9,17 +9,7 @@ interface ArticleCardProps extends MailDataType {
   currentTab?: string;
 }
 
-const ArticleCard = ({
-  subject,
-  mailId,
-  snippet,
-  date,
-  // thumbnail,
-  isRead,
-  payload,
-  from,
-  isToday = false,
-}: ArticleCardProps) => {
+const ArticleCard = ({ subject, mailId, snippet, date, isRead, payload, from, isToday = false }: ArticleCardProps) => {
   return (
     <Link
       // https://stackoverflow.com/questions/66821351/nextjs-error-message-failed-prop-type-the-prop-href-expects-a-string-or-o
