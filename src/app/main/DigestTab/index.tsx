@@ -10,11 +10,11 @@ import { useUnreadQuery } from '@/api/hooks/useFetchMailQuery';
 const DigestTab = () => {
   const [selectedTab, setSelectedTab] = useState<'all' | 'unread'>('unread');
 
-  const { data } = useUnreadQuery({});
+  const { data, isFetched } = useUnreadQuery({});
 
-  return (
+  return isFetched ? (
     <div className='flex flex-row w-full h-full gap-16'>
-      <div className='flex flex-col pt-3 gap-3'>
+      <div className='flex flex-col gap-3 pt-3'>
         <TopSection selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
         {data?.map(article => <ArticleCard key={article.mailId} {...article} />)}
       </div>
@@ -22,6 +22,8 @@ const DigestTab = () => {
         <RecommendArea />
       </div>
     </div>
+  ) : (
+    <div>Loading...</div>
   );
 };
 
