@@ -23,9 +23,6 @@ const TodayTab = () => {
   const router = useRouter();
   const isArticleArea = focusId > 0;
 
-  console.log(todayArticleData, isFetched);
-  if (!todayArticleData.length && isFetched) return <div>No Today's Contents</div>;
-
   useEffect(() => {
     if (containerRef.current) {
       const observer = new IntersectionObserver(
@@ -71,6 +68,9 @@ const TodayTab = () => {
       router.push('/');
     }
   }, [isError]);
+
+  console.log(todayArticleData, isFetched);
+  if (!todayArticleData.length && isFetched) return <div>No Today's Contents</div>;
 
   return todayArticleData.length > 0 ? (
     <>

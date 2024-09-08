@@ -165,31 +165,17 @@ export const handlers = [
 
   http.get('/inbox/incoming-senders', () => {
     return HttpResponse.json({
-      senders: [
-        {
-          mailId: '19165ca4de7e6d20',
-          subject: '🙋🏻‍♀️ 방석진 님이 관심 가질 만한 5명의 프로필을 엄선했어요.',
-          date: '2024-08-18T14:00:41.000Z',
-          snippet:
-            '로켓펀치 방석진 님이 관심 있을 만한 사람을 추천드립니다. 지금 연결하고 인사해 보세요. pallenj 박준모 프론트엔드 개발자 @휴빌론 연결 신청 Git, Next.js, JavaScript kiwonkimd500c026c39344d3 김기원 프론트엔드 개발자 @위메프 연결 신청 Django, Node.js, Express chj878194 최현준 프론트',
-          from: {
-            name: 'RocketPunch',
-            address: 'notification@rocketpunch.com',
-          },
-          to: {
-            name: 'bluke8489',
-            address: 'bluke8489@gmail.com',
-          },
-          mimeType: 'multipart/alternative',
-          payload: [
-            {
-              partId: '0',
-              mimeType: 'text/html',
-              body: '<!',
-            },
-          ],
-        },
-      ],
+      senders: mailListData.mails,
+    });
+  }),
+
+  http.get('/users', () => {
+    return HttpResponse.json({
+      user_id: 'RandomString',
+      username: '채현',
+      onboardingStatus: 'guest',
+      created_at: new Date('2024-07-13'),
+      updated_at: new Date('2024-07-13'),
     });
   }),
 
@@ -325,26 +311,28 @@ export const handlers = [
   }),
 
   http.get('/inbox/subscriptions-random-list', () => {
-    return HttpResponse.json([
-      {
-        name: 'string',
-        isPublished: false,
-        address: 'string@gmail.com',
-        thumbnailImage: 'https://picsum.photos/48',
-      },
-      {
-        name: 'string1',
-        isPublished: false,
-        address: 'string@gmail.com',
-        thumbnailImage: 'https://picsum.photos/48',
-      },
-      {
-        name: 'string2',
-        isPublished: false,
-        address: 'string@gmail.com',
-        thumbnailImage: 'https://picsum.photos/48',
-      },
-    ]);
+    return HttpResponse.json({
+      subscriptions: [
+        {
+          name: 'string',
+          isPublished: false,
+          address: 'string@gmail.com',
+          thumbnailImage: 'https://picsum.photos/48',
+        },
+        {
+          name: 'string1',
+          isPublished: false,
+          address: 'string@gmail.com',
+          thumbnailImage: 'https://picsum.photos/48',
+        },
+        {
+          name: 'string2',
+          isPublished: false,
+          address: 'string@gmail.com',
+          thumbnailImage: 'https://picsum.photos/48',
+        },
+      ],
+    });
   }),
 
   http.get('/inbox/mails/:id', req => {
