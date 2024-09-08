@@ -43,6 +43,7 @@ export const useUnreadQuery = ({ group, sender }: fetchUnreadMailsParams) => {
     queryKey: ['unreadMail', group, sender],
     queryFn: () => fetchUnReadMails({ group, sender }),
     select: ({ data }) => [...data.mails],
+    staleTime: 1000 * 60 * 30, // 30 minutes
   });
 };
 
