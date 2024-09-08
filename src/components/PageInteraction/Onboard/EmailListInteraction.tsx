@@ -143,7 +143,7 @@ const EmailListInteraction = ({ incomingSenders }: EmailListInteractionProps) =>
           </div>
         </div>
         {targetEmail && (
-          <div className='w-full h-full flex flex-col items-center bg-white shadow-[-4px_0_23.5px_0_rgba(0,0,0,0.25)] rounded-tl-2xl'>
+          <div className='w-full h-screen flex flex-col items-center bg-white shadow-[-4px_0_23.5px_0_rgba(0,0,0,0.25)] rounded-tl-2xl -translate-y-[4rem]'>
             <div className='flex w-full h-[2.875rem] justify-between items-center px-4 border-b border-b-lightgrey py-3'>
               <div className='flex justify-between w-full'>
                 <span className='flex gap-6'>
