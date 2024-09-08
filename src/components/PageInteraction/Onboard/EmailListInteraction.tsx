@@ -26,6 +26,7 @@ const EmailListInteraction = ({ incomingSenders }: EmailListInteractionProps) =>
   const router = useRouter();
   const subscribtionMutation = useSubscribtionMutation();
   const isReady = selectedEmailList.length > 0;
+  const [isFirst, setIsFirst] = useState(true);
 
   useEffect(() => {
     // Initialize the set with unique email addresses from incomingSenders
@@ -65,6 +66,7 @@ const EmailListInteraction = ({ incomingSenders }: EmailListInteractionProps) =>
         incomingSenders.senders.find(sender => sender.from.address === Array.from(emailSet)[currentIndex + 1])!,
       );
     }
+    setIsFirst(false);
   };
 
   // Function to handle navigating to the next email
@@ -175,14 +177,22 @@ const EmailListInteraction = ({ incomingSenders }: EmailListInteractionProps) =>
                         onClick={handleNextArticle}
                         className='cursor-pointer'
                       />
-                      <FoldIconWithDirection
-                        width={24}
-                        height={24}
-                        rotate='down'
-                        fill={hasPrevArticle ? '#797979' : '#DBDBDB'}
-                        onClick={handlePrevArticle}
-                        className='cursor-pointer'
-                      />
+                      <div className='relative'>
+                        <FoldIconWithDirection
+                          width={24}
+                          height={24}
+                          rotate='down'
+                          fill={hasPrevArticle ? '#797979' : '#DBDBDB'}
+                          onClick={handlePrevArticle}
+                          className='cursor-pointer'
+                        />
+                        {isFirst && (
+                          <div className='absolute flex top-[calc(100%+4px)] -left-1 w-[69px] p-2 text-xs font-normal text-white bg-black rounded-lg -tracking-[0.48px] '>
+                            다음 발신인
+                            <div className='absolute bottom-full left-3 w-0 h-0 border-b-[4px] border-b-black border-x-[4px] border-x-transparent'></div>
+                          </div>
+                        )}
+                      </div>
                     </span>
                   </span>
                   <SubscribeButton
