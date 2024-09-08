@@ -16,7 +16,7 @@ const OnboardHeader = ({ isBtn, isReady, onClick, isRightScreen }: OnboardHeader
     <div
       className={`py-6 px-6 flex items-center h-16 bg-white border-b border-b-lightgrey ${isRightScreen ? 'justify-end w-[50vw]' : 'justify-center w-screen'}`}
     >
-      <div className={`flex items-center justify-between ${isRightScreen ? 'w-[33rem]' : 'w-content'}`}>
+      <div className={`flex items-center justify-between ${isRightScreen ? 'w-[36rem]' : 'w-content'}`}>
         <Link href='/'>
           <Image src={ServiceIcon} width={154} height={24} alt={'BI'} />
         </Link>
