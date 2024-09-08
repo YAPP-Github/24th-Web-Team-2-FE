@@ -25,7 +25,7 @@ const MainListTap = () => {
   }, [searchParams]);
 
   return (
-    <div className='flex justify-center w-full h-12 border-b border-lightgrey'>
+    <div className='flex justify-center w-screen h-12 border-b border-lightgrey'>
       <div className='flex flex-row h-full gap-4 w-content'>
         <ListItem
           onClick={() => handleClickListItem('오늘의 인사이트')}

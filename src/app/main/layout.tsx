@@ -8,7 +8,7 @@ export default function MainPageLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className='flex flex-col bg-white'>
+    <main className='flex flex-col items-center gap-4 bg-white'>
       <MainPageHeader />
       <div className='flex flex-col items-center w-full'>
         <Suspense fallback={<div></div>}>

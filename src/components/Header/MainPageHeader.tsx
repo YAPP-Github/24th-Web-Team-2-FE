@@ -6,12 +6,12 @@ import Image from 'next/image';
 
 const MainPageHeader = () => {
   return (
-    <div className={`py-8 justify-between flex items-center w-content bg-white`}>
+    <div className={`justify-between flex h-16 items-center w-content bg-white`}>
       <Link href='/main'>
         <Image src={ServiceIcon} alt='ServiceIcon' width={153} height={64} />
       </Link>
 
-      <Link href='/mypage' className='flex flex-row items-center cursor-pointer gap-1 text-blue'>
+      <Link href='/mypage' className='flex flex-row items-center gap-1 cursor-pointer text-blue'>
         <HomeIcon width={24} fill='#168FD0' />
         <span className='text-body3'>마이 페이지</span>
       </Link>
