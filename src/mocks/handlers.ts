@@ -250,6 +250,56 @@ export const handlers = [
             contentLink: 'https://github.com/naver/fe-news/blob/master/issues/2024-08.md',
             thumbnailImage: 'https://picsum.photos/200',
           },
+          {
+            name: 'FE News',
+            companyName: 'FE News',
+            isAutomated: false,
+            content:
+              '네이버 FE 엔지니어들이 엄선한 양질의 FE 및 주요한 기술 소식들을 큐레이션 해 공유하는 것을 목표로 합니다. 매월 첫째 주 수요일, 월 1회 발행 됩니다.',
+            subscriptionLink: 'https://fenews.substack.com/embed',
+            contentLink: 'https://github.com/naver/fe-news/blob/master/issues/2024-08.md',
+            thumbnailImage: 'https://picsum.photos/200',
+          },
+          {
+            name: 'FE News',
+            companyName: 'FE News',
+            isAutomated: false,
+            content:
+              '네이버 FE 엔지니어들이 엄선한 양질의 FE 및 주요한 기술 소식들을 큐레이션 해 공유하는 것을 목표로 합니다. 매월 첫째 주 수요일, 월 1회 발행 됩니다.',
+            subscriptionLink: 'https://fenews.substack.com/embed',
+            contentLink: 'https://github.com/naver/fe-news/blob/master/issues/2024-08.md',
+            thumbnailImage: 'https://picsum.photos/200',
+          },
+          {
+            name: 'FE News',
+            companyName: 'FE News',
+            isAutomated: false,
+            content:
+              '네이버 FE 엔지니어들이 엄선한 양질의 FE 및 주요한 기술 소식들을 큐레이션 해 공유하는 것을 목표로 합니다. 매월 첫째 주 수요일, 월 1회 발행 됩니다.',
+            subscriptionLink: 'https://fenews.substack.com/embed',
+            contentLink: 'https://github.com/naver/fe-news/blob/master/issues/2024-08.md',
+            thumbnailImage: 'https://picsum.photos/200',
+          },
+          {
+            name: 'FE News',
+            companyName: 'FE News',
+            isAutomated: false,
+            content:
+              '네이버 FE 엔지니어들이 엄선한 양질의 FE 및 주요한 기술 소식들을 큐레이션 해 공유하는 것을 목표로 합니다. 매월 첫째 주 수요일, 월 1회 발행 됩니다.',
+            subscriptionLink: 'https://fenews.substack.com/embed',
+            contentLink: 'https://github.com/naver/fe-news/blob/master/issues/2024-08.md',
+            thumbnailImage: 'https://picsum.photos/200',
+          },
+          {
+            name: 'FE News',
+            companyName: 'FE News',
+            isAutomated: false,
+            content:
+              '네이버 FE 엔지니어들이 엄선한 양질의 FE 및 주요한 기술 소식들을 큐레이션 해 공유하는 것을 목표로 합니다. 매월 첫째 주 수요일, 월 1회 발행 됩니다.',
+            subscriptionLink: 'https://fenews.substack.com/embed',
+            contentLink: 'https://github.com/naver/fe-news/blob/master/issues/2024-08.md',
+            thumbnailImage: 'https://picsum.photos/200',
+          },
         ],
         business: [
           {
@@ -261,8 +311,53 @@ export const handlers = [
             contentLink: 'https://uppity.co.kr/newsletter/money-letter/',
             thumbnailImage: 'https://picsum.photos/200',
           },
+          {
+            name: '머니레터',
+            companyName: '어피티',
+            isAutomated: false,
+            content: '경제 공부, 선택 아닌 필수막막한 경제 공부, 머니레터로 시작하세요.',
+            subscriptionLink: 'https://uppity.co.kr/newsletter/money-letter/',
+            contentLink: 'https://uppity.co.kr/newsletter/money-letter/',
+            thumbnailImage: 'https://picsum.photos/200',
+          },
+          {
+            name: '머니레터',
+            companyName: '어피티',
+            isAutomated: false,
+            content: '경제 공부, 선택 아닌 필수막막한 경제 공부, 머니레터로 시작하세요.',
+            subscriptionLink: 'https://uppity.co.kr/newsletter/money-letter/',
+            contentLink: 'https://uppity.co.kr/newsletter/money-letter/',
+            thumbnailImage: 'https://picsum.photos/200',
+          },
+          {
+            name: '머니레터',
+            companyName: '어피티',
+            isAutomated: false,
+            content: '경제 공부, 선택 아닌 필수막막한 경제 공부, 머니레터로 시작하세요.',
+            subscriptionLink: 'https://uppity.co.kr/newsletter/money-letter/',
+            contentLink: 'https://uppity.co.kr/newsletter/money-letter/',
+            thumbnailImage: 'https://picsum.photos/200',
+          },
+          {
+            name: '머니레터',
+            companyName: '어피티',
+            isAutomated: false,
+            content: '경제 공부, 선택 아닌 필수막막한 경제 공부, 머니레터로 시작하세요.',
+            subscriptionLink: 'https://uppity.co.kr/newsletter/money-letter/',
+            contentLink: 'https://uppity.co.kr/newsletter/money-letter/',
+            thumbnailImage: 'https://picsum.photos/200',
+          },
+          {
+            name: '머니레터',
+            companyName: '어피티',
+            isAutomated: false,
+            content: '경제 공부, 선택 아닌 필수막막한 경제 공부, 머니레터로 시작하세요.',
+            subscriptionLink: 'https://uppity.co.kr/newsletter/money-letter/',
+            contentLink: 'https://uppity.co.kr/newsletter/money-letter/',
+            thumbnailImage: 'https://picsum.photos/200',
+          },
         ],
-        health: [
+        design: [
           {
             name: '디자인 나침반 뉴스레터',
             companyName: '디자인 나침반',
@@ -295,7 +390,7 @@ export const handlers = [
             thumbnailImage: 'https://picsum.photos/200',
           },
         ],
-        design: [
+        startup: [
           {
             name: '조쉬의 프로덕트 레터',
             companyName: '조쉬의 프로덕트 레터',

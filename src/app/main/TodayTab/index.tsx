@@ -72,7 +72,7 @@ const TodayTab = () => {
   console.log(todayArticleData, isFetched);
   if (!todayArticleData.length && isFetched) return <div>No Today's Contents</div>;
 
-  return todayArticleData.length > 0 ? (
+  return isFetched && todayArticleData.length > 0 ? (
     <>
       <div className='flex flex-col items-center gap-3 mt-10'>
         <span className='text-blue text-body1'>{formatToYMD(new Date())}</span>
