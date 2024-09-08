@@ -44,7 +44,7 @@ const EmailListInteraction = ({ incomingSenders }: EmailListInteractionProps) =>
   };
 
   const handleSelectAll = () => {
-    if (selectedEmailList.length === incomingSenders.senders.length) {
+    if (selectedEmailList.length === emailSet.size) {
       setSelectedEmailList([]);
       return;
     }
@@ -128,7 +128,7 @@ const EmailListInteraction = ({ incomingSenders }: EmailListInteractionProps) =>
                       <span className='text-darkgrey'> 뉴스레터에요.</span>
                     </span>
                     <span className='cursor-pointer text-blue' onClick={handleSelectAll}>
-                      전체선택
+                      {selectedEmailList.length === emailSet.size ? '전체 해제' : '전체 선택'}
                     </span>
                   </span>
                   <div className='flex flex-col h-full gap-2 overflow-auto noScrollbar'>
