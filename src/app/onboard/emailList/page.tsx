@@ -1,4 +1,3 @@
-import OnboardHeader from '@/components/Header/OnboardHeader';
 import EmailListInteraction from '@/components/PageInteraction/Onboard/EmailListInteraction';
 import { GET } from '@/network';
 
