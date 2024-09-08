@@ -30,6 +30,7 @@ const EmailListInteraction = ({ incomingSenders }: EmailListInteractionProps) =>
   useEffect(() => {
     // Initialize the set with unique email addresses from incomingSenders
     const uniqueEmails = new Set(incomingSenders.senders.map(sender => sender.from.address));
+    console.log(uniqueEmails);
     setEmailSet(uniqueEmails);
   }, [incomingSenders]);
 
@@ -52,14 +53,17 @@ const EmailListInteraction = ({ incomingSenders }: EmailListInteractionProps) =>
 
   const getCurrentEmailIndex = () => {
     if (!targetEmail) return -1;
-    return incomingSenders.senders.findIndex(sender => sender.from.address === targetEmail.from.address);
+    return Array.from(emailSet).indexOf(targetEmail.from.address);
   };
 
   // Function to handle navigating to the previous email
   const handlePrevArticle = () => {
     const currentIndex = getCurrentEmailIndex();
-    if (currentIndex < incomingSenders.senders.length - 1) {
-      setTargetEmail(incomingSenders.senders[currentIndex + 1]);
+    if (currentIndex < emailSet.size - 1) {
+      // setTargetEmail(incomingSenders.senders[currentIndex + 1]);
+      setTargetEmail(
+        incomingSenders.senders.find(sender => sender.from.address === Array.from(emailSet)[currentIndex + 1])!,
+      );
     }
   };
 
@@ -67,7 +71,9 @@ const EmailListInteraction = ({ incomingSenders }: EmailListInteractionProps) =>
   const handleNextArticle = () => {
     const currentIndex = getCurrentEmailIndex();
     if (currentIndex > 0) {
-      setTargetEmail(incomingSenders.senders[currentIndex - 1]);
+      setTargetEmail(
+        incomingSenders.senders.find(sender => sender.from.address === Array.from(emailSet)[currentIndex - 1])!,
+      );
     }
   };
 
@@ -92,7 +98,7 @@ const EmailListInteraction = ({ incomingSenders }: EmailListInteractionProps) =>
     }
   };
 
-  const hasPrevArticle = getCurrentEmailIndex() < incomingSenders.senders.length - 1;
+  const hasPrevArticle = getCurrentEmailIndex() < emailSet.size - 1;
   const hasNextArticle = getCurrentEmailIndex() > 0;
 
   return (
