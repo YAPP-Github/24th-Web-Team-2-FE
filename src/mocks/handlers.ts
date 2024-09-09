@@ -178,6 +178,9 @@ export const handlers = [
       updated_at: new Date('2024-07-13'),
     });
   }),
+  http.delete('/users', () => {
+    return HttpResponse.json({ status: 204 });
+  }),
 
   http.get('/articleList', req => {
     const { currentTab } = req.params;
@@ -422,18 +425,27 @@ export const handlers = [
           isPublished: false,
           address: 'string@gmail.com',
           thumbnailImage: 'https://picsum.photos/48',
+          isAutomated: false,
+          subscriptionLink: 'https://maily.so/josh',
+          companyName: 'string',
         },
         {
           name: 'string1',
           isPublished: false,
           address: 'string@gmail.com',
           thumbnailImage: 'https://picsum.photos/48',
+          isAutomated: false,
+          subscriptionLink: 'https://maily.so/josh',
+          companyName: 'string',
         },
         {
           name: 'string2',
           isPublished: false,
           address: 'string@gmail.com',
           thumbnailImage: 'https://picsum.photos/48',
+          isAutomated: true,
+          subscriptionLink: 'https://maily.so/josh',
+          companyName: 'string',
         },
       ],
     });

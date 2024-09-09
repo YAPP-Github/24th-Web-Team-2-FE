@@ -1,5 +1,5 @@
 import { axiosInstance } from '@/api/axiosInstance';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { AxiosError, AxiosResponse } from 'axios';
 
 export interface ProfileType {
@@ -15,10 +15,21 @@ export const fetchProfileData = () => {
   return data;
 };
 
+export const deleteProfileDataMutation = () => {
+  const data = axiosInstance.delete('/users');
+  return data;
+};
+
 export const useProfileQuery = () => {
   return useQuery<AxiosResponse<ProfileType>, AxiosError, ProfileType>({
     queryKey: ['profile'],
     queryFn: fetchProfileData,
     select: ({ data }) => data,
+  });
+};
+
+export const usewithdrawalMutation = () => {
+  return useMutation<AxiosResponse, AxiosError, null>({
+    mutationFn: deleteProfileDataMutation,
   });
 };
