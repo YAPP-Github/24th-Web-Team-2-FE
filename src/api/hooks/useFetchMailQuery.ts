@@ -5,6 +5,7 @@ import { AxiosError, AxiosResponse } from 'axios';
 interface fetchUnreadMailsParams {
   group?: string;
   sender?: string;
+  type?: string;
 }
 
 export type MailDataType = {
@@ -38,9 +39,9 @@ export const fetchUnReadMails = ({ group, sender }: fetchUnreadMailsParams) => {
   return data;
 };
 
-export const useUnreadQuery = ({ group, sender }: fetchUnreadMailsParams) => {
+export const useUnreadQuery = ({ group, sender, type }: fetchUnreadMailsParams) => {
   return useQuery<AxiosResponse<Response>, AxiosError, MailDataType[]>({
-    queryKey: ['unreadMail', group, sender],
+    queryKey: ['unreadMail', group, sender, type],
     queryFn: () => fetchUnReadMails({ group, sender }),
     select: ({ data }) => [...data.mails],
     staleTime: 1000 * 60 * 30, // 30 minutes

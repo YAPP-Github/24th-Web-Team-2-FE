@@ -12,7 +12,7 @@ import { useMailReadMutation } from '@/api/hooks/useMailReadMutation';
 const DigestTab = () => {
   const [selectedTab, setSelectedTab] = useState<'all' | 'unread'>('unread');
 
-  const { data, isFetched } = useUnreadQuery({});
+  const { data, isFetched, refetch } = useUnreadQuery({ type: selectedTab });
   const readMutation = useMailReadMutation();
 
   const handleReadMail = (mailId: string) => {
@@ -22,7 +22,7 @@ const DigestTab = () => {
   return isFetched ? (
     <div className='flex flex-row w-full h-full gap-16'>
       <div className='flex flex-col h-full gap-3 pt-3'>
-        <TopSection selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
+        <TopSection selectedTab={selectedTab} setSelectedTab={setSelectedTab} handleRefresh={() => refetch()} />
         {data?.length === 0 ? (
           <div className='h-[calc(100vh-8.5rem-94px)] overflow-visible w-articleCard'>
             <EmptyMailView />

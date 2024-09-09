@@ -5,15 +5,16 @@ import Image from 'next/image';
 interface TopSectionProps {
   selectedTab: 'all' | 'unread';
   setSelectedTab: React.Dispatch<React.SetStateAction<'all' | 'unread'>>;
+  handleRefresh: () => void;
 }
 
-const TopSection = ({ selectedTab, setSelectedTab }: TopSectionProps) => {
+const TopSection = ({ selectedTab, setSelectedTab, handleRefresh }: TopSectionProps) => {
   const handleClickTab = (tab: string) => {
     setSelectedTab(tab as 'all' | 'unread');
   };
 
   const handleRefreshBtnClick = () => {
-    // TODO: refresh data
+    handleRefresh();
   };
 
   return (
