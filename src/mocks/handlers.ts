@@ -169,6 +169,14 @@ export const handlers = [
     });
   }),
 
+  http.patch('/inbox/mails/:id', () => {
+    return HttpResponse.json({}, { status: 204 });
+  }),
+
+  http.delete('/inbox/mails/:id', () => {
+    return HttpResponse.json({ status: 204 });
+  }),
+
   http.get('/users', () => {
     return HttpResponse.json({
       user_id: 'RandomString',

@@ -11,6 +11,7 @@ interface DomainInteractionAreaProps {
 
 const DomainInteractionArea = ({ domainArticleData }: DomainInteractionAreaProps) => {
   const [currentTab, setCurrentTab] = useState('unread');
+
   return (
     <div className='flex flex-col gap-3'>
       <div className='flex flex-row items-center justify-between w-full'>

@@ -69,7 +69,6 @@ const TodayTab = () => {
     }
   }, [isError]);
 
-  console.log(todayArticleData, isFetched);
   if (!todayArticleData.length && isFetched) return <div>No Today's Contents</div>;
 
   return isFetched && todayArticleData.length > 0 ? (
