@@ -18,7 +18,7 @@ const ArticleCard = ({ newsLetter }: ArticleCardProps) => {
       <div className='flex flex-row items-center justify-between w-full'>
         <div className='flex flex-col'>
           <span className='text-h3'>{newsLetter.name}</span>
-          <span className='text-caption text-darkgrey'>{newsLetter.companyName} • 구독자 20명</span>
+          <span className='text-caption text-darkgrey'>{newsLetter.companyName}</span>
         </div>
         <SubscribeButton
           isSubscribed={false}
@@ -28,7 +28,9 @@ const ArticleCard = ({ newsLetter }: ArticleCardProps) => {
           }}
         />
       </div>
-      <div className='overflow-hidden whitespace-pre-wrap break-keep text-body2 line-clamp-3'>{newsLetter.content}</div>
+      <div className='h-12 overflow-hidden whitespace-pre-wrap break-keep text-body2 line-clamp-2'>
+        {newsLetter.content}
+      </div>
       <Link
         href={newsLetter.contentLink}
         target='_blank'

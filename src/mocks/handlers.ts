@@ -389,6 +389,15 @@ export const handlers = [
             contentLink: 'https://surfside.stibee.com/',
             thumbnailImage: 'https://picsum.photos/200',
           },
+          {
+            name: '디자인 나침반 뉴스레터',
+            companyName: '디자인 나침반',
+            isAutomated: false,
+            content: ' 매주 화요일 아침, 16년 차 디자이너가큐레이션한 디자인 트렌드를 모아보세요.',
+            subscriptionLink: 'https://designcompass.org/',
+            contentLink: 'https://designcompass.org/',
+            thumbnailImage: 'https://picsum.photos/200',
+          },
         ],
         startup: [
           {
