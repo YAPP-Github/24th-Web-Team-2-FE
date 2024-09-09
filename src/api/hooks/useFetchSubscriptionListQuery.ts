@@ -7,6 +7,8 @@ export interface SubscriptionListType {
   isPublished: boolean;
   address: string;
   thumbnailImage: string;
+  isAutomated: boolean;
+  subscriptionLink: string;
 }
 
 type Response = { subscriptions: SubscriptionListType[] };

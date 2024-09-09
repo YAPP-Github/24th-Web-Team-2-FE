@@ -1,9 +1,6 @@
-import { ProfileType } from '@/api/hooks/useFetchProfileQuery';
-import { SubscriptionListType } from '@/api/hooks/useFetchSubscriptionListQuery';
+import type { SubscriptionListType } from '@/api/hooks/useFetchSubscriptionListQuery';
 import { useSubscribtionMutation } from '@/api/hooks/useSubscribtionMutation';
-import { Chip } from '@/components/Chip';
 import SubscribeButton from '@/components/SubscribeButton';
-import type { DomainType } from '@/types';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -17,7 +14,10 @@ const DomainListWithSubscribeButton = ({ domainData }: DomainListWithSubscribeBu
   const subscribtionMutation = useSubscribtionMutation();
 
   //TODO: 구독 버튼 클릭 시 구독 페이지로 이동 로직 추가
-  const handleSubscribe = (name: string, address: string) => {
+  const handleSubscribe = (name: string, address: string, link: string, isAuto: boolean) => {
+    if (!isAuto) {
+      window.open(link, '_blank');
+    }
     subscribtionMutation.mutate(
       {
         subscriptions: [{ name, address }],
@@ -49,8 +49,11 @@ const DomainListWithSubscribeButton = ({ domainData }: DomainListWithSubscribeBu
         </span>
       </span>
       <SubscribeButton
-        onClick={() => handleSubscribe(domainData.name, domainData.address)}
+        onClick={() =>
+          handleSubscribe(domainData.name, domainData.address, domainData.subscriptionLink, domainData.isAutomated)
+        }
         isSubscribed={isSubscribed}
+        internalSubscribe={domainData.isAutomated}
       />
     </div>
   );

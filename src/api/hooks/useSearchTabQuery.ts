@@ -4,6 +4,7 @@ import { AxiosError, AxiosResponse } from 'axios';
 
 export interface Newsletter {
   name: string;
+  address: string;
   companyName: string;
   isAutomated: boolean;
   content: string;

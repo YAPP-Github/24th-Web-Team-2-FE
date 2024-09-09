@@ -29,8 +29,8 @@ const DigestTab = () => {
           </div>
         ) : (
           data?.map(article => (
-            <div onClick={() => handleReadMail(article.mailId)}>
-              <ArticleCard key={article.mailId} {...article} />
+            <div key={article.mailId} onClick={() => handleReadMail(article.mailId)}>
+              <ArticleCard {...article} />
             </div>
           ))
         )}

@@ -186,6 +186,9 @@ export const handlers = [
       updated_at: new Date('2024-07-13'),
     });
   }),
+  http.delete('/users', () => {
+    return HttpResponse.json({ status: 204 });
+  }),
 
   http.get('/articleList', req => {
     const { currentTab } = req.params;
@@ -397,6 +400,15 @@ export const handlers = [
             contentLink: 'https://surfside.stibee.com/',
             thumbnailImage: 'https://picsum.photos/200',
           },
+          {
+            name: '디자인 나침반 뉴스레터',
+            companyName: '디자인 나침반',
+            isAutomated: false,
+            content: ' 매주 화요일 아침, 16년 차 디자이너가큐레이션한 디자인 트렌드를 모아보세요.',
+            subscriptionLink: 'https://designcompass.org/',
+            contentLink: 'https://designcompass.org/',
+            thumbnailImage: 'https://picsum.photos/200',
+          },
         ],
         startup: [
           {
@@ -421,18 +433,27 @@ export const handlers = [
           isPublished: false,
           address: 'string@gmail.com',
           thumbnailImage: 'https://picsum.photos/48',
+          isAutomated: false,
+          subscriptionLink: 'https://maily.so/josh',
+          companyName: 'string',
         },
         {
           name: 'string1',
           isPublished: false,
           address: 'string@gmail.com',
           thumbnailImage: 'https://picsum.photos/48',
+          isAutomated: false,
+          subscriptionLink: 'https://maily.so/josh',
+          companyName: 'string',
         },
         {
           name: 'string2',
           isPublished: false,
           address: 'string@gmail.com',
           thumbnailImage: 'https://picsum.photos/48',
+          isAutomated: true,
+          subscriptionLink: 'https://maily.so/josh',
+          companyName: 'string',
         },
       ],
     });
