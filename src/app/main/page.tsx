@@ -10,7 +10,7 @@ const MainPage = ({ searchParams }: pageProps) => {
   const currentTab = (searchParams.tab ?? 'today') as string;
 
   return (
-    <div className='flex flex-col items-center w-full gap-10 mb-10'>
+    <div className='flex flex-col items-center w-full gap-10'>
       {currentTab === 'today' ? (
         <TodayTab />
       ) : currentTab === 'search' ? (
