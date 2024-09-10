@@ -31,7 +31,6 @@ const EmailListInteraction = ({ incomingSenders }: EmailListInteractionProps) =>
   useEffect(() => {
     // Initialize the set with unique email addresses from incomingSenders
     const uniqueEmails = new Set(incomingSenders.senders.map(sender => sender.from.address));
-    console.log(uniqueEmails);
     setEmailSet(uniqueEmails);
   }, [incomingSenders]);
 

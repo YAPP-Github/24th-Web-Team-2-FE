@@ -8,7 +8,6 @@ const MyPage = () => {
   const withdrawalMutation = usewithdrawalMutation();
 
   const handleWithdrawal = () => {
-    console.log('withdrawal');
     withdrawalMutation.mutate(null, {
       onSuccess: () => {
         alert('회원 탈퇴가 완료되었습니다.');
