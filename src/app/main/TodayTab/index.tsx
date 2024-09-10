@@ -24,12 +24,12 @@ const TodayTab = () => {
   const isArticleArea = focusId > 0;
 
   useEffect(() => {
-    if (containerRef.current) {
+    if (containerRef.current && todayArticleData.length) {
       const observer = new IntersectionObserver(
         entries => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
-              const targetIndex = Number(entry.target.getAttribute('data-index'));
+              const targetIndex = Number(entry.target.getAttribute('data-index')) - 1;
               setFocusId(targetIndex);
             }
           });
@@ -38,15 +38,13 @@ const TodayTab = () => {
       );
 
       const boxes = containerRef.current.querySelectorAll('.content-box');
-      console.log(containerRef.current);
-      console.log(containerRef.current.getElementsByClassName('content-box'));
       boxes.forEach(box => observer.observe(box));
 
       return () => {
         boxes.forEach(box => observer.unobserve(box));
       };
     }
-  }, [setFocusId]);
+  }, [setFocusId, todayArticleData]);
 
   useEffect(() => {
     const filteredData: MailDataType[] =

@@ -4,10 +4,7 @@ import type { pageProps } from '@/types/page';
 import TodayTab from '@/app/main/TodayTab';
 import DigestTab from '@/app/main/DigestTab';
 import SearchTab from './SearchTab';
-import { useEffect, useRef } from 'react';
 import { notFound } from 'next/navigation';
-import { shallow } from 'zustand/shallow';
-import { useFocusIdStore } from '../../utils/hooks/useFocusIdStore';
 
 const MainPage = ({ searchParams }: pageProps) => {
   const currentTab = (searchParams.tab ?? 'today') as string;

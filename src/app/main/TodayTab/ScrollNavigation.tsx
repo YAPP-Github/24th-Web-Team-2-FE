@@ -16,10 +16,6 @@ const ScrollNavigation = ({ articleData }: ScrollNavigationProps) => {
   const itemRef = useRef<HTMLDivElement>(null);
   const focusId = useFocusIdStore(state => state.focusId, shallow);
 
-  useEffect(() => {
-    console.log(focusId);
-  }, [focusId]);
-
   return (
     <div
       ref={itemRef}
