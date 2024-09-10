@@ -466,8 +466,20 @@ export const handlers = [
 
   http.get('/domainData/:id', req => {
     const { id } = req.params;
-
-    return HttpResponse.json(mailListData);
+    const mailData = mailListData.mails.filter(mail => mail.from.address === id);
+    return HttpResponse.json({
+      domainData: {
+        name: 'string',
+        isPublished: false,
+        address: 'string@gmail.com',
+        thumbnailImage: 'https://picsum.photos/400',
+        isAutomated: false,
+        subscriptionLink: 'https://maily.so/josh',
+        companyName: 'string',
+      },
+      isSubscribed: false,
+      domainArticleData: mailData,
+    });
   }),
 
   http.get('/incomingSenders/:type', req => {
