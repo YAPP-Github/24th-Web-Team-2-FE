@@ -34,15 +34,10 @@ export const TabContent = [
 
 const SearchTab = () => {
   const { data } = useSearchTabQuery();
-  console.log(data);
 
   const [selectedTab, setSelectedTab] = useState<string[]>([]);
 
   const isAllSelected = selectedTab.length === 0 || selectedTab.includes('전체');
-
-  useEffect(() => {
-    console.log(selectedTab);
-  }, [selectedTab]);
 
   return (
     <div className='flex flex-col h-full overflow-x-visible w-content'>

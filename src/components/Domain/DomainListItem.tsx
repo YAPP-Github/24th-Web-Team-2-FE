@@ -24,7 +24,7 @@ const DomainListItem = ({ name }: Props) => {
 
   const handleUnsubscribe = () => {
     setIsHover(false);
-    console.log('unsubscribe');
+    console.log('unsubscribe'); //TODO: 구독 해제 API 호출
   };
 
   const handleAddGroupAction = () => {
@@ -61,14 +61,14 @@ const DomainListItem = ({ name }: Props) => {
         {isHover && (
           <div className='absolute bottom-0 right-0 flex flex-col translate-y-full w-[7.5rem] bg-white shadow-[0_0_12px_0_rgba(0,0,0,0.25)] rounded z-30'>
             <span
-              className='flex flex-row px-3 py-2 cursor-pointer gap-2 text-body2 hover:bg-background_grey'
+              className='flex flex-row gap-2 px-3 py-2 cursor-pointer text-body2 hover:bg-background_grey'
               onClick={handleUnsubscribe}
             >
               <CloseIcon width={24} height={24} fill='#797979' />
               구독 해제
             </span>
             <span
-              className='flex flex-row px-3 py-2 cursor-pointer gap-2 text-body2 hover:bg-background_grey'
+              className='flex flex-row gap-2 px-3 py-2 cursor-pointer text-body2 hover:bg-background_grey'
               onClick={handleAddGroupAction}
             >
               <Image src={FolderIcon} width={24} height={24} alt='folder icon' />

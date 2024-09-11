@@ -8,6 +8,7 @@ import { ArticleType, DomainType } from '@/types';
 import ExploreTabButton from '@/components/ExploreTabButton';
 import DomainInteractionArea from '@/components/PageInteraction/Domain/DomainInteraction';
 import { MailDataType } from '@/api/hooks/useFetchMailQuery';
+import { Newsletter } from '@/api/hooks/useSearchTabQuery';
 
 interface DomainPageProps {
   params: {
@@ -21,7 +22,7 @@ const DomainPage = async ({ params }: DomainPageProps) => {
     isSubscribed,
     domainArticleData,
   }: {
-    domainData: DomainType;
+    domainData: Newsletter;
     isSubscribed: boolean;
     domainArticleData: MailDataType[];
   } = await getDomainPageData(params.id);
@@ -34,7 +35,7 @@ const DomainPage = async ({ params }: DomainPageProps) => {
       <div className='flex flex-row justify-center mb-10 w-content'>
         <div className='flex flex-col gap-3 w-articleCard'>
           <div className='relative w-full aspect-[693/216]'>
-            <Image src={domainData.profile} alt={domainData.domain} fill className='object-cover w-full h-full' />
+            <Image src={domainData.thumbnailImage} alt={domainData.name} fill className='object-cover w-full h-full' />
             <div className='absolute bottom-0 w-full h-2/5 bg-gradient-to-t from-white' />
           </div>
           <div className='relative text-h1'>{domainData.name}</div>
@@ -49,6 +50,6 @@ const DomainPage = async ({ params }: DomainPageProps) => {
 export default DomainPage;
 
 const getDomainPageData = async (id: string) => {
-  const response = await GET(`/domainData/${id}`);
-  return response;
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/domainData/${id}`);
+  return response.json();
 };

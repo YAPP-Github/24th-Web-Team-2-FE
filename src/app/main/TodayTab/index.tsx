@@ -13,6 +13,7 @@ import ArticleContent from '@/app/article/[id]/ArticleContent';
 import { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { shallow } from 'zustand/shallow';
+import EmptyTodayView from '@/components/EmptyTodayView';
 
 const TodayTab = () => {
   const { data: userData } = useProfileQuery();
@@ -67,7 +68,7 @@ const TodayTab = () => {
     }
   }, [isError]);
 
-  if (!todayArticleData.length && isFetched) return <div>No Today's Contents</div>;
+  if (!todayArticleData.length && isFetched) return <EmptyTodayView />;
 
   return isFetched && todayArticleData.length > 0 ? (
     <>
