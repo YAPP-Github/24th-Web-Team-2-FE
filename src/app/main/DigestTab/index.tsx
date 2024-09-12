@@ -20,7 +20,7 @@ const DigestTab = () => {
   };
 
   return isFetched ? (
-    <div className='flex flex-row w-full h-full gap-16'>
+    <div className='flex flex-row justify-center w-full h-full gap-16'>
       <div className='flex flex-col h-full gap-3 pt-3'>
         <TopSection selectedTab={selectedTab} setSelectedTab={setSelectedTab} handleRefresh={() => refetch()} />
         {data?.length === 0 ? (
