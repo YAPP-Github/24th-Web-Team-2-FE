@@ -8,6 +8,7 @@ import RecommendArea from '../TodayTab/RecommendArea';
 import { useUnreadQuery } from '@/api/hooks/useFetchMailQuery';
 import EmptyMailView from '@/components/EmptyMailView';
 import { useMailReadMutation } from '@/api/hooks/useMailReadMutation';
+import LoadingComponent from '@/components/Loading';
 
 const DigestTab = () => {
   const [selectedTab, setSelectedTab] = useState<'all' | 'unread'>('unread');
@@ -28,8 +29,12 @@ const DigestTab = () => {
             <EmptyMailView />
           </div>
         ) : (
-          data?.map(article => (
-            <div key={article.mailId} onClick={() => handleReadMail(article.mailId)}>
+          data?.map((article, index) => (
+            <div
+              key={article.mailId}
+              onClick={() => handleReadMail(article.mailId)}
+              className={`${index === data.length - 1 && 'mb-10'}`}
+            >
               <ArticleCard {...article} />
             </div>
           ))
@@ -40,7 +45,9 @@ const DigestTab = () => {
       </div>
     </div>
   ) : (
-    <div>Loading...</div>
+    <div className='w-[400px] aspect-square'>
+      <LoadingComponent />
+    </div>
   );
 };
 

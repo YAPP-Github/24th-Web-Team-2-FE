@@ -3,6 +3,7 @@
 import { useProfileQuery } from '@/api/hooks/useFetchProfileQuery';
 import { useFetchSubscriptionListQuery } from '@/api/hooks/useFetchSubscriptionListQuery';
 import DomainListWithSubscribeButton from '@/components/Domain/DomainListWithSubscribeButton';
+import LoadingComponent from '@/components/Loading';
 import Link from 'next/link';
 
 const RecommendArea = () => {
@@ -38,7 +39,9 @@ const RecommendArea = () => {
       </div>
     </div>
   ) : (
-    <div>Loading...</div>
+    <div className='w-domainCard aspect-square'>
+      <LoadingComponent />
+    </div>
   );
 };
 

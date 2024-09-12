@@ -14,6 +14,7 @@ import { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { shallow } from 'zustand/shallow';
 import EmptyTodayView from '@/components/EmptyTodayView';
+import LoadingComponent from '@/components/Loading';
 
 const TodayTab = () => {
   const { data: userData } = useProfileQuery();
@@ -116,7 +117,9 @@ const TodayTab = () => {
       </div>
     </>
   ) : (
-    <>Loading...</>
+    <div className='w-[400px] aspect-square'>
+      <LoadingComponent />
+    </div>
   );
 };
 export default TodayTab;

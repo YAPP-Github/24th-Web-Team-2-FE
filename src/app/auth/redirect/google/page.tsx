@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import axios from 'axios';
+import LoadingComponent from '@/components/Loading';
 
 const AuthRedirectPage = () => {
   const param = useSearchParams();
@@ -49,7 +50,13 @@ const AuthRedirectPage = () => {
     fetchUser();
   }, [param, router]);
 
-  return <div>Loading...</div>;
+  return (
+    <div className='flex items-center justify-center w-full h-full'>
+      <div className='w-[400px] aspect-square'>
+        <LoadingComponent />
+      </div>
+    </div>
+  );
 };
 
 export default AuthRedirectPage;
