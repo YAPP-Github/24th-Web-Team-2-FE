@@ -41,8 +41,22 @@ const InterestInteraction = ({ userName, interestList }: InterestInteractionProp
       <OnboardHeader isBtn isReady={isReady} onClick={handleConfirmBtnClick} />
       <div className='flex flex-col items-center justify-start w-full h-full gap-10 pt-12'>
         <span className='flex flex-col items-center gap-2'>
-          <h1 className='text-black text-h1'>{userName}님, 관심 있는 분야를 선택해주세요</h1>
-          <div className='text-body3'>맞춤형 인사이트 제공을 위해 ‘1개 이상’ 선택해주세요.</div>
+          <h1 className='text-black text-h2'>{userName}님, 관심 있는 분야를 선택해주세요</h1>
+
+          <span className='text-body2'>
+            {selectedCategory.length > 0 ? (
+              <>
+                <span className='text-blue'>
+                  {selectedCategory
+                    .map((category: string) => `'${interestList.find(il => il.interest === category)?.desc}'`)
+                    .join(', ')}
+                </span>
+                <span> 소식을 메일로 받아보세요</span>
+              </>
+            ) : (
+              <>맞춤형 인사이트 제공을 위해 ‘1개 이상’ 선택해주세요.</>
+            )}
+          </span>
         </span>
         <span className='grid grid-flow-row grid-cols-3 gap-3'>
           {interestList.map(({ id, interest }) => {
@@ -58,18 +72,7 @@ const InterestInteraction = ({ userName, interestList }: InterestInteractionProp
           })}
         </span>
 
-        <span className='flex flex-col items-center gap-4'>
-          {selectedCategory.length > 0 && (
-            <span className='text-caption'>
-              <span className='text-blue'>
-                {selectedCategory
-                  .map((category: string) => `'${interestList.find(il => il.interest === category)?.desc}'`)
-                  .join(', ')}
-              </span>
-              <span> 소식을 메일로 받아보세요</span>
-            </span>
-          )}
-        </span>
+        <span className='flex flex-col items-center gap-4'></span>
       </div>
     </>
   );
