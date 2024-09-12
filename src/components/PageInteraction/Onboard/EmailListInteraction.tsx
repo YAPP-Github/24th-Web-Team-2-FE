@@ -216,7 +216,9 @@ const EmailListInteraction = ({ incomingSenders }: EmailListInteractionProps) =>
                       </span>
                     </div>
                     <div className='flex flex-row gap-5 text-body2'>
-                      <span className='text-darkgrey basis-[100px]'>{targetEmail.from.name}</span>
+                      <span className='text-darkgrey basis-[100px] text-ellipsis whitespace-nowrap'>
+                        {targetEmail.from.name}
+                      </span>
                       <span className='text-blue basis-[56px] shrink-0'>
                         {formatToMonthDayKorean(new Date(targetEmail.date))}
                       </span>
