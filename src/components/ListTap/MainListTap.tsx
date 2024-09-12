@@ -34,13 +34,6 @@ const MainListTap = () => {
           name={'오늘의 인사이트'}
           isActive={currentTab === 'today'}
         />
-        <ListItem
-          onClick={() => handleClickListItem('탐색')}
-          key={'탐색'}
-          id={'search'}
-          name={'탐색    🔎'}
-          isActive={currentTab === 'search'}
-        />
         <div onMouseOver={() => handleMouseoverDigest(true)} onMouseOut={() => handleMouseoverDigest(false)}>
           <ListItem
             onClick={() => handleClickListItem('Digest')}
@@ -51,6 +44,13 @@ const MainListTap = () => {
           />
           {showOverlay ? <DigestTabOverlay data={data ? data.groups : []} /> : <></>}
         </div>
+        <ListItem
+          onClick={() => handleClickListItem('탐색')}
+          key={'탐색'}
+          id={'search'}
+          name={'탐색    🔎'}
+          isActive={currentTab === 'search'}
+        />
       </div>
     </div>
   );
