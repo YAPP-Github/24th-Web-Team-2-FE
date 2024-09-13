@@ -6,6 +6,7 @@ import CloseIcon from '@/assets/icons/CloseIcon';
 import FolderIcon from '@/assets/icons/FolderIcon.svg';
 import { useState } from 'react';
 import DomainPortal from './DomainPortal';
+import { useGroupOverlayStore } from '@/utils/hooks/useGroupOverlayStore';
 
 interface Props {
   name: string;
@@ -13,7 +14,7 @@ interface Props {
 
 const DomainListItem = ({ name }: Props) => {
   const [isHover, setIsHover] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { open, setOpen: setModalOpen } = useGroupOverlayStore();
 
   const handleMouseEnter = () => {
     setIsHover(true);
@@ -28,12 +29,12 @@ const DomainListItem = ({ name }: Props) => {
   };
 
   const handleAddGroupAction = () => {
-    setIsModalOpen(true);
+    setModalOpen(true);
   };
 
   const handlecloseModal = () => {
     setIsHover(false);
-    setIsModalOpen(false);
+    setModalOpen(false);
   };
 
   return (
@@ -76,7 +77,7 @@ const DomainListItem = ({ name }: Props) => {
             </span>
           </div>
         )}
-        {isModalOpen && <DomainPortal handleCloseModal={handlecloseModal} />}
+        {open && <DomainPortal handleCloseModal={handlecloseModal} />}
       </span>
     </div>
   );

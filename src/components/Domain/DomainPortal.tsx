@@ -5,6 +5,8 @@ import FolderImage from '@/assets/images/FolderImage.svg';
 import { useFunnel } from '@/utils/hooks/useFunnel';
 import PlusIcon from '@/assets/icons/PlusIcon';
 import { useState } from 'react';
+import { GroupsType, useFetchGroupListQuery } from '@/api/hooks/useFetchGroupListQuery';
+import { H14Image, H24Image } from '@/components/Image';
 
 interface DomainPortalProps {
   handleCloseModal: () => void;
@@ -14,14 +16,64 @@ interface StepProps {
   onNextStep: () => void;
 }
 
-const DefaultStep = ({ onNextStep }: StepProps) => {
+interface DefaultStepProps extends StepProps {
+  data: GroupsType;
+}
+
+const DefaultStep = ({ onNextStep, data }: DefaultStepProps) => {
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+
+  const handleMouseEnter = (id: string) => {
+    setHoveredId(id);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredId(null);
+  };
+
   return (
-    <div className='flex flex-col justify-end w-full h-full px-4 pb-4'>
-      <div className='absolute flex flex-col items-center justify-center gap-6 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'>
-        <Image src={FolderImage} alt='folder' width={80} height={80} />
-        <span className='text-body2'>뉴스레터를 관심사별 그룹핑 해보세요!</span>
-      </div>
-      <span className='flex justify-end w-full cursor-pointer text-btn1 text-blue' onClick={onNextStep}>
+    <div className='flex flex-col w-full h-full px-4 pb-4'>
+      {!data.length ? (
+        <div className='absolute flex flex-col items-center justify-center gap-6 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'>
+          <Image src={FolderImage} alt='folder' width={80} height={80} />
+          <span className='text-body2'>뉴스레터를 관심사별 그룹핑 해보세요!</span>
+        </div>
+      ) : (
+        <div className='w-full'>
+          {data.map(mail => {
+            return (
+              <div key={mail.groupId} className='flex w-full justify-between py-3'>
+                <div>{mail.name}</div>
+                <span
+                  className='relative'
+                  onMouseEnter={() => handleMouseEnter(mail.groupId)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <H24Image src={'dots.svg'} className='cursor-pointer' />
+                  {hoveredId === mail.groupId && (
+                    <div
+                      style={{
+                        width: '120px',
+                        borderRadius: 'var(--Number-Spacing-spacing-3, 8px)',
+                        background: 'var(--Color-Neutral-white, #FFF)',
+                        boxShadow: '0px 0px 12px 0px rgba(0, 0, 0, 0.25)',
+                        transform: 'translateX(-92px)',
+                      }}
+                      className='absolute cursor-pointer flex items-center gap-2 z-50 py-2 px-3 text-body2'
+                    >
+                      <div>
+                        <H14Image src='trash.svg' />
+                      </div>
+                      <div className='text-body2'>그룹 삭제하기</div>
+                    </div>
+                  )}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      )}
+      <span className='flex mt-auto justify-end w-full cursor-pointer text-btn1 text-blue' onClick={onNextStep}>
         + 뉴스레터 그룹 만들기
       </span>
     </div>
@@ -53,6 +105,7 @@ const steps = ['default', 'create'];
 
 const DomainPortal = ({ handleCloseModal }: DomainPortalProps) => {
   const { Funnel, Step, setStep } = useFunnel(steps[0]);
+  const { data } = useFetchGroupListQuery();
 
   return (
     <Portal selector='#portal'>
@@ -72,7 +125,7 @@ const DomainPortal = ({ handleCloseModal }: DomainPortalProps) => {
           </div>
           <Funnel>
             <Step name={steps[0]}>
-              <DefaultStep onNextStep={() => setStep(steps[1])} />
+              <DefaultStep data={data ? data.groups : []} onNextStep={() => setStep(steps[1])} />
             </Step>
             <Step name={steps[1]}>
               <CreateStep onNextStep={() => setStep(steps[0])} />

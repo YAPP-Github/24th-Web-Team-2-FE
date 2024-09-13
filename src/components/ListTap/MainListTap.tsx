@@ -2,13 +2,15 @@
 
 import { GroupsType, useFetchGroupListQuery } from '@/api/hooks/useFetchGroupListQuery';
 import ListItem from '@/components/ListTap/ListItem';
+import { useGroupOverlayStore } from '@/utils/hooks/useGroupOverlayStore';
 import { useSearchParams } from 'next/navigation';
-import { useCallback, useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { ComponentPropsWithoutRef, MouseEvent, useCallback, useEffect, useState } from 'react';
 
 const MainListTap = () => {
   const searchParams = useSearchParams();
   const [currentTab, setCurrentTab] = useState(searchParams.get('tab') ?? 'today');
-  const [showOverlay, setShowOverlay] = useState(false);
+  const [isHover, setIsHover] = useState(false);
 
   const { data } = useFetchGroupListQuery();
 
@@ -16,8 +18,12 @@ const MainListTap = () => {
     setCurrentTab(id);
   };
 
-  const handleMouseoverDigest = useCallback((hover: boolean) => {
-    setShowOverlay(hover);
+  const handleMouseEnterDigest = useCallback(() => {
+    setIsHover(true);
+  }, []);
+
+  const handleMouseLeaveDigest = useCallback(() => {
+    setIsHover(false);
   }, []);
 
   useEffect(() => {
@@ -34,15 +40,28 @@ const MainListTap = () => {
           name={'오늘의 인사이트'}
           isActive={currentTab === 'today'}
         />
-        <div onMouseOver={() => handleMouseoverDigest(true)} onMouseOut={() => handleMouseoverDigest(false)}>
-          <ListItem
-            onClick={() => handleClickListItem('Digest')}
-            key={'Digest'}
-            id={'Digest'}
-            name={'Digest'}
-            isActive={currentTab === 'Digest'}
-          />
-          {showOverlay ? <DigestTabOverlay data={data ? data.groups : []} /> : <></>}
+        <ListItem
+          onClick={() => handleClickListItem('탐색')}
+          key={'탐색'}
+          id={'search'}
+          name={'탐색    🔎'}
+          isActive={currentTab === 'search'}
+        />
+        <div
+          onMouseEnter={handleMouseEnterDigest}
+          onMouseLeave={handleMouseLeaveDigest}
+          style={{ position: 'relative' }}
+        >
+          <span className='relative' onMouseEnter={handleMouseEnterDigest} onMouseLeave={handleMouseLeaveDigest}>
+            <ListItem
+              onClick={() => handleClickListItem('Digest')}
+              key={'Digest'}
+              id={'Digest'}
+              name={'Digest'}
+              isActive={currentTab === 'Digest'}
+            />
+            {isHover && <DigestTabOverlay data={data ? data.groups : []} />}
+          </span>
         </div>
         <ListItem
           onClick={() => handleClickListItem('탐색')}
@@ -58,13 +77,19 @@ const MainListTap = () => {
 
 export default MainListTap;
 
-interface TabOverlayProps {
+interface TabOverlayProps extends ComponentPropsWithoutRef<'div'> {
   data: GroupsType;
 }
 
-const DigestTabOverlay = ({ data }: TabOverlayProps) => {
-  const handleGroupMake = () => {
-    console.log('클릭시 [마이페이지>구독관리>그룹생성 팝업] 랜딩');
+const DigestTabOverlay = ({ data, onMouseEnter, onMouseLeave }: TabOverlayProps) => {
+  const { setOpen } = useGroupOverlayStore();
+  const router = useRouter();
+
+  const handleGroupMake = (e: MouseEvent) => {
+    e.preventDefault();
+
+    setOpen(true);
+    router.push('/mypage/subscribe');
   };
 
   if (!data.length) {
@@ -95,7 +120,9 @@ const DigestTabOverlay = ({ data }: TabOverlayProps) => {
         background: 'var(--Color-Neutral-white, #FFF)',
         boxShadow: '0px 0px 12px 0px rgba(0, 0, 0, 0.25)',
       }}
-      className='absolute z-50 p-4 m-2 text-body2'
+      className='absolute z-50 p-4 text-body2'
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       {data.map(group => (
         <div key={group.name} className='pb-2'>

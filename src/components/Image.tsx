@@ -24,6 +24,13 @@ function H8Image({ src, width = 8, ...props }: ImageProps) {
   return <Image src={`/H8/${src}`} alt={alt} width={width} height={8} priority {...props} />;
 }
 
+function H12Image({ src, width = 12, ...props }: ImageProps) {
+  const fileName = src.split('.')[0];
+  const alt = getAlt(fileName);
+
+  return <Image src={`/H12/${src}`} alt={alt} width={width} height={12} priority {...props} />;
+}
+
 function H14Image({ src, width = 14, ...props }: ImageProps) {
   const fileName = src.split('.')[0];
   const alt = getAlt(fileName);
@@ -66,4 +73,4 @@ function H92Image({ src, width = 92, ...props }: ImageProps) {
   return <Image src={`/H92/${src}`} alt={alt} width={width} height={92} priority {...props} />;
 }
 
-export { H8Image, H14Image, H16Image, H24Image, H36Image, H56Image, H92Image };
+export { H8Image, H12Image, H14Image, H16Image, H24Image, H36Image, H56Image, H92Image };
