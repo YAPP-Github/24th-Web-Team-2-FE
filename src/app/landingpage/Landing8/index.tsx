@@ -21,7 +21,7 @@ const cardFirstRow: CardData[] = [
   {
     id: 2,
     author: '김인스포',
-    text: '제가 여러 시간에 자주 사용하는 서비스입니다. 바쁜 일정에도 쉽게 빠르게 인사이트를 접할 수 있어서 좋아요.',
+    text: '뉴스레터를 한눈에 분류할수 있다는 아이디어가 좋다고 생각해요',
     bgColor: '#FCE4E5',
   },
   {
@@ -48,7 +48,7 @@ const cardSecondRow: CardData[] = [
   {
     id: 6,
     author: '김인스포',
-    text: '이런 뉴스레터 아침 씻다가 InspoMailClub 덕분에 그 유용한 기능이 좋아서 결정했어요!',
+    text: '평소 메일 뉴스레터 관리가 어려웠는데 이런 서비스를 쓰면 관리가 수월할 것 같아요',
     bgColor: '#FCEBFB',
   },
   {
@@ -89,12 +89,7 @@ const Landing8: React.FC = () => {
         className={`${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} delay-100 transition flex flex-col items-center gap-3`}
       >
         <span className='text-h2-onboard'>InspoMailClub로 확 바뀐 뉴스레터 읽기</span>
-        <Link
-          className='text-body2-onboard'
-          //TODO: Add the correct link
-          href={'https://tally.so/r/mZlV1e'}
-          target='_blank'
-        >{`나도 후기 작성하러 가기 →`}</Link>
+        <Link className='text-body2-onboard' href='#8'>{`나도 후기 작성하러 가기 →`}</Link>
       </div>
       <div
         className={`${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} delay-500 transition relative flex flex-col w-full gap-6`}
