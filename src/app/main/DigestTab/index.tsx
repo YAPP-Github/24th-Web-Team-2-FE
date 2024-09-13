@@ -13,7 +13,7 @@ import LoadingComponent from '@/components/Loading';
 const DigestTab = () => {
   const [selectedTab, setSelectedTab] = useState<'all' | 'unread'>('unread');
 
-  const { data, isFetched, refetch } = useUnreadQuery({ type: selectedTab });
+  const { data, isFetched, refetch } = useUnreadQuery({});
   const readMutation = useMailReadMutation();
 
   const handleReadMail = (mailId: string) => {
@@ -24,20 +24,22 @@ const DigestTab = () => {
     <div className='flex flex-row justify-center w-full h-full gap-16'>
       <div className='flex flex-col h-full gap-3 pt-3'>
         <TopSection selectedTab={selectedTab} setSelectedTab={setSelectedTab} handleRefresh={() => refetch()} />
-        {data?.length === 0 ? (
+        {data?.filter(d => (selectedTab === 'all' ? true : d.isRead === false)).length === 0 ? (
           <div className='h-[calc(100vh-8rem-60px)] overflow-visible w-articleCard'>
             <EmptyMailView />
           </div>
         ) : (
-          data?.map((article, index) => (
-            <div
-              key={article.mailId}
-              onClick={() => handleReadMail(article.mailId)}
-              className={`${index === data.length - 1 && 'mb-10'}`}
-            >
-              <ArticleCard {...article} />
-            </div>
-          ))
+          data
+            ?.filter(d => (selectedTab === 'all' ? true : d.isRead === false))
+            .map((article, index) => (
+              <div
+                key={article.mailId}
+                onClick={() => handleReadMail(article.mailId)}
+                className={`${index === data.length - 1 && 'mb-10'}`}
+              >
+                <ArticleCard {...article} />
+              </div>
+            ))
         )}
       </div>
       <div className='sticky top-0 pt-9 h-fit'>
