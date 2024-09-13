@@ -22,7 +22,7 @@ const DigestTab = () => {
 
   return isFetched ? (
     <div className='flex flex-row justify-center w-full h-full gap-16'>
-      <div className='flex flex-col h-full gap-3 pt-3'>
+      <div className='flex flex-col h-full pt-3 gap-3'>
         <TopSection selectedTab={selectedTab} setSelectedTab={setSelectedTab} handleRefresh={() => refetch()} />
         {data?.filter(d => (selectedTab === 'all' ? true : d.isRead === false)).length === 0 ? (
           <div className='h-[calc(100vh-8rem-60px)] overflow-visible w-articleCard'>

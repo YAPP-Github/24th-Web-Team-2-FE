@@ -111,8 +111,8 @@ const EmailListInteraction = ({ incomingSenders }: EmailListInteractionProps) =>
         <div
           className={`bg-white flex flex-row w-[calc(50vw+37.5rem)] ${targetEmail ? 'justify-between' : 'justify-center'}`}
         >
-          <div className='flex flex-col items-center h-full gap-12 mb-24 grow-0'>
-            <span className='flex flex-col items-center gap-2 pt-12'>
+          <div className='flex flex-col items-center h-full mb-24 gap-12 grow-0'>
+            <span className='flex flex-col items-center pt-12 gap-2'>
               <span className='text-black text-h2'>인스포메일클럽에서 골라 볼 뉴스레터를 선택하세요</span>
 
               <span className='flex flex-col items-center text-body2'>
@@ -132,7 +132,7 @@ const EmailListInteraction = ({ incomingSenders }: EmailListInteractionProps) =>
                       {selectedEmailList.length === emailSet.size ? '전체 해제' : '전체 선택'}
                     </span>
                   </span>
-                  <div className='flex flex-col h-full gap-2 overflow-auto noScrollbar'>
+                  <div className='flex flex-col h-full overflow-auto gap-2 noScrollbar'>
                     {Array.from(emailSet).map(email => {
                       const sender = incomingSenders.senders.find(sender => sender.from.address === email)!;
                       return (

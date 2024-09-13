@@ -10,7 +10,7 @@ interface SectionContentProps {
 const SectionContent = ({ tab, newsLetters }: SectionContentProps) => {
   const { scrollRef, onDragStart, onThrottleDragMove, onDragEnd, isDrag } = useDragScroll();
   return (
-    <div className='flex flex-col gap-5 overflow-x-scroll noScrollbar'>
+    <div className='flex flex-col overflow-x-scroll gap-5 noScrollbar'>
       <span className='text-xl font-bold'>{tab}</span>
       <div
         onMouseDown={onDragStart}
@@ -18,7 +18,7 @@ const SectionContent = ({ tab, newsLetters }: SectionContentProps) => {
         onMouseUp={onDragEnd}
         onMouseLeave={onDragEnd}
         ref={scrollRef}
-        className='flex flex-row gap-4 overflow-x-scroll noScrollbar scroll-auto'
+        className='flex flex-row overflow-x-scroll gap-4 noScrollbar scroll-auto'
       >
         {newsLetters?.map((newsLetter, index) => <ArticleCard key={index} newsLetter={newsLetter} />)}
         <div className='h-20 w-[calc(50vw-37.5rem)] bg-white shrink-0' />

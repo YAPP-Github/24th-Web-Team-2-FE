@@ -6,7 +6,6 @@ const Footer = () => {
   return (
     <div className='w-full h-[35.5vh] flex pt-6 bg-black justify-center shrink-0'>
       <div className='flex flex-row gap-8 text-white text-body1-onboard h-fit'>
-        {/* TODO: Link로 교체 */}
         <Link target='_blank' href='https://standing-lift-8bd.notion.site/937d0c8aa7dc4a97b0519402d4cabd47'>
           InspoMailClub 소개
         </Link>

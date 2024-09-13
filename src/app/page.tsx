@@ -49,7 +49,7 @@ export default function Home() {
         <div
           id='0'
           ref={landing1Ref}
-          className='flex items-center justify-center w-full bg-black snap-start h-landingPageHeight shrink-0'
+          className='relative flex items-start justify-center w-full bg-black snap-start h-landingPageHeight shrink-0'
         >
           <Landing1 />
         </div>
