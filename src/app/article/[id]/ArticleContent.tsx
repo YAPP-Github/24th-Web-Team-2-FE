@@ -12,7 +12,6 @@ interface ArticleContentProps {
 
 const ArticleContent = ({ mailData }: ArticleContentProps) => {
   const [headerType, setHeaderType] = useState<'default' | 'simplified'>('default');
-
   return (
     <div id={mailData.mailId} className='flex flex-col items-center w-full gap-2'>
       <ArticleHeader {...mailData} headerType={headerType} />

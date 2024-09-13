@@ -17,7 +17,7 @@ const ArticleFooter = ({ mailId }: ArticleFooterProps) => {
       { mailId },
       {
         onSuccess: () => {
-          router.push('/main?tab=Digest'); // 클라이언트 사이드에서 리디렉션
+          handleRedirectMain();
         },
       },
     );
