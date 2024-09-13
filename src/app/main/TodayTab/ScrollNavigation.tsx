@@ -23,7 +23,7 @@ const ScrollNavigation = ({ articleData }: ScrollNavigationProps) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       {isHovered && (
-        <div className='flex flex-col gap-2 w-[13.5rem] rounded-xl shadow-[0_0_12px_0_rgba(0,0,0,0.25)] p-4 bg-white'>
+        <div className='flex flex-col gap-1 w-[13.5rem] rounded-xl shadow-[0_0_12px_0_rgba(0,0,0,0.25)] p-4 bg-white'>
           {articleData.map((article, index) => (
             <Link
               style={{
@@ -42,10 +42,15 @@ const ScrollNavigation = ({ articleData }: ScrollNavigationProps) => {
           ))}
         </div>
       )}
-      <div className='flex flex-col w-4 cursor-pointer gap-3' onMouseEnter={() => setIsHovered(true)}>
+      <div className='flex flex-col w-4 gap-1.5 cursor-pointer' onMouseEnter={() => setIsHovered(true)}>
         {articleData.map((article, index) => (
-          <span
-            className={`w-full rounded-full h-0.5 ${focusId === index ? 'bg-darkgrey' : 'bg-lightgrey'}`}
+          <Link
+            href={{
+              pathname: `/main`,
+              query: { tab: 'today' },
+              hash: article.mailId,
+            }}
+            className={`w-full rounded-full my-1 h-0.5 ${focusId === index ? 'bg-darkgrey' : 'bg-lightgrey'}`}
             key={article.mailId}
           />
         ))}

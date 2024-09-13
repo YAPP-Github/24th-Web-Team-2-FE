@@ -33,21 +33,21 @@ const MyPage = () => {
         </div>
         <div className='text-xl font-bold -bottom-6'>{userData?.username}</div>
       </div>
-      <div className='flex flex-col w-full gap-8 pl-4 text-btn1'>
+      <div className='flex flex-col w-full pl-4 gap-8 text-btn1'>
         <Link
           className='py-4 font-bold w-fit'
           href='/mypage/subscribe' // Link to Subscribe Management Page
         >
           뉴스레터 구독 관리
         </Link>
-        <div role='button' onClick={handleLogout} className='flex flex-col gap-2 py-4 font-bold w-fit'>
+        <div role='button' onClick={handleLogout} className='flex flex-col py-4 font-bold gap-2 w-fit'>
           로그아웃
           <span className='font-normal text-body2 text-darkgrey'>다시 로그인 할 때까지 계정이 비활성화됩니다.</span>
         </div>
         <div
           role='button'
           onClick={handleWithdrawal}
-          className='flex flex-col gap-2 py-4 font-bold w-fit text-darkgrey'
+          className='flex flex-col py-4 font-bold gap-2 w-fit text-darkgrey'
         >
           회원 탈퇴
           <span className='font-normal text-body2'>개인 정보 및 설정이 모두 영구적으로 삭제됩니다</span>

@@ -1,5 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import ReactQueryProviders from '@/api/queryClient';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import '@/styles/tailwind.css';
 
 export const metadata = {
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
       <body className='flex flex-col items-center w-full h-full'>
         <ReactQueryProviders>{children}</ReactQueryProviders>
         <div id='portal' />
+        {process.env.NEXT_PUBLIC_GA_ID && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />}
       </body>
     </html>
   );

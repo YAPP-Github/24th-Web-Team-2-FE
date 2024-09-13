@@ -17,7 +17,7 @@ const ArticleFooter = ({ mailId }: ArticleFooterProps) => {
       { mailId },
       {
         onSuccess: () => {
-          router.push('/main?tab=Digest'); // 클라이언트 사이드에서 리디렉션
+          handleRedirectMain();
         },
       },
     );
@@ -29,7 +29,7 @@ const ArticleFooter = ({ mailId }: ArticleFooterProps) => {
 
   return (
     <div className='fixed bottom-0 flex flex-row items-center justify-center w-full h-12 bg-white border-t border-lightgrey'>
-      <div className='flex flex-row justify-end gap-6 px-6 w-content'>
+      <div className='flex flex-row justify-end px-6 gap-6 w-content'>
         <span className='flex items-center justify-center w-6 h-6 cursor-pointer'>
           <Image src={DeleteIcon} alt='delete' width={16} height={24} onClick={() => handleDeleteMail(mailId)} />
         </span>

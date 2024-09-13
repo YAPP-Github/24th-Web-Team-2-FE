@@ -39,7 +39,7 @@ const InterestInteraction = ({ userName, interestList }: InterestInteractionProp
   return (
     <>
       <OnboardHeader isBtn isReady={isReady} onClick={handleConfirmBtnClick} />
-      <div className='flex flex-col items-center justify-start w-full h-full gap-10 pt-12'>
+      <div className='flex flex-col items-center justify-start w-full h-full pt-12 gap-10'>
         <span className='flex flex-col items-center gap-2'>
           <h1 className='text-black text-h2'>{userName}님, 관심 있는 분야를 선택해주세요</h1>
 

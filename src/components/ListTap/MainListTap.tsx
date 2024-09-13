@@ -95,7 +95,7 @@ const DigestTabOverlay = ({ data }: TabOverlayProps) => {
         background: 'var(--Color-Neutral-white, #FFF)',
         boxShadow: '0px 0px 12px 0px rgba(0, 0, 0, 0.25)',
       }}
-      className='absolute z-50 p-4 m-2 text-body2'
+      className='absolute z-50 p-4 text-body2'
     >
       {data.map(group => (
         <div key={group.name} className='pb-2'>

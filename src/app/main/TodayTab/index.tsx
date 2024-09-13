@@ -15,6 +15,7 @@ import { useRouter } from 'next/navigation';
 import { shallow } from 'zustand/shallow';
 import EmptyTodayView from '@/components/EmptyTodayView';
 import LoadingComponent from '@/components/Loading';
+import FoldIconWithDirection from '@/assets/icons/FoldIconWithDirection';
 
 const TodayTab = () => {
   const { data: userData } = useProfileQuery();
@@ -23,7 +24,7 @@ const TodayTab = () => {
   const [focusId, setFocusId] = useFocusIdStore(state => [state.focusId, state.setFocusId], shallow);
   const [todayArticleData, setTodayArticleData] = useState<MailDataType[]>([]);
   const router = useRouter();
-  const isArticleArea = focusId > 0;
+  const isArticleArea = focusId >= 0;
 
   useEffect(() => {
     if (containerRef.current && todayArticleData.length) {
@@ -60,7 +61,8 @@ const TodayTab = () => {
         );
       }) ?? [];
 
-    setTodayArticleData(filteredData);
+    // setTodayArticleData(filteredData);
+    data && setTodayArticleData(data);
   }, [data]);
   useEffect(() => {
     if (isError && error.response?.status === 403) {
@@ -73,7 +75,7 @@ const TodayTab = () => {
 
   return isFetched && todayArticleData.length > 0 ? (
     <>
-      <div className='flex flex-col items-center gap-3 mt-10'>
+      <div className='flex flex-col items-center mt-10 gap-3'>
         <span className='text-blue text-body1'>{formatToYMD(new Date())}</span>
         <span className='text-center text-h1'>
           {userData?.username}님에게
@@ -92,7 +94,13 @@ const TodayTab = () => {
         ))}
       </div>
       {isArticleArea ? (
-        <Link href='/main' scroll={true} className={`fixed w-10 h-10 bottom-4 left-4 rounded-full bg-green z-[9999]`} />
+        <Link
+          href='/main#top'
+          scroll={true}
+          className={`fixed w-10 h-10 bottom-8 right-10 rounded-full bg-lightgrey z-[9999] flex items-center justify-center`}
+        >
+          <FoldIconWithDirection width={24} fill='#797979' rotate='up' />
+        </Link>
       ) : (
         <Link
           href={`/main#${todayArticleData[0].mailId}`}

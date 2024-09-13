@@ -18,7 +18,7 @@ export default async function MypageLayout({ children }: Readonly<PropsWithChild
                   <UserDataCard />
                 </span>
               </div>
-              <div className='flex flex-col gap-3 pb-6 text-caption'>
+              <div className='flex flex-col pb-6 gap-3 text-caption'>
                 <Link href='/mypage'>설정</Link>
                 <Link href='http://pf.kakao.com/_xdxfaxoG' target='_blank'>
                   문의하기
