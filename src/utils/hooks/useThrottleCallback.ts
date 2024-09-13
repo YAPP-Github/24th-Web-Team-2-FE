@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-function useThrottleCallback<Parameter extends any[]>(callback: (...rest: Parameter) => void, delay: number) {
+const useThrottleCallback = <Parameter extends any[]>(callback: (...rest: Parameter) => void, delay: number) => {
   const timerRef = useRef<NodeJS.Timeout>();
   const restRef = useRef<Parameter>();
 
@@ -21,6 +21,6 @@ function useThrottleCallback<Parameter extends any[]>(callback: (...rest: Parame
     clearTimeout(timerRef.current);
     timerRef.current = setTimeout(timeoutCallback, delay);
   };
-}
+};
 
 export default useThrottleCallback;

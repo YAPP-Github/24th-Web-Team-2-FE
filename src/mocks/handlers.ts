@@ -155,8 +155,18 @@ export const handlers = [
     return HttpResponse.json({
       groups: [
         {
-          groupId: 'mongo objecrt Id',
+          groupId: '7534132413243241',
           name: '그룹 이름',
+          senders: [{ name: '발신인 이름', address: '발신인 주소' }],
+        },
+        {
+          groupId: '1234132413243251',
+          name: '그룹 이름2',
+          senders: [{ name: '발신인 이름', address: '발신인 주소' }],
+        },
+        {
+          groupId: '1234132413243241',
+          name: '그룹 이름3',
           senders: [{ name: '발신인 이름', address: '발신인 주소' }],
         },
       ],
@@ -245,6 +255,21 @@ export const handlers = [
 
   http.get('/inbox/unread-mails', () => {
     return HttpResponse.json(mailListData);
+  }),
+
+  http.get('/inbox/subscriptions', () => {
+    return HttpResponse.json({
+      subscriptions: [
+        {
+          name: '[mock] LinkedIn',
+          address: 'asdf@gmail.com',
+        },
+        {
+          name: '[mock] LinkedIn2',
+          address: 'asdf222@gmail.com',
+        },
+      ],
+    });
   }),
 
   http.get('/inbox/subscriptions-list', () => {
