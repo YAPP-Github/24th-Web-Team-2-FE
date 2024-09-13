@@ -15,11 +15,11 @@ const ArticleCard = ({ subject, mailId, snippet, date, isRead, payload, from, is
       // https://stackoverflow.com/questions/66821351/nextjs-error-message-failed-prop-type-the-prop-href-expects-a-string-or-o
       href={{ pathname: isToday ? `/main` : `/article/${mailId}`, hash: isToday ? mailId : null }}
       scroll={true}
-      className={`${isRead ? 'bg-background_grey' : isToday ? 'border-gradient_horizontal bg-white' : 'border border-lightgrey bg-white'} flex rounded-xl w-articleCard `}
+      className={`${isToday ? 'border-gradient_horizontal bg-white' : isRead ? 'bg-background_grey' : 'border border-lightgrey bg-white'} flex rounded-xl w-articleCard `}
     >
       <div className='flex flex-row items-center justify-between px-6 py-5'>
         <div className='flex flex-col gap-6 w-[460px]'>
-          <div className='flex flex-col gap-1 text-black'>
+          <div className='flex flex-col text-black gap-1'>
             <span className='text-h3 line-clamp-2'>{subject}</span>
             {/* <span className='text-body2 line-clamp-2'>{content}</span> */}
             <span className='text-body2 line-clamp-2'>{snippet}</span>
