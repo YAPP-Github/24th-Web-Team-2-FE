@@ -24,7 +24,7 @@ const ArticleHeader = ({ headerType, mailId, subject, date, from, group }: Artic
           </div>
         </div>
         <div className='flex flex-row items-center gap-4'>
-          <Link href={`/domain/${from.name}`} className='flex flex-row items-center gap-2.5 text-body3'>
+          <Link href={`/domain/${from.address}`} className='flex flex-row items-center gap-2.5 text-body3'>
             {/* <Image src={from.profile} width={36} height={36} alt='Profile' className='rounded-full' /> */}
             <span className='text-body2 text-darkgrey'>{from.name}</span>
           </Link>
