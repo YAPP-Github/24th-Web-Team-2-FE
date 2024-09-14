@@ -34,7 +34,7 @@ const DomainInteractionArea = ({ domainArticleData }: DomainInteractionAreaProps
           {domainArticleData
             ?.filter(article => {
               if (currentTab === 'unread') {
-                return !article.isRead;
+                return !article.read;
               }
               return true;
             })

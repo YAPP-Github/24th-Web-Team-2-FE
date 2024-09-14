@@ -6,7 +6,7 @@ export interface ArticleType {
   content?: string;
   date: string;
   thumbnail?: string;
-  isRead?: boolean;
+  read?: boolean;
   from: {
     domain: string;
     profile: string;

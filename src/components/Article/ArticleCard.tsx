@@ -9,13 +9,13 @@ interface ArticleCardProps extends MailDataType {
   currentTab?: string;
 }
 
-const ArticleCard = ({ subject, mailId, snippet, date, isRead, payload, from, isToday = false }: ArticleCardProps) => {
+const ArticleCard = ({ subject, mailId, snippet, date, read, payload, from, isToday = false }: ArticleCardProps) => {
   return (
     <Link
       // https://stackoverflow.com/questions/66821351/nextjs-error-message-failed-prop-type-the-prop-href-expects-a-string-or-o
       href={{ pathname: isToday ? `/main` : `/article/${mailId}`, hash: isToday ? mailId : null }}
       scroll={true}
-      className={`${isToday ? 'border-gradient_horizontal bg-white' : isRead ? 'bg-background_grey' : 'border border-lightgrey bg-white'} flex rounded-xl w-articleCard `}
+      className={`${isToday ? 'border-gradient_horizontal bg-white' : read ? 'bg-background_grey' : 'border border-lightgrey bg-white'} flex rounded-xl w-articleCard `}
     >
       <div className='flex flex-row items-center justify-between px-6 py-5'>
         <div className='flex flex-col gap-6 w-[460px]'>

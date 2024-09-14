@@ -9,7 +9,7 @@ interface fetchUnreadMailsParams {
 }
 
 export type MailDataType = {
-  isRead: boolean;
+  read: boolean;
   mailId: string;
   subject: string;
   date: Date;
