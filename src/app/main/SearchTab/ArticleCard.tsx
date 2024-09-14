@@ -13,7 +13,13 @@ const ArticleCard = ({ newsLetter }: ArticleCardProps) => {
     <div className='w-[320px] flex flex-col gap-3 shrink-0'>
       {/* <span className='h-[200px] w-full bg-blue rounded-lg'></span> */}
       <span className='w-[320px] h-[200px] relative rounded-lg'>
-        <Image src={newsLetter.thumbnailImage} alt='뉴스레터 이미지' fill sizes='100%' className='object-cover' />
+        <Image
+          src={newsLetter.thumbnailImage}
+          alt={`Thumbnail-${newsLetter.name}`}
+          fill
+          sizes='100%'
+          className='object-cover'
+        />
       </span>
       <div className='flex flex-row items-center justify-between w-full'>
         <div className='flex flex-col'>
