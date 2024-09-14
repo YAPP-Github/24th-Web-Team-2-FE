@@ -27,8 +27,6 @@ const DomainPage = async ({ params }: DomainPageProps) => {
     domainArticleData: MailDataType[];
   } = await getDomainPageData(params.id);
 
-  console.log(domainData, domainArticleData);
-
   return (
     <div className='flex flex-col items-center w-full'>
       <MainPageHeader />

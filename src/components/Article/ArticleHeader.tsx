@@ -24,10 +24,11 @@ const ArticleHeader = ({ headerType, mailId, subject, date, from, group }: Artic
           </div>
         </div>
         <div className='flex flex-row items-center gap-4'>
-          <Link href={`/domain/${from.address}`} className='flex flex-row items-center gap-2.5 text-body3'>
-            {/* <Image src={from.profile} width={36} height={36} alt='Profile' className='rounded-full' /> */}
+          {/* <Link href={`/domain/${from.address}`} className='flex flex-row items-center gap-2.5 text-body3'> */}
+          <div className='flex flex-row items-center gap-2.5 text-body3'>
             <span className='text-body2 text-darkgrey'>{from.name}</span>
-          </Link>
+          </div>
+          {/* </Link> */}
           <span className='text-body2 text-blue'>{formatToMonthDayKorean(new Date(date))}</span>
         </div>
       </div>
