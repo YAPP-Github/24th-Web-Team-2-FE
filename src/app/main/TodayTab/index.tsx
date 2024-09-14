@@ -61,8 +61,7 @@ const TodayTab = () => {
         );
       }) ?? [];
 
-    // setTodayArticleData(filteredData);
-    data && setTodayArticleData(data);
+    setTodayArticleData(filteredData);
   }, [data]);
   useEffect(() => {
     if (isError && error.response?.status === 403) {
@@ -75,7 +74,7 @@ const TodayTab = () => {
 
   return isFetched && todayArticleData.length > 0 ? (
     <>
-      <div className='flex flex-col items-center mt-10 gap-3'>
+      <div className='flex flex-col items-center gap-3 mt-10'>
         <span className='text-blue text-body1'>{formatToYMD(new Date())}</span>
         <span className='text-center text-h1'>
           {userData?.username}님에게
