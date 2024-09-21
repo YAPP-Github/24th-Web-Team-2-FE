@@ -1,6 +1,8 @@
 import EmailListInteraction from '@/components/PageInteraction/Onboard/EmailListInteraction';
 import { GET } from '@/network';
 
+export const runtime = 'edge';
+
 const EmailList = async () => {
   const incomingSenders = await getIncomingSenders();
   return (

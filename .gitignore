@@ -11,3 +11,5 @@ localhost+1.pem
 *.pem
 
 my.secrets
+
+.vercel

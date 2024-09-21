@@ -4,6 +4,8 @@ import { GET } from '@/network';
 import RightFoldIcon from '@/assets/icons/RightFoldIcon.svg';
 import Image from 'next/image';
 
+export const runtime = 'edge';
+
 interface SubscribeDataType {
   name: string;
   address: string;

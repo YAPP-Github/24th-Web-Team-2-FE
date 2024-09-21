@@ -1,4 +1,5 @@
 'use client';
+export const runtime = 'edge';
 
 import type { pageProps } from '@/types/page';
 import TodayTab from '@/app/main/TodayTab';
