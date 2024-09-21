@@ -1,3 +1,11 @@
+const { setupDevPlatform } = require('@cloudflare/next-on-pages/next-dev');
+
+(async () => {
+  if (process.env.NODE_ENV === 'development') {
+    await setupDevPlatform();
+  }
+})();
+
 const withMDX = require('@next/mdx')({
   extension: /\.md?$/,
   options: {

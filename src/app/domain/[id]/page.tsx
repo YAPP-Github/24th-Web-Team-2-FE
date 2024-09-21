@@ -10,6 +10,8 @@ import DomainInteractionArea from '@/components/PageInteraction/Domain/DomainInt
 import { MailDataType } from '@/api/hooks/useFetchMailQuery';
 import { Newsletter } from '@/api/hooks/useSearchTabQuery';
 
+export const runtime = 'edge';
+
 interface DomainPageProps {
   params: {
     id: string;
